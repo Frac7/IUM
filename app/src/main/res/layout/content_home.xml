@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="ium.project.clanmanagerforclashroyale.Home"
+    tools:showIn="@layout/app_bar_home">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="ium.project.clanmanagerforclashroyale.Home">
+        <ScrollView
+            android:id="@+id/login_form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/email_login_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/content_home_clan"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Progetto IUM\n#908JG99L"
+                        android:textSize="36dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="120px"
+                        android:padding="4px"
+                        android:paddingTop="@dimen/nav_header_vertical_spacing"
+                        app:srcCompat="@drawable/progetto_IUM" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/content_home_clan_det"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:id="@+id/content_home_clan_trofei"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/imageView1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="100px"
+                                android:padding="4px"
+                                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                                app:srcCompat="@drawable/ic_home_trofei" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Trofei"
+                                android:textStyle="bold"
+                                android:layout_gravity="center"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1534"
+                                android:layout_gravity="center"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/content_home_clan_donazioni"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/imageView2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="100px"
+                                android:padding="4px"
+                                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                                app:srcCompat="@drawable/ic_home_donazioni" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="Donazioni"
+                                android:layout_gravity="center"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:layout_gravity="center"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/content_home_clan_membri"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/imageView3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="100px"
+                                android:padding="4px"
+                                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                                app:srcCompat="@drawable/ic_home_membri" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="Membri"
+                                android:layout_gravity="center"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1"
+                                android:layout_gravity="center"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                <android.support.v4.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Descrizione"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clan serio. Minimo 4000 trofei. Minimo 10 corone al giorno per il baule clan, minimo 100 donazioni a settimana. GG!"
+                    android:layout_gravity="center"
+                    android:textSize="12dp" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dettagli"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:textSize="12dp" />
+
+                <LinearLayout
+                    android:id="@+id/content_home_clan_dettagli"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:id="@+id/content_home_clan_tipo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tipo: "
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+                            android:textSize="12dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chiuso"
+                            android:layout_gravity="center"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/content_home_clan_posizione"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Posizione: "
+                            android:textSize="12dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Italia"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/content_home_clan_richiesti"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Trofei richiesti: "
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+                            android:textSize="12dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:layout_gravity="center"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
