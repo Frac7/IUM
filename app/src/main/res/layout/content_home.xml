@@ -41,7 +41,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Progetto IUM\n#908JG99L"
-                        android:textSize="36dp" />
+                        android:textSize="12pt" />
 
                     <ImageView
                         android:id="@+id/imageView"
@@ -79,14 +79,14 @@
                                 android:text="Trofei"
                                 android:textStyle="bold"
                                 android:layout_gravity="center"
-                                android:textSize="12dp" />
+                                android:textSize="8pt" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="1534"
                                 android:layout_gravity="center"
-                                android:textSize="12dp" />
+                                android:textSize="8pt" />
 
                         </LinearLayout>
 
@@ -110,14 +110,14 @@
                                 android:textStyle="bold"
                                 android:text="Donazioni"
                                 android:layout_gravity="center"
-                                android:textSize="12dp" />
+                                android:textSize="8pt" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:layout_gravity="center"
-                                android:textSize="12dp" />
+                                android:textSize="8pt" />
 
                         </LinearLayout>
 
@@ -141,14 +141,14 @@
                                 android:textStyle="bold"
                                 android:text="Membri"
                                 android:layout_gravity="center"
-                                android:textSize="12dp" />
+                                android:textSize="8pt" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="1"
                                 android:layout_gravity="center"
-                                android:textSize="12dp" />
+                                android:textSize="8pt" />
 
                         </LinearLayout>
 
@@ -164,14 +164,14 @@
                     android:text="Descrizione"
                     android:textStyle="bold"
                     android:layout_gravity="center"
-                    android:textSize="12dp" />
+                    android:textSize="8pt" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Clan serio. Minimo 4000 trofei. Minimo 10 corone al giorno per il baule clan, minimo 100 donazioni a settimana. GG!"
                     android:layout_gravity="center"
-                    android:textSize="12dp" />
+                    android:textSize="8pt" />
 
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
@@ -183,7 +183,7 @@
                     android:text="Dettagli"
                     android:textStyle="bold"
                     android:layout_gravity="center"
-                    android:textSize="12dp" />
+                    android:textSize="8pt" />
 
                 <LinearLayout
                     android:id="@+id/content_home_clan_dettagli"
@@ -202,13 +202,13 @@
                             android:text="Tipo: "
                             android:textStyle="bold"
                             android:layout_gravity="center"
-                            android:textSize="12dp" />
+                            android:textSize="8pt" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Chiuso"
                             android:layout_gravity="center"
-                            android:textSize="12dp" />
+                            android:textSize="8pt" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -221,7 +221,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:text="Posizione: "
-                            android:textSize="12dp"
+                            android:textSize="8pt"
                             android:textStyle="bold" />
 
                         <TextView
@@ -229,7 +229,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:text="Italia"
-                            android:textSize="12dp" />
+                            android:textSize="8pt" />
                     </LinearLayout>
                     <LinearLayout
                         android:id="@+id/content_home_clan_richiesti"
@@ -241,13 +241,13 @@
                             android:text="Trofei richiesti: "
                             android:textStyle="bold"
                             android:layout_gravity="center"
-                            android:textSize="12dp" />
+                            android:textSize="8pt" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
                             android:layout_gravity="center"
-                            android:textSize="12dp" />
+                            android:textSize="8pt" />
                     </LinearLayout>
                 </LinearLayout>
 
