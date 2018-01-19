@@ -49,7 +49,7 @@
                         android:layout_height="120px"
                         android:padding="4px"
                         android:paddingTop="@dimen/nav_header_vertical_spacing"
-                        app:srcCompat="@drawable/progetto_IUM" />
+                        app:srcCompat="@drawable/progetto_ium" />
 
                 </LinearLayout>
 

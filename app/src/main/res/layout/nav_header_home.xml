@@ -22,7 +22,7 @@
             android:layout_height="116px"
             android:padding="4px"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
-            app:srcCompat="@drawable/progetto_IUM_s" />
+            app:srcCompat="@drawable/progetto_ium_s" />
 
         <TextView
             android:id="@+id/textView"
