@@ -200,6 +200,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textAlignment="center"
                     android:text="Clan serio. Minimo 4000 trofei. Minimo 10 corone al giorno per il baule clan, minimo 100 donazioni a settimana. GG!"
                     android:layout_gravity="center"
                     android:textSize="8pt" />

@@ -39,7 +39,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Filtrare membri per:"
+                        android:text="Filtra membri per:"
                         android:textSize="8pt"
                         android:textStyle="bold"/>
 
@@ -181,6 +181,18 @@
                     android:text="Filtra membri"
                     android:layout_gravity="center"/>
 
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="8pt"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Statistiche della settimana corrente:"/>
+
                 <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -273,12 +285,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:drawableLeft="@drawable/ic_promuovi_bottone"
                             android:text="Promuovi" />
 
                         <Button
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:drawableLeft="@drawable/ic_espelli_bottone"
                             android:text="Espelli" />
 
                     </TableRow>
@@ -371,12 +385,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:drawableLeft="@drawable/ic_promuovi_bottone"
                             android:text="Promuovi" />
 
                         <Button
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:drawableLeft="@drawable/ic_espelli_bottone"
                             android:text="Espelli" />
 
                     </TableRow>
@@ -469,12 +485,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:drawableLeft="@drawable/ic_promuovi_bottone"
                             android:text="Promuovi" />
 
                         <Button
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:drawableLeft="@drawable/ic_espelli_bottone"
                             android:text="Espelli" />
 
                     </TableRow>
