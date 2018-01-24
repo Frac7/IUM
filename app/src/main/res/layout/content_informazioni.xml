@@ -65,7 +65,15 @@
                     android:layout_height="wrap_content"
                     android:text="Clan Manager For Clash Royale permette agli amministratori di gestire facilmente e velocemente il proprio clan attraverso una visuale completa supportata da un suggeritore basato sulle regole stabilite dall'amministratore."
                     android:textAlignment="center"
-                    android:textSize="8pt" />
+                    android:textSize="10pt" />
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="end"
+                    android:padding="10dp"
+                    app:srcCompat="@drawable/logo" />
 
             </LinearLayout>
 

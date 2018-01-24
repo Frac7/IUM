@@ -46,7 +46,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="8pt"
+                        android:textSize="9pt"
                         android:textAlignment="center"
                         android:text="Impostando il numero di corone e le donazioni minime richieste, il sistema suggerirà chi promuovere e chi espellere evidenziando in rosso o in verde i membri nel Clan Manager."/>
 
@@ -54,7 +54,7 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+                    android:layout_height="25dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="8pt"
+                        android:textSize="9pt"
                         android:textStyle="bold"
                         android:text="Per ogni settimana:"/>
 
@@ -90,11 +90,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="8pt"
+                            android:textSize="9pt"
                             android:textStyle="bold"
                             android:text="Corone minime per il baule clan: "/>
 
                         <EditText
+                            android:id="@+id/corone_MIN_suggeritore"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:hint="Corone MIN"
@@ -125,11 +126,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="8pt"
+                            android:textSize="9pt"
                             android:textStyle="bold"
                             android:text="Donazioni minime: "/>
 
                         <EditText
+                            android:id="@+id/donazioni_MIN_suggeritore"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:hint="Donazioni MIN"

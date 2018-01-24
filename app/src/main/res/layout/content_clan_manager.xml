@@ -40,7 +40,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Filtra membri per:"
-                        android:textSize="8pt"
+                        android:textSize="9pt"
                         android:textStyle="bold"/>
 
                 </LinearLayout>
@@ -63,29 +63,33 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Corone baule "
-                        android:textSize="8pt"
-                        android:layout_gravity="bottom"/>
+                        android:textSize="9pt"
+                        android:layout_gravity="center"/>
 
-                    <android.support.v4.widget.Space
-                        android:layout_width="65dp"
-                        android:layout_height="wrap_content" />
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
                         <EditText
-                            android:id="@+id/editText"
+                            android:id="@+id/min_corone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_toStartOf="@id/max_corone"
+                            android:layout_toLeftOf="@id/max_corone"
                             android:hint="MIN"
-                            android:layout_marginRight="15dp"
-                            android:layout_marginEnd="15dp"
-                            android:layout_gravity="bottom"
                             android:inputType="number" />
 
                         <EditText
+                            android:id="@+id/max_corone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:hint="MAX"
                             android:layout_gravity="bottom"
+                            android:layout_alignParentRight="true"
+                            android:hint="MAX"
                             android:inputType="number" />
+
+                    </RelativeLayout>
 
                 </LinearLayout>
 
@@ -107,28 +111,33 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Donazioni "
-                        android:textSize="8pt"
-                        android:layout_gravity="bottom"/>
+                        android:textSize="9pt"
+                        android:layout_gravity="center"/>
 
-                    <android.support.v4.widget.Space
-                        android:layout_width="92dp"
-                        android:layout_height="wrap_content" />
-
-                    <EditText
+                    <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:layout_gravity="bottom"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginEnd="15dp"
-                        android:hint="MIN"/>
+                        android:layout_height="wrap_content">
 
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:hint="MAX"
-                        android:inputType="number" />
+                        <EditText
+                            android:id="@+id/min_donazioni"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_toStartOf="@id/max_donazioni"
+                            android:layout_toLeftOf="@id/max_donazioni"
+                            android:hint="MIN"
+                            android:inputType="number" />
+
+                        <EditText
+                            android:id="@+id/max_donazioni"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_alignParentRight="true"
+                            android:hint="MAX"
+                            android:inputType="number" />
+
+                    </RelativeLayout>
 
                 </LinearLayout>
 
@@ -149,29 +158,34 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
+                        android:layout_gravity="center"
                         android:text="Trofei "
-                        android:textSize="8pt" />
+                        android:textSize="9pt" />
 
-                    <android.support.v4.widget.Space
-                        android:layout_width="123dp"
-                        android:layout_height="wrap_content" />
-
-                    <EditText
+                    <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:layout_gravity="bottom"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginEnd="15dp"
-                        android:hint="MIN"/>
+                        android:layout_height="wrap_content">
 
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:layout_gravity="bottom"
-                        android:hint="MAX"/>
+                        <EditText
+                            android:id="@+id/min_trofei"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_toStartOf="@id/max_trofei"
+                            android:layout_toLeftOf="@id/max_trofei"
+                            android:hint="MIN"
+                            android:inputType="number" />
+
+                        <EditText
+                            android:id="@+id/max_trofei"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_alignParentRight="true"
+                            android:hint="MAX"
+                            android:inputType="number" />
+
+                    </RelativeLayout>
 
                 </LinearLayout>
 
@@ -189,7 +203,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="8pt"
+                    android:textSize="9pt"
                     android:layout_gravity="center_horizontal"
                     android:text="Statistiche della settimana corrente:"/>
 
@@ -203,7 +217,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" >
 
-                            <Space />
+                            <Space
+                                android:layout_weight="1"/>
 
                             <ImageView
                                 android:id="@+id/imageView5"
@@ -241,19 +256,32 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <TextView
+                        <LinearLayout
+                            android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="✌Peaceman✌"
-                            android:textSize="8pt"/>
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="✌Peaceman✌"
+                                android:textSize="9pt"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Capo"
+                                android:textSize="6pt"/>
+
+                        </LinearLayout>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:text="200"
-                            android:textSize="8pt"
+                            android:textSize="9pt"
                             android:textAlignment="center"/>
 
                         <TextView
@@ -261,7 +289,7 @@
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:text="150"
-                            android:textSize="8pt"
+                            android:textSize="9pt"
                             android:textAlignment="center"/>
 
                         <TextView
@@ -269,231 +297,8 @@
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:text="4000"
-                            android:textSize="8pt"
+                            android:textSize="9pt"
                             android:textAlignment="center"/>
-
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/tableRow5"
-                        android:padding="10dp"
-                        android:background="#66d1ffd5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:drawableLeft="@drawable/ic_promuovi_bottone"
-                            android:text="Promuovi" />
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:drawableLeft="@drawable/ic_espelli_bottone"
-                            android:text="Espelli" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/tableRow1"
-                        android:padding="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" >
-
-                        <Space />
-
-                        <ImageView
-                            android:id="@+id/imageView5"
-                            android:layout_weight="1"
-                            android:layout_width="50dp"
-                            android:layout_height="25dp"
-                            android:layout_gravity="center"
-                            android:paddingTop="@dimen/nav_header_vertical_spacing"
-                            app:srcCompat="@drawable/ic_home_corone_nospace" />
-
-                        <ImageView
-                            android:id="@+id/imageView6"
-                            android:layout_weight="1"
-                            android:layout_width="50dp"
-                            android:layout_height="25dp"
-                            android:layout_gravity="center"
-                            android:paddingTop="@dimen/nav_header_vertical_spacing"
-                            app:srcCompat="@drawable/ic_home_donazioni_nospace" />
-
-                        <ImageView
-                            android:id="@+id/imageView4"
-                            android:layout_weight="1"
-                            android:layout_width="50dp"
-                            android:layout_height="25dp"
-                            android:layout_gravity="center"
-                            android:paddingTop="@dimen/nav_header_vertical_spacing"
-                            app:srcCompat="@drawable/ic_home_trofei_nospace" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/tableRow3"
-                        android:padding="10dp"
-                        android:background="#66efefef"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="xFatal1991x"
-                            android:textSize="8pt"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="100"
-                            android:textSize="8pt"
-                            android:textAlignment="center"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="300"
-                            android:textSize="8pt"
-                            android:textAlignment="center"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="4000"
-                            android:textSize="8pt"
-                            android:textAlignment="center"/>
-
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/tableRow7"
-                        android:padding="10dp"
-                        android:background="#66efefef"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:drawableLeft="@drawable/ic_promuovi_bottone"
-                            android:text="Promuovi" />
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:drawableLeft="@drawable/ic_espelli_bottone"
-                            android:text="Espelli" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/tableRow1"
-                        android:padding="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" >
-
-                        <Space />
-
-                        <ImageView
-                            android:id="@+id/imageView5"
-                            android:layout_weight="1"
-                            android:layout_width="50dp"
-                            android:layout_height="25dp"
-                            android:layout_gravity="center"
-                            android:paddingTop="@dimen/nav_header_vertical_spacing"
-                            app:srcCompat="@drawable/ic_home_corone_nospace" />
-
-                        <ImageView
-                            android:id="@+id/imageView6"
-                            android:layout_weight="1"
-                            android:layout_width="50dp"
-                            android:layout_height="25dp"
-                            android:layout_gravity="center"
-                            android:paddingTop="@dimen/nav_header_vertical_spacing"
-                            app:srcCompat="@drawable/ic_home_donazioni_nospace" />
-
-                        <ImageView
-                            android:id="@+id/imageView4"
-                            android:layout_weight="1"
-                            android:layout_width="50dp"
-                            android:layout_height="25dp"
-                            android:layout_gravity="center"
-                            android:paddingTop="@dimen/nav_header_vertical_spacing"
-                            app:srcCompat="@drawable/ic_home_trofei_nospace" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/tableRow4"
-                        android:padding="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#66ffd1d1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="TrissMerigold"
-                            android:textSize="8pt"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="1"
-                            android:textSize="8pt"
-                            android:textAlignment="center"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="10"
-                            android:textSize="8pt"
-                            android:textAlignment="center"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="3400"
-                            android:textSize="8pt"
-                            android:textAlignment="center"/>
-
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/tableRow6"
-                        android:padding="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#66ffd1d1">
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:drawableLeft="@drawable/ic_promuovi_bottone"
-                            android:text="Promuovi" />
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:drawableLeft="@drawable/ic_espelli_bottone"
-                            android:text="Espelli" />
 
                     </TableRow>
 
