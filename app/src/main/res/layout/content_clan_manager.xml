@@ -62,7 +62,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Corone baule "
+                        android:text="Corone baule"
                         android:textSize="9pt"
                         android:layout_gravity="center"/>
 
@@ -110,7 +110,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Donazioni "
+                        android:text="Donazioni"
                         android:textSize="9pt"
                         android:layout_gravity="center"/>
 
@@ -159,7 +159,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Trofei "
+                        android:text="Trofei"
                         android:textSize="9pt" />
 
                     <RelativeLayout
@@ -207,102 +207,17 @@
                     android:layout_gravity="center_horizontal"
                     android:text="Statistiche della settimana corrente:"/>
 
-                <TableLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <TableRow
-                        android:id="@+id/tableRow1"
-                        android:padding="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" >
-
-                            <Space
-                                android:layout_weight="1"/>
-
-                            <ImageView
-                                android:id="@+id/imageView5"
-                                android:layout_weight="1"
-                                android:layout_width="50dp"
-                                android:layout_height="25dp"
-                                android:layout_gravity="center"
-                                android:paddingTop="@dimen/nav_header_vertical_spacing"
-                                app:srcCompat="@drawable/ic_home_corone_nospace" />
-
-                            <ImageView
-                                android:id="@+id/imageView6"
-                                android:layout_weight="1"
-                                android:layout_width="50dp"
-                                android:layout_height="25dp"
-                                android:layout_gravity="center"
-                                android:paddingTop="@dimen/nav_header_vertical_spacing"
-                                app:srcCompat="@drawable/ic_home_donazioni_nospace" />
-
-                            <ImageView
-                                android:id="@+id/imageView4"
-                                android:layout_weight="1"
-                                android:layout_width="50dp"
-                                android:layout_height="25dp"
-                                android:layout_gravity="center"
-                                android:paddingTop="@dimen/nav_header_vertical_spacing"
-                                app:srcCompat="@drawable/ic_home_trofei_nospace" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/tableRow2"
-                        android:padding="10dp"
-                        android:background="#66d1ffd5"
-                        android:layout_width="wrap_content"
+                    <ListView
+                        android:id="@+id/clan_manager_list"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+                    </ListView>
 
-                        <LinearLayout
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="✌Peaceman✌"
-                                android:textSize="9pt"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Capo"
-                                android:textSize="6pt"/>
-
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="200"
-                            android:textSize="9pt"
-                            android:textAlignment="center"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="150"
-                            android:textSize="9pt"
-                            android:textAlignment="center"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="4000"
-                            android:textSize="9pt"
-                            android:textAlignment="center"/>
-
-                    </TableRow>
-
-                </TableLayout>
+                </LinearLayout>
 
             </LinearLayout>
 
