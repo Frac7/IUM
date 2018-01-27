@@ -1,7 +1,7 @@
 # IUM
 Prototipo: https://marvelapp.com/3fhabg8
 
-Documentazione Android Studio: https://developer.android.com/index.html
+Documentazione Android Studio: https://developer.android.com/guide/index.html
 
 Vecchi progetti: http://people.unica.it/davidespano/teaching/ium/archivio-progetti/
 
