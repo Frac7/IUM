@@ -20,18 +20,18 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="ium.project.clanmanagerforclashroyale.Suggeritore">
-        <ScrollView
+        <!--<ScrollView
             android:id="@+id/login_form"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent">!-->
 
-            <ListView
-                android:id="@+id/registro_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </ListView>
+                <ListView
+                    android:id="@+id/registro_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </ListView>
 
-        </ScrollView>
+        <!--</ScrollView>!-->
 
     </LinearLayout>
 
