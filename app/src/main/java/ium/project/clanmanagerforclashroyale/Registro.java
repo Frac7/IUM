@@ -51,6 +51,8 @@ public class Registro extends AppCompatActivity
             return 10;
     }
 
+    //TODO: spostare altrove questa porzione di codice e inserire le immagini per ogni numero di baule
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

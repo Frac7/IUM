@@ -62,6 +62,8 @@ public class EnterYourTag extends AppCompatActivity implements LoaderCallbacks<C
     private View mProgressView;
     private View mLoginFormView;
 
+    //TODO: gestire il back in modo che dalla schermata di login non si possa accedere ad altre schermate (se non uscire dall'applicazione)
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

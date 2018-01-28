@@ -18,9 +18,6 @@ public class DettaglioGiocatore extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dettaglio_giocatore);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         int n = getIntent().getExtras().getInt("giocatore");
 
@@ -32,11 +29,10 @@ public class DettaglioGiocatore extends AppCompatActivity {
 
         setTitle("Dettaglio "+s);
         
-        TextView nome, ruolo, tag, trofei, media_don, media_cor, perc_don, perc_cor;
+        TextView nome, ruolo, tag, media_don, media_cor, perc_don, perc_cor;
         nome = (TextView)findViewById(R.id.nome);
         ruolo = (TextView)findViewById(R.id.ruolo);
         tag = (TextView)findViewById(R.id.tag);
-        trofei = (TextView)findViewById(R.id.trofei);
         media_don = (TextView)findViewById(R.id.media_don);
         media_cor = (TextView)findViewById(R.id.media_cor);
         perc_don = (TextView)findViewById(R.id.perc_don);
@@ -45,29 +41,31 @@ public class DettaglioGiocatore extends AppCompatActivity {
         nome.setText(g.getNome());
         ruolo.setText(g.getGrado());
         tag.setText(g.getTag());
-        trofei.setText(new Integer(g.getCorone()).toString());
 
         int d = 0;
         int c = 0;
         for(int i = 0; i < 10; i++) {
-            d = g.getDonazioni()[i];
-            c = g.getCoppeBaule()[i];
+            d += g.getDonazioni()[i];
+            c += g.getCoppeBaule()[i];
         }
 
-        media_don.setText(new Float(d/10).toString());
-        media_cor.setText(new Float(c/10).toString());
+        media_don.setText(new Integer(d/10).toString());
+        media_cor.setText(new Integer(c/10).toString());
 
         int clan_d = 0;
         int clan_c = 0;
 
         for(int i = 0; i < 10; i++) {
-            clan_d = clan.getDonazioniTotali()[i];
-            clan_c = clan.getBauleClan()[i];
+            clan_d += clan.getDonazioniTotali()[i];
+            clan_c += clan.getBauleClan()[i];
         }
 
         perc_don.setText((100*d/clan_d)+"%");
         perc_cor.setText((100*c/clan_c)+"%");
 
-    }
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+    }
 }

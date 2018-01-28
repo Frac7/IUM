@@ -30,7 +30,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_gravity="center_vertical"
-            android:text="Progetto IUM"
+            android:text="Royale Family"
             android:textColor="#000000"
             android:textSize="12pt" />
 

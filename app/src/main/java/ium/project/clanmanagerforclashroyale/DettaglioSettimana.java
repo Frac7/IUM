@@ -24,6 +24,8 @@ public class DettaglioSettimana extends AppCompatActivity {
 
     private int n;
 
+    //TODO: una volta inserito il filtro funzionante da bottone, modificare la stampa in base alla dimensione della lista. mostrare un messaggio nel caso in cui la lista sia vuota
+
     private ListView stampa(List<Giocatore> giocatori)
     {
         ListView lista = (ListView)findViewById(R.id.clan_manager_list);
@@ -66,7 +68,7 @@ public class DettaglioSettimana extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final Clan clan  = new Clan();
+        Clan clan  = new Clan();
         n = getIntent().getExtras().getInt("settimana");
         int trofei = clan.getCoppeClan();
         int donazioni = clan.getDonazioniTotali()[n];
@@ -88,9 +90,9 @@ public class DettaglioSettimana extends AppCompatActivity {
         TextView nBaule = (TextView) findViewById(R.id.baule_home_number);
         nBaule.setText(new Integer(baule).toString());
 
-        final EditText minCorone, maxCorone;
-        final EditText minDonazioni, maxDonazioni;
-        final EditText minTrofei, maxTrofei;
+        EditText minCorone, maxCorone;
+        EditText minDonazioni, maxDonazioni;
+        EditText minTrofei, maxTrofei;
 
         minCorone = (EditText)findViewById(R.id.min_corone);
         maxCorone = (EditText)findViewById(R.id.max_corone);
@@ -102,8 +104,8 @@ public class DettaglioSettimana extends AppCompatActivity {
         maxTrofei = (EditText)findViewById(R.id.max_trofei);
 
         List<Giocatore> giocatori = clan.getComponenti();
-        final ium.project.clanmanagerforclashroyale.data.ClanManager c = new ium.project.clanmanagerforclashroyale.data.ClanManager();
-        final Filtro f = new Filtro();
+        ium.project.clanmanagerforclashroyale.data.ClanManager c = new ium.project.clanmanagerforclashroyale.data.ClanManager();
+        Filtro f = new Filtro();
         c.setnSettimana(n);
 
         if(!minCorone.getText().toString().equals(""))
@@ -113,7 +115,7 @@ public class DettaglioSettimana extends AppCompatActivity {
         if(!maxCorone.getText().toString().equals(""))
             f.setMaxCoroneBaule(Integer.parseInt(maxCorone.getText().toString()));
         else
-            f.setMaxCoroneBaule(0);
+            f.setMaxCoroneBaule(Integer.MAX_VALUE);
         if(!minDonazioni.getText().toString().equals(""))
             f.setMinDonazioni(Integer.parseInt(minDonazioni.getText().toString()));
         else
@@ -121,7 +123,7 @@ public class DettaglioSettimana extends AppCompatActivity {
         if(!maxDonazioni.getText().toString().equals(""))
             f.setMaxDonazioni(Integer.parseInt(maxDonazioni.getText().toString()));
         else
-            f.setMaxDonazioni(0);
+            f.setMaxDonazioni(Integer.MAX_VALUE);
         if(!minTrofei.getText().toString().equals(""))
             f.setMinTrofei(Integer.parseInt(minTrofei.getText().toString()));
         else
@@ -129,9 +131,10 @@ public class DettaglioSettimana extends AppCompatActivity {
         if(!maxTrofei.getText().toString().equals(""))
             f.setMaxTrofei(Integer.parseInt(maxTrofei.getText().toString()));
         else
-            f.setMaxTrofei(0);
+            f.setMaxTrofei(Integer.MAX_VALUE);
 
-        c.setFiltro(f); //giocatori = c.applyFilter();
+        c.setFiltro(f);
+        //giocatori = c.ApplyFilters();
 
         /*Button filtro = (Button)findViewById(R.id.filtra);
         filtro.setOnClickListener(new View.OnClickListener() {
