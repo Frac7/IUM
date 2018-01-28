@@ -48,7 +48,11 @@ public class ClanManager {
 
     public List<Giocatore> ApplyFilters(){
          ArrayList<Giocatore> giocatoriFiltrati= new ArrayList<Giocatore>();
-        for (Giocatore g: getClan().getComponenti()) {
+
+         List<Giocatore> giocatore = GiocatoriFactory.getInstance().getAllPlayers();
+
+        for (Giocatore g: giocatore) {
+
             if(
                     g.getCorone() > getFiltro().getMinTrofei() && g.getCorone() < getFiltro().getMaxTrofei() &&
                     g.getDonazioni()[nSettimana] > getFiltro().getMinDonazioni() && g.getDonazioni()[nSettimana] < getFiltro().getMaxDonazioni() &&

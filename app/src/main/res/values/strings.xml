@@ -30,5 +30,6 @@
     <string name="registro">Registro settimane precedenti</string>
     <string name="info">Informazioni sull\'applicazione</string>
     <string name="esci">Esci dall\'applicazione</string>
-    <string name="title_activity_dettaglio_settimana">DettaglioSettimana</string>
+    <string name="title_activity_dettaglio_settimana">Dettaglio Settimana</string>
+    <string name="title_activity_dettaglio_giocatore">DettaglioGiocatore</string>
 </resources>

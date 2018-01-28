@@ -124,7 +124,8 @@ public class Registro extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            ;
+            //TODO: gestire il back per non tornare alla home una volta effettuato l'accesso se non tramite la voce esci
+            super.onBackPressed();
         }
     }
 
@@ -149,7 +150,9 @@ public class Registro extends AppCompatActivity
         } else if (id == R.id.nav_regole) {
             i = new Intent(Registro.this, Suggeritore.class);
         }
-        startActivity(i);
+
+        if(i != null)
+            startActivity(i);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

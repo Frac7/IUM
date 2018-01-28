@@ -52,7 +52,7 @@
 
         <LinearLayout
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_width="125dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -100,27 +100,5 @@
             android:textAlignment="center"/>
 
     </TableRow>
-
-    <LinearLayout
-        android:padding="5dp"
-        android:background="#66efefef"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Promuovi"
-            android:drawableLeft="@drawable/ic_promuovi_bottone"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Espelli"
-            android:drawableLeft="@drawable/ic_espelli_bottone"/>
-
-    </LinearLayout>
 
 </TableLayout>

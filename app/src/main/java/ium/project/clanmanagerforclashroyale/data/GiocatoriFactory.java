@@ -18,7 +18,7 @@ public class GiocatoriFactory {
     //costruttore
     private GiocatoriFactory(){
         Giocatore giocatore1 = new Giocatore();
-        giocatore1.setNome("PeaceMan");
+        giocatore1.setNome("✌PeaceMan✌");
         giocatore1.setTag("#JV8H923K");
         giocatore1.setGrado("Capo");
         giocatore1.setCorone(4600);
