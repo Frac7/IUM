@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -47,8 +48,8 @@ public class ClanManager extends AppCompatActivity
 
             mappa.put("nome",giocatori.get(i).getNome());
             mappa.put("grado",giocatori.get(i).getGrado());
-            mappa.put("corone",new Integer(giocatori.get(i).getCoppeBaule()[0]));
-            mappa.put("donazioni",new Integer(giocatori.get(i).getDonazioni()[0]));
+            mappa.put("corone",new Integer(giocatori.get(i).getCoppeBaule()[9]));
+            mappa.put("donazioni",new Integer(giocatori.get(i).getDonazioni()[9]));
             mappa.put("trofei",new Integer(giocatori.get(i).getCorone()));
             mappa.put("iconaC",new Integer(R.drawable.ic_home_corone_nospace));
             mappa.put("iconaD",new Integer (R.drawable.ic_home_donazioni_nospace));
@@ -86,14 +87,14 @@ public class ClanManager extends AppCompatActivity
 
         Clan clan  = new Clan();
         int trofei = clan.getCoppeClan();
-        int donazioni = clan.getDonazioniTotali()[0];
+        int donazioni = clan.getDonazioniTotali()[9];
         int membri = 10;
-        int corone = clan.getBauleClan()[0];
-        int baule = Registro.nBaule(corone);
+        int corone = clan.getBauleClan()[9];
+        int baule = clan.NBauleClan(corone);
 
-        EditText minCorone, maxCorone;
-        EditText minDonazioni, maxDonazioni;
-        EditText minTrofei, maxTrofei;
+        final EditText minCorone, maxCorone;
+        final EditText minDonazioni, maxDonazioni;
+        final EditText minTrofei, maxTrofei;
 
         minCorone = (EditText)findViewById(R.id.min_corone);
         maxCorone = (EditText)findViewById(R.id.max_corone);
@@ -105,9 +106,9 @@ public class ClanManager extends AppCompatActivity
         maxTrofei = (EditText)findViewById(R.id.max_trofei);
 
         List<Giocatore> giocatori = clan.getComponenti();
-        ium.project.clanmanagerforclashroyale.data.ClanManager c = new ium.project.clanmanagerforclashroyale.data.ClanManager();
-        Filtro f = new Filtro();
-        c.setnSettimana(0);
+        final ium.project.clanmanagerforclashroyale.data.ClanManager c = new ium.project.clanmanagerforclashroyale.data.ClanManager();
+        final Filtro f = new Filtro();
+        c.setnSettimana(9);
 
         if(!minCorone.getText().toString().equals(""))
             f.setMinCoroneBaule(Integer.parseInt(minCorone.getText().toString()));
@@ -134,18 +135,17 @@ public class ClanManager extends AppCompatActivity
         else
             f.setMaxTrofei(Integer.MAX_VALUE);
 
-        c.setFiltro(f);
-        //giocatori = c.ApplyFilters();
-
-        /*Button filtro = (Button)findViewById(R.id.filtra);
+        Button filtro = (Button)findViewById(R.id.filtra);
         filtro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                c.setFiltro(f);
+                //(R.layout.layout_list_clan_manager);
             }
-        });*/
+        });
 
-        ListView l = stampa(giocatori);
+        ListView l = stampa(c.ApplyFilters());
 
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

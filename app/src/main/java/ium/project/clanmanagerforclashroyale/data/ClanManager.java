@@ -47,6 +47,10 @@ public class ClanManager {
     }
 
     public List<Giocatore> ApplyFilters(){
+
+        if(getFiltro() == null)
+            return GiocatoriFactory.getInstance().getAllPlayers();
+
          ArrayList<Giocatore> giocatoriFiltrati= new ArrayList<Giocatore>();
 
          List<Giocatore> giocatore = GiocatoriFactory.getInstance().getAllPlayers();
@@ -67,12 +71,12 @@ public class ClanManager {
     public void applyHint(){
         for (Giocatore g : getClan().getComponenti()) {
             if(g.getDonazioni()[nSettimana]< getSuggeritore().getDonazioni() && g.getCoppeBaule()[nSettimana] < getSuggeritore().getCorone()) {
-                if (g.getGrado() == "Co-capo" || g.getGrado() == "Anziano")
+                if (g.getGrado().equals("Co-capo") || g.getGrado().equals("Anziano"))
                     g.setRetrocessione(true);
-                else if (g.getGrado() == "Recluta") g.setEspulsione(true);
+                else if (g.getGrado().equals("Recluta")) g.setEspulsione(true);
             }
             else if(g.getDonazioni()[nSettimana]>getSuggeritore().getDonazioni()+100 && g.getCoppeBaule()[nSettimana] > getSuggeritore().getCorone()+15){
-                if(g.getGrado()=="Recluta" || g.getGrado()=="Anziano")g.setPromozione(true);
+                if(g.getGrado().equals("Recluta") || g.getGrado().equals("Anziano"))g.setPromozione(true);
             }
 
         }

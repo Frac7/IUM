@@ -37,12 +37,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/nome_tag_clan"
+                    <LinearLayout
+                        android:id="@+id/contents_home_clan"
+                        android:layout_gravity="center_horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Progetto IUM\n#908JG99L"
-                        android:textSize="12pt" />
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/nome_clan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Progetto IUM"
+                            android:textSize="12pt" />
+                        <TextView
+                            android:id="@+id/tag_clan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="#908JG99L"
+                            android:textSize="12pt" />
+                    </LinearLayout>
+
 
                     <ImageView
                         android:id="@+id/badge_clan"

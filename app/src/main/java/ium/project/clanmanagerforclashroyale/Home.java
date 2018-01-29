@@ -13,6 +13,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.ImageView;
+
+import ium.project.clanmanagerforclashroyale.data.Clan;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -24,15 +28,6 @@ public class Home extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -41,6 +36,69 @@ public class Home extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        //Variabile di tipo clan
+        Clan clan=  new Clan();
+        Integer bauleClan= clan.NBauleClan(clan.getBauleClan()[9]);
+
+        TextView nomeClan =(TextView) findViewById(R.id.nome_clan);
+        nomeClan.setText(clan.getNome());
+
+        TextView tagClan =(TextView) findViewById(R.id.tag_clan);
+        tagClan.setText(clan.getTag());
+
+        ImageView logo= (ImageView) findViewById(R.id.badge_clan);
+        logo.setImageResource(clan.getLogo());
+
+        TextView  trofeiClan = (TextView) findViewById(R.id.trofei_home_number);
+        trofeiClan.setText(new Integer(clan.getCoppeClan()).toString());
+
+        TextView donazioniClan = (TextView) findViewById(R.id.donazioni_home_number);
+        donazioniClan.setText(new Integer(clan.getDonazioniTotali()[9]).toString());
+
+        TextView membriClan = (TextView) findViewById(R.id.membri_home_number);
+        membriClan.setText(new Integer(clan.getnMembri()).toString() );
+
+        ImageView bauli= (ImageView) findViewById(R.id.baule);
+
+        switch (bauleClan){
+            case 0: bauli.setImageResource(R.drawable.ic_home_baule);
+                break;
+            case 1: bauli.setImageResource(R.drawable.ic_home_baule_1);
+                break;
+            case 2: bauli.setImageResource(R.drawable.ic_home_baule_2);
+                break;
+            case 3: bauli.setImageResource(R.drawable.ic_home_baule_3);
+                break;
+            case 4: bauli.setImageResource(R.drawable.ic_home_baule_4);
+                break;
+            case 5: bauli.setImageResource(R.drawable.ic_home_baule_5);
+                break;
+            case 6: bauli.setImageResource(R.drawable.ic_home_baule_6);
+                break;
+            case 7: bauli.setImageResource(R.drawable.ic_home_baule_7);
+                break;
+            case 8: bauli.setImageResource(R.drawable.ic_home_baule_8);
+                break;
+            case 9: bauli.setImageResource(R.drawable.ic_home_baule_9);
+                break;
+            case 10: bauli.setImageResource(R.drawable.ic_home_baule_10);
+                break;
+
+        }
+        TextView baule_Clan= (TextView)findViewById(R.id.baule_home_number);
+        baule_Clan.setText(bauleClan.toString());
+
+        TextView descrizioneClan = (TextView) findViewById(R.id.descrizione_home_text);
+        descrizioneClan.setText(clan.getDescrizione());
+
+        TextView tipoClan=(TextView)findViewById(R.id.tipo_text);
+        tipoClan.setText(clan.getTipo());
+
+        TextView posizioneClan=(TextView)findViewById(R.id.posizione_text);
+        posizioneClan.setText(clan.getPosizione());
+
+        TextView trofeiRichiestiClan=(TextView)findViewById(R.id.content_home_clan_richiesti_number);
+        trofeiRichiestiClan.setText(new Integer(clan.getTrofeiRichiesti()).toString());
     }
 
     @Override

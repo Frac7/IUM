@@ -131,7 +131,7 @@ public class GiocatoriFactory {
     }
 
     public List getAllPlayers(){
-      return giocatori;
+        return giocatori;
     }
 
     public int countPlayers(){
@@ -145,10 +145,14 @@ public class GiocatoriFactory {
     public int countTrophies(){
         int counter=0;
         for (Giocatore g : this.giocatori) {
-        //for(int i=0; i<10; i++){
+            //for(int i=0; i<10; i++){
             counter += g.getCorone();
             //}
         }
         return counter/2;
+    }
+
+    public void RemovePlayer(Giocatore player){
+        giocatori.remove(player);
     }
 }

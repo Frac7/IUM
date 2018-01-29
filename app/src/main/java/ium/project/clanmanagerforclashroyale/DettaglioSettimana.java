@@ -2,14 +2,12 @@ package ium.project.clanmanagerforclashroyale;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -89,6 +87,44 @@ public class DettaglioSettimana extends AppCompatActivity {
 
         TextView nBaule = (TextView) findViewById(R.id.baule_home_number);
         nBaule.setText(new Integer(baule).toString());
+        int a = Integer.parseInt(nBaule.getText().toString());
+        ImageView i = (ImageView)findViewById(R.id.baule);
+        switch(a)
+        {
+            case 0:
+                i.setImageResource(R.drawable.ic_home_baule);
+                break;
+            case 1:
+                i.setImageResource(R.drawable.ic_home_baule_1);
+                break;
+            case 2:
+                i.setImageResource(R.drawable.ic_home_baule_2);
+                break;
+            case 3:
+                i.setImageResource(R.drawable.ic_home_baule_3);
+                break;
+            case 4:
+                i.setImageResource(R.drawable.ic_home_baule_4);
+                break;
+            case 5:
+                i.setImageResource(R.drawable.ic_home_baule_5);
+                break;
+            case 6:
+                i.setImageResource(R.drawable.ic_home_baule_6);
+                break;
+            case 7:
+                i.setImageResource(R.drawable.ic_home_baule_7);
+                break;
+            case 8:
+                i.setImageResource(R.drawable.ic_home_baule_8);
+                break;
+            case 9:
+                i.setImageResource(R.drawable.ic_home_baule_9);
+                break;
+            case 10:
+                i.setImageResource(R.drawable.ic_home_baule_10);
+                break;
+        }
 
         EditText minCorone, maxCorone;
         EditText minDonazioni, maxDonazioni;

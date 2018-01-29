@@ -25,34 +25,6 @@ import ium.project.clanmanagerforclashroyale.data.Clan;
 public class Registro extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    public static int nBaule (int corone)
-    {
-        if(corone < 70)
-            return 0;
-        else if (corone < 160)
-            return 1;
-        else if(corone < 270)
-            return 2;
-        else if (corone < 400)
-            return 3;
-        else if(corone < 550)
-            return 4;
-        else if(corone < 720)
-            return 5;
-        else if(corone < 910)
-            return 6;
-        else if(corone <1120)
-            return 7;
-        else if(corone < 1350)
-            return 8;
-        else if(corone < 1600)
-            return 9;
-        else
-            return 10;
-    }
-
-    //TODO: spostare altrove questa porzione di codice e inserire le immagini per ogni numero di baule
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,11 +59,47 @@ public class Registro extends AppCompatActivity
             HashMap<String,Integer> mappa = new HashMap<>();
 
             mappa.put("donazioni",donazioni[i]);
-            mappa.put("baule",Registro.nBaule(baule[i]));
+            int a = clan.NBauleClan(baule[i]);
+            mappa.put("baule",a);
             mappa.put("corone",baule[i]);
             mappa.put("settimana",i);
             mappa.put("iconaD",R.drawable.ic_home_donazioni);
-            mappa.put("iconaB",R.drawable.ic_home_baule);
+            switch(a)
+            {
+                case 0:
+                    mappa.put("iconaB",R.drawable.ic_home_baule);
+                    break;
+                case 1:
+                    mappa.put("iconaB",R.drawable.ic_home_baule_1);
+                    break;
+                case 2:
+                    mappa.put("iconaB",R.drawable.ic_home_baule_2);
+                    break;
+                case 3:
+                    mappa.put("iconaB",R.drawable.ic_home_baule_3);
+                    break;
+                case 4:
+                    mappa.put("iconaB",R.drawable.ic_home_baule_4);
+                    break;
+                case 5:
+                    mappa.put("iconaB",R.drawable.ic_home_baule_5);
+                    break;
+                case 6:
+                    mappa.put("iconaB",R.drawable.ic_home_baule_6);
+                    break;
+                case 7:
+                    mappa.put("iconaB",R.drawable.ic_home_baule_7);
+                    break;
+                case 8:
+                    mappa.put("iconaB",R.drawable.ic_home_baule_8);
+                    break;
+                case 9:
+                    mappa.put("iconaB",R.drawable.ic_home_baule_9);
+                    break;
+                case 10:
+                    mappa.put("iconaB",R.drawable.ic_home_baule_10);
+                    break;
+            }
             mappa.put("iconaC",R.drawable.ic_home_corone_nospace);
             mappa.put("iconaV",R.drawable.ic_view);
 
