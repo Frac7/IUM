@@ -130,7 +130,7 @@ public class GiocatoriFactory {
 
     }
 
-    public List getAllPlayers(){
+    public List<Giocatore> getAllPlayers(){
         return giocatori;
     }
 

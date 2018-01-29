@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -27,47 +28,13 @@ import java.util.List;
 import ium.project.clanmanagerforclashroyale.data.Clan;
 import ium.project.clanmanagerforclashroyale.data.Filtro;
 import ium.project.clanmanagerforclashroyale.data.Giocatore;
+import ium.project.clanmanagerforclashroyale.data.GiocatoriFactory;
 
 public class ClanManager extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     //TODO: una volta inserito il filtro funzionante da bottone, modificare la stampa in base alla dimensione della lista. mostrare un messaggio nel caso in cui la lista sia vuota
     //TODO: prendere i numeri del suggeritore e in base a quelli settare lo sfondo dei giocatori nella lista
-
-    private ListView stampa(List<Giocatore> giocatori)
-    {
-        ListView lista = (ListView)findViewById(R.id.clan_manager_list);
-
-        /* Lista di hash map */
-        List<HashMap<String,Object>> listaMappe = new ArrayList<>();
-
-        for(int i = 0; i < 10; i++)
-        {
-            /* per ogni settimana creo una mappa dove associo una stringa al numero dell'elemento considerato: es donazioni, 50 (settimana 1) */
-            HashMap<String,Object> mappa = new HashMap<>();
-
-            mappa.put("nome",giocatori.get(i).getNome());
-            mappa.put("grado",giocatori.get(i).getGrado());
-            mappa.put("corone",new Integer(giocatori.get(i).getCoppeBaule()[9]));
-            mappa.put("donazioni",new Integer(giocatori.get(i).getDonazioni()[9]));
-            mappa.put("trofei",new Integer(giocatori.get(i).getCorone()));
-            mappa.put("iconaC",new Integer(R.drawable.ic_home_corone_nospace));
-            mappa.put("iconaD",new Integer (R.drawable.ic_home_donazioni_nospace));
-            mappa.put("iconaT",new Integer(R.drawable.ic_home_trofei_nospace));
-
-            //aggiungo la mappa alla lista precedentemente creata
-            listaMappe.add(mappa);
-        }
-
-        /* collego le string agli id della vista */
-        String [] from = {"nome","grado","corone","donazioni","trofei","iconaC","iconaD","iconaT"}; //chiavi delle mappe di ciascun elemento della lista
-        int [] to = {R.id.nome,R.id.grado,R.id.n_corone,R.id.n_donazioni,R.id.n_trofei,R.id.corone,R.id.carte,R.id.coppe}; //id del layout personalizzato
-
-        SimpleAdapter a = new SimpleAdapter(getApplicationContext(),listaMappe,R.layout.layout_list_clan_manager,from,to);
-        lista.setAdapter(a);
-
-        return lista;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,9 +59,9 @@ public class ClanManager extends AppCompatActivity
         int corone = clan.getBauleClan()[9];
         int baule = clan.NBauleClan(corone);
 
-        final EditText minCorone, maxCorone;
-        final EditText minDonazioni, maxDonazioni;
-        final EditText minTrofei, maxTrofei;
+        EditText minCorone, maxCorone;
+        EditText minDonazioni, maxDonazioni;
+        EditText minTrofei, maxTrofei;
 
         minCorone = (EditText)findViewById(R.id.min_corone);
         maxCorone = (EditText)findViewById(R.id.max_corone);
@@ -135,17 +102,7 @@ public class ClanManager extends AppCompatActivity
         else
             f.setMaxTrofei(Integer.MAX_VALUE);
 
-        Button filtro = (Button)findViewById(R.id.filtra);
-        filtro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                c.setFiltro(f);
-                //(R.layout.layout_list_clan_manager);
-            }
-        });
-
-        ListView l = stampa(c.ApplyFilters());
+        ListView l = findViewById(R.id.clan_manager_list);
 
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -153,6 +110,20 @@ public class ClanManager extends AppCompatActivity
                 Intent in = new Intent(ClanManager.this, DettaglioGiocatore.class);
                 in.putExtra("giocatore",i); //i è il numero del giocatore
                 startActivity(in);
+            }
+        });
+
+        final MyAdapter ma = new MyAdapter(this, GiocatoriFactory.getInstance().getAllPlayers(),9,R.layout.layout_list_clan_manager_dettaglio);
+        l.setAdapter(ma);
+
+        Button filtro = (Button)findViewById(R.id.filtra);
+        filtro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                c.setFiltro(f);
+                ma.clear();
+                ma.addAll(c.ApplyFilters());
+                ma.notifyDataSetChanged();
             }
         });
     }

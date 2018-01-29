@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -22,42 +23,6 @@ public class DettaglioSettimana extends AppCompatActivity {
 
     private int n;
 
-    //TODO: una volta inserito il filtro funzionante da bottone, modificare la stampa in base alla dimensione della lista. mostrare un messaggio nel caso in cui la lista sia vuota
-
-    private ListView stampa(List<Giocatore> giocatori)
-    {
-        ListView lista = (ListView)findViewById(R.id.clan_manager_list);
-
-        /* Lista di hash map */
-        List<HashMap<String,Object>> listaMappe = new ArrayList<>();
-
-        for(int i = 0; i < 10; i++)
-        {
-            /* per ogni settimana creo una mappa dove associo una stringa al numero dell'elemento considerato: es donazioni, 50 (settimana 1) */
-            HashMap<String,Object> mappa = new HashMap<>();
-
-            mappa.put("nome",giocatori.get(i).getNome());
-            mappa.put("grado",giocatori.get(i).getGrado());
-            mappa.put("corone",new Integer(giocatori.get(i).getCoppeBaule()[n]));
-            mappa.put("donazioni",new Integer(giocatori.get(i).getDonazioni()[n]));
-            mappa.put("trofei",new Integer(giocatori.get(i).getCorone()));
-            mappa.put("iconaC",new Integer(R.drawable.ic_home_corone_nospace));
-            mappa.put("iconaD",new Integer (R.drawable.ic_home_donazioni_nospace));
-            mappa.put("iconaT",new Integer(R.drawable.ic_home_trofei_nospace));
-
-            //aggiungo la mappa alla lista precedentemente creata
-            listaMappe.add(mappa);
-        }
-
-        /* collego le string agli id della vista */
-        String [] from = {"nome","grado","corone","donazioni","trofei","iconaC","iconaD","iconaT"}; //chiavi delle mappe di ciascun elemento della lista
-        int [] to = {R.id.nome,R.id.grado,R.id.n_corone,R.id.n_donazioni,R.id.n_trofei,R.id.corone,R.id.carte,R.id.coppe}; //id del layout personalizzato
-
-        SimpleAdapter a = new SimpleAdapter(getApplicationContext(),listaMappe,R.layout.layout_list_clan_manager_dettaglio,from,to);
-        lista.setAdapter(a);
-
-        return lista;
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +37,7 @@ public class DettaglioSettimana extends AppCompatActivity {
         int donazioni = clan.getDonazioniTotali()[n];
         int membri = 10;
         int corone = clan.getBauleClan()[n];
-        int baule = Registro.nBaule(corone);
+        int baule = clan.NBauleClan(corone);
 
         setTitle("Dettaglio settimana "+n);
 
@@ -140,8 +105,8 @@ public class DettaglioSettimana extends AppCompatActivity {
         maxTrofei = (EditText)findViewById(R.id.max_trofei);
 
         List<Giocatore> giocatori = clan.getComponenti();
-        ium.project.clanmanagerforclashroyale.data.ClanManager c = new ium.project.clanmanagerforclashroyale.data.ClanManager();
-        Filtro f = new Filtro();
+        final ium.project.clanmanagerforclashroyale.data.ClanManager c = new ium.project.clanmanagerforclashroyale.data.ClanManager();
+        final Filtro f = new Filtro();
         c.setnSettimana(n);
 
         if(!minCorone.getText().toString().equals(""))
@@ -169,19 +134,7 @@ public class DettaglioSettimana extends AppCompatActivity {
         else
             f.setMaxTrofei(Integer.MAX_VALUE);
 
-        c.setFiltro(f);
-        //giocatori = c.ApplyFilters();
-
-        /*Button filtro = (Button)findViewById(R.id.filtra);
-        filtro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });*/
-
-        ListView l = stampa(giocatori);
-
+        ListView l = findViewById(R.id.clan_manager_list);
 
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -189,6 +142,20 @@ public class DettaglioSettimana extends AppCompatActivity {
                 Intent in = new Intent(DettaglioSettimana.this, DettaglioGiocatore.class);
                 in.putExtra("giocatore",i); //i è il numero del giocatore
                 startActivity(in);
+            }
+        });
+
+        final MyAdapter ma = new MyAdapter(this, GiocatoriFactory.getInstance().getAllPlayers(),n,R.layout.layout_list_clan_manager_dettaglio);
+        l.setAdapter(ma);
+
+        Button filtro = (Button)findViewById(R.id.filtra);
+        filtro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                c.setFiltro(f);
+                ma.clear();
+                ma.addAll(c.ApplyFilters());
+                ma.notifyDataSetChanged();
             }
         });
     }

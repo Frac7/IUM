@@ -57,7 +57,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:textColor="#737373"
                 android:id="@+id/nome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -65,7 +64,6 @@
                 android:textSize="9pt"/>
 
             <TextView
-                android:textColor="#737373"
                 android:id="@+id/grado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -75,7 +73,6 @@
         </LinearLayout>
 
         <TextView
-            android:textColor="#737373"
             android:id="@+id/n_corone"
             android:layout_width="wrap_content"
             android:layout_weight="1"
@@ -85,7 +82,6 @@
             android:textAlignment="center"/>
 
         <TextView
-            android:textColor="#737373"
             android:id="@+id/n_donazioni"
             android:layout_width="wrap_content"
             android:layout_weight="1"
@@ -95,7 +91,6 @@
             android:textAlignment="center"/>
 
         <TextView
-            android:textColor="#737373"
             android:id="@+id/n_trofei"
             android:layout_width="wrap_content"
             android:layout_weight="1"
