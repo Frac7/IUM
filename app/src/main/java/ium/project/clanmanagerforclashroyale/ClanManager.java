@@ -52,12 +52,12 @@ public class ClanManager extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Clan clan  = new Clan();
+        Clan clan  = SplashScreen.c.getClan();
         int trofei = clan.getCoppeClan();
         int donazioni = clan.getDonazioniTotali()[9];
         int membri = 10;
         int corone = clan.getBauleClan()[9];
-        int baule = clan.NBauleClan(corone);
+        int baule = clan.NBauleClan(clan.getBauleIsettimana(0));
 
         EditText minCorone, maxCorone;
         EditText minDonazioni, maxDonazioni;

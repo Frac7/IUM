@@ -20,7 +20,8 @@ import ium.project.clanmanagerforclashroyale.data.Clan;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+        Clan clan = SplashScreen.c.getClan();
+    //TODO: spostrare "Clan clan = new Clan (); in splash screen e cambiare tutti i riferimenti nelle altre schermate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +38,7 @@ public class Home extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         //Variabile di tipo clan
-        Clan clan=  new Clan();
+
         Integer bauleClan= clan.NBauleClan(clan.getBauleClan()[9]);
 
         TextView nomeClan =(TextView) findViewById(R.id.nome_clan);

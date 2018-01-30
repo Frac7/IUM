@@ -45,7 +45,8 @@ public class Registro extends AppCompatActivity
         /* la vista della lista viene recuperata tramite tag dall'activity*/
         ListView lista = (ListView) findViewById(R.id.registro_list);
         /*nuova istanza di clan con parametri settati di default*/
-        Clan clan = new Clan();
+        Clan clan = SplashScreen.c.getClan();
+        //da vedere
         /* array di corone e donazioni totali per ogni settimana */
         int [] baule = clan.getBauleClan();
         int [] donazioni = clan.getDonazioniTotali();

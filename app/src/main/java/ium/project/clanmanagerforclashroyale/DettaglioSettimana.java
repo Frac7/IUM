@@ -10,11 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import ium.project.clanmanagerforclashroyale.data.*;
@@ -31,7 +27,8 @@ public class DettaglioSettimana extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Clan clan  = new Clan();
+        Clan clan  = SplashScreen.c.getClan();
+
         n = getIntent().getExtras().getInt("settimana");
         int trofei = clan.getCoppeClan();
         int donazioni = clan.getDonazioniTotali()[n];

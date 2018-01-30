@@ -10,17 +10,17 @@ import ium.project.clanmanagerforclashroyale.R;
 
 public class Clan {
     // Attributi
-    static private String nome;
-    static private String tag;
-    static private String descrizione;
-    static private int[] donazioniTotali = new int [10]; /*Contiene il totale donazioni per settimana*/
-    static private int nMembri;
-    static private int coppeClan;
-    static private List<Giocatore> componenti ;
-    static private int logo;
-    static private int[] bauleClan= new int [10]; // Contiene il totale di coppe raggiunte ogni settimana per il baule clan
-    static private  String tipo;
-    static private int trofeiRichiesti;
+   private String nome;
+   private String tag;
+   private String descrizione;
+   private int[] donazioniTotali = new int [10]; /*Contiene il totale donazioni per settimana*/
+   private int nMembri;
+   private int coppeClan;
+   private List<Giocatore> componenti ;
+   private int logo;
+   private int[] bauleClan= new int [10]; // Contiene il totale di coppe raggiunte ogni settimana per il baule clan
+   private  String tipo;
+   private int trofeiRichiesti;
     static private String posizione;
     //Costruttore
     public Clan (){
@@ -98,6 +98,7 @@ public class Clan {
     public void setComponenti(List<Giocatore> componenti) {
         this.componenti = componenti;
     }
+
     public int getLogo() {
         return logo;
     }
@@ -108,6 +109,10 @@ public class Clan {
 
     public int[] getBauleClan() {
         return bauleClan;
+    }
+
+    public int getBauleIsettimana(int settimana){
+        return bauleClan[settimana];
     }
 
     public void setBauleClan(List<Giocatore> giocatori) {

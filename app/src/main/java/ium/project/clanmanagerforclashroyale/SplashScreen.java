@@ -4,8 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import ium.project.clanmanagerforclashroyale.data.*;
+
 
 public class SplashScreen extends Activity {
+
+    public static ium.project.clanmanagerforclashroyale.data.ClanManager c;
 
     // Splash screen timer
     private static int SPLASH_TIME_OUT = 3000;

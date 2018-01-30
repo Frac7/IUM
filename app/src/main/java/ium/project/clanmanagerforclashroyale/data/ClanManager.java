@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ClanManager {
     //Attributi
-    private Clan clan;
+    static private Clan clan = new Clan();
     private Filtro filtro;
     private Suggeritore suggeritore;
     private int nSettimana;
@@ -53,7 +53,7 @@ public class ClanManager {
 
          ArrayList<Giocatore> giocatoriFiltrati= new ArrayList<Giocatore>();
 
-         List<Giocatore> giocatore = GiocatoriFactory.getInstance().getAllPlayers();
+         List<Giocatore> giocatore = clan.getComponenti();
 
         for (Giocatore g: giocatore) {
 
