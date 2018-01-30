@@ -60,7 +60,7 @@ public class ClanManager {
             if(
                     g.getCorone() > getFiltro().getMinTrofei() && g.getCorone() < getFiltro().getMaxTrofei() &&
                     g.getDonazioni()[nSettimana] > getFiltro().getMinDonazioni() && g.getDonazioni()[nSettimana] < getFiltro().getMaxDonazioni() &&
-                    g.getCoppeBaule()[nSettimana] > getFiltro().getMinTrofei() && g.getCoppeBaule()[nSettimana] < getFiltro().getMaxCoroneBaule()
+                    g.getCoppeBaule()[nSettimana] > getFiltro().getMinCoroneBaule() && g.getCoppeBaule()[nSettimana] < getFiltro().getMaxCoroneBaule()
 
                     )
                 giocatoriFiltrati.add(g);

@@ -1,6 +1,7 @@
 package ium.project.clanmanagerforclashroyale;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -59,9 +61,9 @@ public class ClanManager extends AppCompatActivity
         int corone = clan.getBauleClan()[9];
         int baule = clan.NBauleClan(clan.getBauleIsettimana(0));
 
-        EditText minCorone, maxCorone;
-        EditText minDonazioni, maxDonazioni;
-        EditText minTrofei, maxTrofei;
+        final EditText minCorone, maxCorone;
+        final EditText minDonazioni, maxDonazioni;
+        final EditText minTrofei, maxTrofei;
 
         minCorone = (EditText)findViewById(R.id.min_corone);
         maxCorone = (EditText)findViewById(R.id.max_corone);
@@ -77,52 +79,79 @@ public class ClanManager extends AppCompatActivity
         final Filtro f = new Filtro();
         c.setnSettimana(9);
 
-        if(!minCorone.getText().toString().equals(""))
-            f.setMinCoroneBaule(Integer.parseInt(minCorone.getText().toString()));
-        else
-            f.setMinCoroneBaule(0);
-        if(!maxCorone.getText().toString().equals(""))
-            f.setMaxCoroneBaule(Integer.parseInt(maxCorone.getText().toString()));
-        else
-            f.setMaxCoroneBaule(Integer.MAX_VALUE);
-        if(!minDonazioni.getText().toString().equals(""))
-            f.setMinDonazioni(Integer.parseInt(minDonazioni.getText().toString()));
-        else
-            f.setMinDonazioni(0);
-        if(!maxDonazioni.getText().toString().equals(""))
-            f.setMaxDonazioni(Integer.parseInt(maxDonazioni.getText().toString()));
-        else
-            f.setMaxDonazioni(Integer.MAX_VALUE);
-        if(!minTrofei.getText().toString().equals(""))
-            f.setMinTrofei(Integer.parseInt(minTrofei.getText().toString()));
-        else
-            f.setMinTrofei(0);
-        if(!maxTrofei.getText().toString().equals(""))
-            f.setMaxTrofei(Integer.parseInt(maxTrofei.getText().toString()));
-        else
-            f.setMaxTrofei(Integer.MAX_VALUE);
-
         ListView l = findViewById(R.id.clan_manager_list);
 
-        l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent in = new Intent(ClanManager.this, DettaglioGiocatore.class);
-                in.putExtra("giocatore",i); //i è il numero del giocatore
-                startActivity(in);
-            }
-        });
+        f.setMinCoroneBaule(0);
+        f.setMaxCoroneBaule(Integer.MAX_VALUE);
+        f.setMinDonazioni(0);
+        f.setMaxDonazioni(Integer.MAX_VALUE);
+        f.setMinTrofei(0);
+        f.setMaxTrofei(Integer.MAX_VALUE);
 
-        final MyAdapter ma = new MyAdapter(this, GiocatoriFactory.getInstance().getAllPlayers(),9,R.layout.layout_list_clan_manager_dettaglio);
+        c.setFiltro(f);
+
+        final List<Giocatore> data = c.ApplyFilters();
+
+        final MyAdapter ma = new MyAdapter(this, data,9,R.layout.layout_list_clan_manager);
         l.setAdapter(ma);
+
+        /*if(suggeritore != null)
+        for(int i = 0; i < ma.getCount(); i++)
+        {
+            Object o = ma.getItem(i);
+            Giocatore g = (Giocatore)o;
+            /*if(g.getCoppeBaule()[9] < suggeritore && g.getDonazioni()[9] < suggeritore)
+                //settare lo sfondo rosso con trasparenza 50
+                ;
+            else if(g.getCoppeBaule()[9] > suggeritore && g.getDonazioni()[9] > suggeritore)
+                //settare lo sfondo verde con trasparenza 50
+                ;
+        }*/
+
+        //codice di prova che non funziona
+
+        for(int i = 0; i < ma.getCount(); i++)
+        {
+            Object o = ma.getView(i,findViewById(R.id.riga), null); //view group???
+            View v = (View)o;
+            v.setBackgroundColor(Color.parseColor("#66ff0000"));
+        }
+
+        //
 
         Button filtro = (Button)findViewById(R.id.filtra);
         filtro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!minCorone.getText().toString().equals(""))
+                    f.setMinCoroneBaule(Integer.parseInt(minCorone.getText().toString()));
+                else
+                    f.setMinCoroneBaule(0);
+                if(!maxCorone.getText().toString().equals(""))
+                    f.setMaxCoroneBaule(Integer.parseInt(maxCorone.getText().toString()));
+                else
+                    f.setMaxCoroneBaule(Integer.MAX_VALUE);
+                if(!minDonazioni.getText().toString().equals(""))
+                    f.setMinDonazioni(Integer.parseInt(minDonazioni.getText().toString()));
+                else
+                    f.setMinDonazioni(0);
+                if(!maxDonazioni.getText().toString().equals(""))
+                    f.setMaxDonazioni(Integer.parseInt(maxDonazioni.getText().toString()));
+                else
+                    f.setMaxDonazioni(Integer.MAX_VALUE);
+                if(!minTrofei.getText().toString().equals(""))
+                    f.setMinTrofei(Integer.parseInt(minTrofei.getText().toString()));
+                else
+                    f.setMinTrofei(0);
+                if(!maxTrofei.getText().toString().equals(""))
+                    f.setMaxTrofei(Integer.parseInt(maxTrofei.getText().toString()));
+                else
+                    f.setMaxTrofei(Integer.MAX_VALUE);
+
                 c.setFiltro(f);
-                ma.clear();
-                ma.addAll(c.ApplyFilters());
+
+                data.removeAll(data);
+                data.addAll(c.ApplyFilters());
                 ma.notifyDataSetChanged();
             }
         });

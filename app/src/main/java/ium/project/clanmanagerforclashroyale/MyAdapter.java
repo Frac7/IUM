@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Filter;
 import android.widget.TextView;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class MyAdapter extends ArrayAdapter {
     private Context context;
     private List<Giocatore> l;
     private int n;
+    private int layout;
 
     public MyAdapter(Context context, List<Giocatore> l, int settimana, int layout)
     {
@@ -27,12 +29,14 @@ public class MyAdapter extends ArrayAdapter {
         this.context = context;
         this.l = l;
         this.n = settimana;
+        this.layout = layout;
 
     }
+
     public View getView(int position, View v, ViewGroup vg)
     {
         LayoutInflater i = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = i.inflate(R.layout.layout_list_clan_manager,null);
+        v = i.inflate(layout,null);
         Giocatore g = (Giocatore)getItem(position);
         TextView t_nome = (TextView)v.findViewById(R.id.nome);
         t_nome.setText(g.getNome());

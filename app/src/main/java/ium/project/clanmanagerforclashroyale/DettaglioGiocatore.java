@@ -19,6 +19,10 @@ public class DettaglioGiocatore extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dettaglio_giocatore);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         int n = getIntent().getExtras().getInt("giocatore");
 
         Giocatore g = (Giocatore)GiocatoriFactory.getInstance().getAllPlayers().get(n);
@@ -62,10 +66,6 @@ public class DettaglioGiocatore extends AppCompatActivity {
 
         perc_don.setText((100*d/clan_d)+"%");
         perc_cor.setText((100*c/clan_c)+"%");
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 }

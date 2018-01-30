@@ -20,6 +20,18 @@ public class DettaglioSettimana extends AppCompatActivity {
     private int n;
 
     @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt("settimana",n);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        this.n = savedInstanceState.getInt("settimana");
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dettaglio_settimana);
@@ -29,7 +41,11 @@ public class DettaglioSettimana extends AppCompatActivity {
 
         Clan clan  = Home.c.getClan();
 
-        n = getIntent().getExtras().getInt("settimana");
+        if(getIntent().getExtras() != null)
+                n = getIntent().getExtras().getInt("settimana");
+        else
+            ;
+
         int trofei = clan.getCoppeClan();
         int donazioni = clan.getDonazioniTotali()[n];
         int membri = 10;
@@ -88,9 +104,9 @@ public class DettaglioSettimana extends AppCompatActivity {
                 break;
         }
 
-        EditText minCorone, maxCorone;
-        EditText minDonazioni, maxDonazioni;
-        EditText minTrofei, maxTrofei;
+        final EditText minCorone, maxCorone;
+        final EditText minDonazioni, maxDonazioni;
+        final EditText minTrofei, maxTrofei;
 
         minCorone = (EditText)findViewById(R.id.min_corone);
         maxCorone = (EditText)findViewById(R.id.max_corone);
@@ -104,55 +120,67 @@ public class DettaglioSettimana extends AppCompatActivity {
         List<Giocatore> giocatori = clan.getComponenti();
         final ium.project.clanmanagerforclashroyale.data.ClanManager c = new ium.project.clanmanagerforclashroyale.data.ClanManager();
         final Filtro f = new Filtro();
-        c.setnSettimana(n);
-
-        if(!minCorone.getText().toString().equals(""))
-            f.setMinCoroneBaule(Integer.parseInt(minCorone.getText().toString()));
-        else
-            f.setMinCoroneBaule(0);
-        if(!maxCorone.getText().toString().equals(""))
-            f.setMaxCoroneBaule(Integer.parseInt(maxCorone.getText().toString()));
-        else
-            f.setMaxCoroneBaule(Integer.MAX_VALUE);
-        if(!minDonazioni.getText().toString().equals(""))
-            f.setMinDonazioni(Integer.parseInt(minDonazioni.getText().toString()));
-        else
-            f.setMinDonazioni(0);
-        if(!maxDonazioni.getText().toString().equals(""))
-            f.setMaxDonazioni(Integer.parseInt(maxDonazioni.getText().toString()));
-        else
-            f.setMaxDonazioni(Integer.MAX_VALUE);
-        if(!minTrofei.getText().toString().equals(""))
-            f.setMinTrofei(Integer.parseInt(minTrofei.getText().toString()));
-        else
-            f.setMinTrofei(0);
-        if(!maxTrofei.getText().toString().equals(""))
-            f.setMaxTrofei(Integer.parseInt(maxTrofei.getText().toString()));
-        else
-            f.setMaxTrofei(Integer.MAX_VALUE);
+        c.setnSettimana(9);
 
         ListView l = findViewById(R.id.clan_manager_list);
 
-        l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent in = new Intent(DettaglioSettimana.this, DettaglioGiocatore.class);
-                in.putExtra("giocatore",i); //i è il numero del giocatore
-                startActivity(in);
-            }
-        });
+        f.setMinCoroneBaule(0);
+        f.setMaxCoroneBaule(Integer.MAX_VALUE);
+        f.setMinDonazioni(0);
+        f.setMaxDonazioni(Integer.MAX_VALUE);
+        f.setMinTrofei(0);
+        f.setMaxTrofei(Integer.MAX_VALUE);
 
-        final MyAdapter ma = new MyAdapter(this, GiocatoriFactory.getInstance().getAllPlayers(),n,R.layout.layout_list_clan_manager_dettaglio);
+        c.setFiltro(f);
+
+        final List<Giocatore> data = c.ApplyFilters();
+
+        final MyAdapter ma = new MyAdapter(this, data,9,R.layout.layout_list_clan_manager_dettaglio);
         l.setAdapter(ma);
 
         Button filtro = (Button)findViewById(R.id.filtra);
         filtro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!minCorone.getText().toString().equals(""))
+                    f.setMinCoroneBaule(Integer.parseInt(minCorone.getText().toString()));
+                else
+                    f.setMinCoroneBaule(0);
+                if(!maxCorone.getText().toString().equals(""))
+                    f.setMaxCoroneBaule(Integer.parseInt(maxCorone.getText().toString()));
+                else
+                    f.setMaxCoroneBaule(Integer.MAX_VALUE);
+                if(!minDonazioni.getText().toString().equals(""))
+                    f.setMinDonazioni(Integer.parseInt(minDonazioni.getText().toString()));
+                else
+                    f.setMinDonazioni(0);
+                if(!maxDonazioni.getText().toString().equals(""))
+                    f.setMaxDonazioni(Integer.parseInt(maxDonazioni.getText().toString()));
+                else
+                    f.setMaxDonazioni(Integer.MAX_VALUE);
+                if(!minTrofei.getText().toString().equals(""))
+                    f.setMinTrofei(Integer.parseInt(minTrofei.getText().toString()));
+                else
+                    f.setMinTrofei(0);
+                if(!maxTrofei.getText().toString().equals(""))
+                    f.setMaxTrofei(Integer.parseInt(maxTrofei.getText().toString()));
+                else
+                    f.setMaxTrofei(Integer.MAX_VALUE);
+
                 c.setFiltro(f);
-                ma.clear();
-                ma.addAll(c.ApplyFilters());
+
+                data.removeAll(data);
+                data.addAll(c.ApplyFilters());
                 ma.notifyDataSetChanged();
+            }
+        });
+
+        l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent ac = new Intent(DettaglioSettimana.this,DettaglioGiocatore.class);
+                ac.putExtra("giocatore",i);
+                startActivity(ac);
             }
         });
     }
