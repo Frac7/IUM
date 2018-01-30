@@ -23,7 +23,7 @@ public class DettaglioGiocatore extends AppCompatActivity {
 
         Giocatore g = (Giocatore)GiocatoriFactory.getInstance().getAllPlayers().get(n);
 
-        Clan clan = SplashScreen.c.getClan();
+        Clan clan = Home.c.getClan();
 
         String s = g.getNome();
 

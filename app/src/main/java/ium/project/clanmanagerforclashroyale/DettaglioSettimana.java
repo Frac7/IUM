@@ -27,7 +27,7 @@ public class DettaglioSettimana extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Clan clan  = SplashScreen.c.getClan();
+        Clan clan  = Home.c.getClan();
 
         n = getIntent().getExtras().getInt("settimana");
         int trofei = clan.getCoppeClan();

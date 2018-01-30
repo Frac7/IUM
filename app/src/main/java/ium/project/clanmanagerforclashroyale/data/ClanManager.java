@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ClanManager {
     //Attributi
-    static private Clan clan = new Clan();
+    private Clan clan = new Clan();
     private Filtro filtro;
     private Suggeritore suggeritore;
     private int nSettimana;
