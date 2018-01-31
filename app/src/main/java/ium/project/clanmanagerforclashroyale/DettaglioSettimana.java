@@ -43,8 +43,6 @@ public class DettaglioSettimana extends AppCompatActivity {
 
         if(getIntent().getExtras() != null)
                 n = getIntent().getExtras().getInt("settimana");
-        else
-            ;
 
         int trofei = clan.getCoppeClan();
         int donazioni = clan.getDonazioniTotali()[n];
@@ -117,7 +115,6 @@ public class DettaglioSettimana extends AppCompatActivity {
         minTrofei = (EditText)findViewById(R.id.min_trofei);
         maxTrofei = (EditText)findViewById(R.id.max_trofei);
 
-        List<Giocatore> giocatori = clan.getComponenti();
         final ium.project.clanmanagerforclashroyale.data.ClanManager c = new ium.project.clanmanagerforclashroyale.data.ClanManager();
         final Filtro f = new Filtro();
         c.setnSettimana(9);
@@ -137,6 +134,19 @@ public class DettaglioSettimana extends AppCompatActivity {
 
         final MyAdapter ma = new MyAdapter(this, data,9,R.layout.layout_list_clan_manager_dettaglio);
         l.setAdapter(ma);
+
+        Button pulisci = (Button)findViewById(R.id.pulisci);
+        pulisci.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                maxCorone.setText("");
+                minCorone.setText("");
+                maxTrofei.setText("");
+                minTrofei.setText("");
+                maxDonazioni.setText("");
+                minDonazioni.setText("");
+            }
+        });
 
         Button filtro = (Button)findViewById(R.id.filtra);
         filtro.setOnClickListener(new View.OnClickListener() {

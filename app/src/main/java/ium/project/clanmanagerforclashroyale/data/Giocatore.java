@@ -109,12 +109,13 @@ public class Giocatore {
             }
         }
     }
-    public void Retrocessione(boolean flag, int n){//Flag viene settato true alla pressione del tasto espelli
+    public void Retrocessione(boolean flag){//Flag viene settato true alla pressione del tasto espelli
         if(flag && !getGrado().equals("Capo")){
             if(getGrado().equals("Co-capo")) setGrado("Anziano");
             else if(getGrado().equals("Anziano")) setGrado("Recluta");
             else {
                 GiocatoriFactory.getInstance().RemovePlayer(this);
+                //TODO: vedere var static clan manager
                 Clan myClan = new Clan();
                 myClan.setComponenti(GiocatoriFactory.getInstance().getAllPlayers());
             }

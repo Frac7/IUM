@@ -35,10 +35,8 @@
                 android:layout_height="match_parent"
                 android:textSize="8pt"
                 android:text="Inserisci il tuo TAG giocatore:"/>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <AutoCompleteTextView
+
+                <EditText
                     android:id="@+id/tag"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -46,17 +44,13 @@
                     android:inputType="text"
                     android:maxLines="1"
                     android:singleLine="true" />
-            </android.support.design.widget.TextInputLayout>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textSize="8pt"
                 android:text="Inserisci il tuo ID giocatore:"/>
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+
                 <EditText
                     android:id="@+id/ID"
                     android:layout_width="match_parent"
@@ -67,7 +61,6 @@
                     android:inputType="text"
                     android:maxLines="1"
                     android:singleLine="true" />
-            </android.support.design.widget.TextInputLayout>
 
             <Button
                 android:id="@+id/email_sign_in_button"

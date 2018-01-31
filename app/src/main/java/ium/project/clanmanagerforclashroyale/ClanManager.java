@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,12 +16,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -88,36 +92,41 @@ public class ClanManager extends AppCompatActivity
         f.setMinTrofei(0);
         f.setMaxTrofei(Integer.MAX_VALUE);
 
+        //TODO: aggiungere qualcosa in xml per pulire i campi
+
         c.setFiltro(f);
 
         final List<Giocatore> data = c.ApplyFilters();
 
         final MyAdapter ma = new MyAdapter(this, data,9,R.layout.layout_list_clan_manager);
+        ma.setFm(getSupportFragmentManager());
         l.setAdapter(ma);
 
-        /*if(suggeritore != null)
+        //codice di prova
         for(int i = 0; i < ma.getCount(); i++)
         {
             Object o = ma.getItem(i);
             Giocatore g = (Giocatore)o;
-            /*if(g.getCoppeBaule()[9] < suggeritore && g.getDonazioni()[9] < suggeritore)
-                //settare lo sfondo rosso con trasparenza 50
-                ;
-            else if(g.getCoppeBaule()[9] > suggeritore && g.getDonazioni()[9] > suggeritore)
-                //settare lo sfondo verde con trasparenza 50
-                ;
-        }*/
 
-        //codice di prova che non funziona
-
-        for(int i = 0; i < ma.getCount(); i++)
-        {
-            Object o = ma.getView(i,findViewById(R.id.riga), null); //view group???
-            View v = (View)o;
-            v.setBackgroundColor(Color.parseColor("#66ff0000"));
+            if(i%2 == 0)
+                g.setEspulsione(true);
+            else if(i%2 == 1 && i != 9)
+                g.setPromozione(true);
         }
+        //codice di prova
 
-        //
+        Button pulisci = (Button)findViewById(R.id.pulisci);
+        pulisci.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                maxCorone.setText("");
+                minCorone.setText("");
+                maxTrofei.setText("");
+                minTrofei.setText("");
+                maxDonazioni.setText("");
+                minDonazioni.setText("");
+            }
+        });
 
         Button filtro = (Button)findViewById(R.id.filtra);
         filtro.setOnClickListener(new View.OnClickListener() {

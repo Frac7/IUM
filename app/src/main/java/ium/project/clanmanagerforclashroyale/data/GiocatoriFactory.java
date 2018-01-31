@@ -26,6 +26,7 @@ public class GiocatoriFactory {
         giocatore1.setDonazioni(new int[]{1200,200,300,70,40,0,30,50,78,90});
         giocatore1.setPromozione(false);
         giocatore1.setRetrocessione(false);
+        giocatore1.setEspulsione(false);
 
         Giocatore giocatore2 = new Giocatore();
         giocatore2.setNome("Frac");
@@ -36,16 +37,18 @@ public class GiocatoriFactory {
         giocatore2.setDonazioni(new int[]{200,0,30,70,50,55,1300,10,20,70});
         giocatore2.setPromozione(false);
         giocatore2.setRetrocessione(false);
+        giocatore2.setEspulsione(false);
 
         Giocatore giocatore3 = new Giocatore();
         giocatore3.setNome("Avanguards");
         giocatore3.setTag("#SV87453L");
-        giocatore3.setGrado("Anziano");
+        giocatore3.setGrado("Co-capo");
         giocatore3.setCorone(3500);
         giocatore3.setCoppeBaule(new int[]{0, 43, 27, 50, 0, 90, 170, 5, 100, 200});
         giocatore3.setDonazioni(new int[]{0,0,500,700,55,90,120,12,200,750});
         giocatore3.setPromozione(false);
         giocatore3.setRetrocessione(false);
+        giocatore3.setEspulsione(false);
 
         Giocatore giocatore4 = new Giocatore();
         giocatore4.setNome("JonSnow");
@@ -56,6 +59,7 @@ public class GiocatoriFactory {
         giocatore4.setDonazioni(new int[]{380,134,88,0,0,800,130,15,190,50});
         giocatore4.setPromozione(false);
         giocatore4.setRetrocessione(false);
+        giocatore4.setEspulsione(false);
 
         Giocatore giocatore5 = new Giocatore();
         giocatore5.setNome("Ste");
@@ -66,6 +70,7 @@ public class GiocatoriFactory {
         giocatore5.setDonazioni(new int[]{200,140,770,120,450,800,750,155,130,51});
         giocatore5.setPromozione(false);
         giocatore5.setRetrocessione(false);
+        giocatore5.setEspulsione(false);
 
         Giocatore giocatore6 = new Giocatore();
         giocatore6.setNome("Smigol");
@@ -76,6 +81,7 @@ public class GiocatoriFactory {
         giocatore6.setDonazioni(new int[]{0,1400,70,20,0,800,55,185,1300,510});
         giocatore6.setPromozione(false);
         giocatore6.setRetrocessione(false);
+        giocatore6.setEspulsione(false);
 
         Giocatore giocatore7 = new Giocatore();
         giocatore7.setNome("Sfinz");
@@ -86,6 +92,7 @@ public class GiocatoriFactory {
         giocatore7.setDonazioni(new int[]{1400,1600,77,68,1255,871,78,540,10,800});
         giocatore7.setPromozione(false);
         giocatore7.setRetrocessione(false);
+        giocatore7.setEspulsione(false);
 
         Giocatore giocatore8 = new Giocatore();
         giocatore8.setNome("RolyPolyHoly");
@@ -96,6 +103,7 @@ public class GiocatoriFactory {
         giocatore8.setDonazioni(new int[]{0,1560,430,0,65,751,368,1234,400,70});
         giocatore8.setPromozione(false);
         giocatore8.setRetrocessione(false);
+        giocatore8.setEspulsione(false);
 
         Giocatore giocatore9 = new Giocatore();
         giocatore9.setNome("MStery");
@@ -106,16 +114,18 @@ public class GiocatoriFactory {
         giocatore9.setDonazioni(new int[]{200,140,770,120,450,800,750,155,130,51});
         giocatore9.setPromozione(false);
         giocatore9.setRetrocessione(false);
+        giocatore9.setEspulsione(false);
 
         Giocatore giocatore10 = new Giocatore();
         giocatore10.setNome("TrissMerigold");
         giocatore10.setTag("#HV97B54F");
-        giocatore10.setGrado("Anziano");
+        giocatore10.setGrado("Co-capo");
         giocatore10.setCorone(2203);
         giocatore10.setCoppeBaule(new int[]{20, 15, 7, 0, 0, 90, 0, 12, 11, 2});
         giocatore10.setDonazioni(new int[]{380,134,88,0,0,800,130,15,190,50});
         giocatore10.setPromozione(false);
         giocatore10.setRetrocessione(false);
+        giocatore10.setEspulsione(false);
 
         giocatori.add(giocatore1);
         giocatori.add(giocatore2);
