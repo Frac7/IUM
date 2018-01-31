@@ -28,6 +28,11 @@ public class MyAdapter extends ArrayAdapter {
     private int layout;
     private FragmentManager fm;
 
+    public List<Giocatore> getL()
+    {
+        return this.l;
+    }
+
     public MyAdapter(Context context, List<Giocatore> l, int settimana, int layout)
     {
         super(context,layout,l);

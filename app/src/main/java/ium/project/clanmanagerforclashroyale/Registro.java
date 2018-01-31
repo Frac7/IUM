@@ -54,7 +54,7 @@ public class Registro extends AppCompatActivity
         /* Lista di hash map */
         List< HashMap<String,Integer> > listaMappe = new ArrayList<>();
 
-        for(int i = 0; i < 10; i++)
+        for(int i = 0; i < 9; i++)
         {
             /* per ogni settimana creo una mappa dove associo una stringa al numero dell'elemento considerato: es donazioni, 50 (settimana 1) */
             HashMap<String,Integer> mappa = new HashMap<>();
@@ -63,7 +63,7 @@ public class Registro extends AppCompatActivity
             int a = clan.NBauleClan(baule[i]);
             mappa.put("baule",a);
             mappa.put("corone",baule[i]);
-            mappa.put("settimana",i);
+            mappa.put("settimana",(9 - i));
             mappa.put("iconaD",R.drawable.ic_home_donazioni);
             switch(a)
             {
@@ -114,10 +114,6 @@ public class Registro extends AppCompatActivity
 
         SimpleAdapter a = new SimpleAdapter(getApplicationContext(),listaMappe,R.layout.layout_list_clan_registro,from,to);
         lista.setAdapter(a);
-
-
-
-
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

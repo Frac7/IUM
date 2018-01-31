@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import ium.project.clanmanagerforclashroyale.data.Giocatore;
 
@@ -56,9 +57,14 @@ public class ConfermaAzione extends DialogFragment {
                     g.Promozione(true);
                 else
                     g.Retrocessione(true);
-                //TODO: i giocatori eliminati spariscono dalla view solo dopo aver applicato i filtri
+
+                if(grado.equals("espellere"))
+                    a.getL().remove(g);
+
                 a.notifyDataSetChanged();
                 dismiss();
+                Toast toast = Toast.makeText(a.getContext(),"Modifica effettuata",Toast.LENGTH_SHORT);
+                toast.show();
             }
         });
         builder.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {

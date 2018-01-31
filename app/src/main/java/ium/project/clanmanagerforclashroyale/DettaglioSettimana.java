@@ -19,18 +19,6 @@ public class DettaglioSettimana extends AppCompatActivity {
 
     private int n;
 
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putInt("settimana",n);
-    }
-
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        this.n = savedInstanceState.getInt("settimana");
-    }
-
     //TODO: la settimana ripristinata è sempre la settimana 0... ???
 
     @Override
@@ -52,7 +40,7 @@ public class DettaglioSettimana extends AppCompatActivity {
         int corone = clan.getBauleClan()[n];
         int baule = clan.NBauleClan(corone);
 
-        setTitle("Dettaglio settimana "+n);
+        setTitle("Dettaglio: "+(9 - n)+" settimane fa");
 
         TextView nTrofei = (TextView) findViewById(R.id.trofei_home_number);
         nTrofei.setText(new Integer(trofei).toString());

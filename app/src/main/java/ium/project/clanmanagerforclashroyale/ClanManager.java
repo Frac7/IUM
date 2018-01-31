@@ -26,6 +26,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -144,6 +145,16 @@ public class ClanManager extends AppCompatActivity
                 data.removeAll(data);
                 data.addAll(c.ApplyFilters());
                 ma.notifyDataSetChanged();
+
+                if(data.size() != 0) {
+                    Toast toast = Toast.makeText(getApplicationContext(),"Lista filtrata",Toast.LENGTH_SHORT);
+                    toast.show();
+                }else{
+                    Toast toast = Toast.makeText(getApplicationContext(),"Nessun risultato",Toast.LENGTH_LONG);
+                    toast.show();
+                }
+
+
             }
         });
     }
