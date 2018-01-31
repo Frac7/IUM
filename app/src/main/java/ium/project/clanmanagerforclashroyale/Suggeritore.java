@@ -33,7 +33,7 @@ public class Suggeritore extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        Home.c.setSuggeritore(new ium.project.clanmanagerforclashroyale.data.Suggeritore());
+        SplashScreen.c.setSuggeritore(new ium.project.clanmanagerforclashroyale.data.Suggeritore());
         final Intent clanManager= new Intent(getApplicationContext(),ClanManager.class);
         Button button = (Button) findViewById(R.id.confirm_button);
         button.setOnClickListener(new View.OnClickListener(){
@@ -46,22 +46,22 @@ public class Suggeritore extends AppCompatActivity
 
                 EditText corone =(EditText) findViewById(R.id.corone_MIN_suggeritore);
                 if(corone.getText().toString().equals("")){
-                    Home.c.getSuggeritore().setCorone(0); /** Riferimento da cambiare quando spostiamo su splash screen**/
+                    SplashScreen.c.getSuggeritore().setCorone(0); /** Riferimento da cambiare quando spostiamo su splash screen**/
                 }
                 else{
-                    Home.c.getSuggeritore().setCorone(Integer.parseInt(corone.getText().toString())); /** Riferimento da cambiare quando spostiamo su splash screen**/
+                    SplashScreen.c.getSuggeritore().setCorone(Integer.parseInt(corone.getText().toString())); /** Riferimento da cambiare quando spostiamo su splash screen**/
                 }
 
                 EditText donazioni =(EditText) findViewById(R.id.donazioni_MIN_suggeritore);
                 if(donazioni.getText().toString().equals("")){
-                    Home.c.getSuggeritore().setDonazioni(0); /** Riferimento da cambiare quando spostiamo su splash screen**/
+                    SplashScreen.c.getSuggeritore().setDonazioni(0); /** Riferimento da cambiare quando spostiamo su splash screen**/
                 }
                 else{
-                    Home.c.getSuggeritore().setDonazioni(Integer.parseInt(corone.getText().toString())); /** Riferimento da cambiare quando spostiamo su splash screen**/
+                    SplashScreen.c.getSuggeritore().setDonazioni(Integer.parseInt(corone.getText().toString())); /** Riferimento da cambiare quando spostiamo su splash screen**/
                 }
 
 
-                Home.c.applyHint(); //Applicazione suggerimento  /** Riferimento da cambiare quando spostiamo su splash screen**/
+                SplashScreen.c.applyHint(); //Applicazione suggerimento  /** Riferimento da cambiare quando spostiamo su splash screen**/
                 Toast toast = Toast.makeText(context,text,duration);
                 toast.show();
                 startActivity(clanManager);

@@ -39,9 +39,6 @@ import ium.project.clanmanagerforclashroyale.data.GiocatoriFactory;
 public class ClanManager extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    //TODO: una volta inserito il filtro funzionante da bottone, modificare la stampa in base alla dimensione della lista. mostrare un messaggio nel caso in cui la lista sia vuota
-    //TODO: prendere i numeri del suggeritore e in base a quelli settare lo sfondo dei giocatori nella lista
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +55,7 @@ public class ClanManager extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Clan clan  = Home.c.getClan();
+        Clan clan  = SplashScreen.c.getClan();
         int trofei = clan.getCoppeClan();
         int donazioni = clan.getDonazioniTotali()[9];
         int membri = 10;
@@ -92,8 +89,6 @@ public class ClanManager extends AppCompatActivity
         f.setMinTrofei(0);
         f.setMaxTrofei(Integer.MAX_VALUE);
 
-        //TODO: aggiungere qualcosa in xml per pulire i campi
-
         c.setFiltro(f);
 
         final List<Giocatore> data = c.ApplyFilters();
@@ -101,19 +96,6 @@ public class ClanManager extends AppCompatActivity
         final MyAdapter ma = new MyAdapter(this, data,9,R.layout.layout_list_clan_manager);
         ma.setFm(getSupportFragmentManager());
         l.setAdapter(ma);
-
-        //codice di prova
-        for(int i = 0; i < ma.getCount(); i++)
-        {
-            Object o = ma.getItem(i);
-            Giocatore g = (Giocatore)o;
-
-            if(i%2 == 0)
-                g.setEspulsione(true);
-            else if(i%2 == 1 && i != 9)
-                g.setPromozione(true);
-        }
-        //codice di prova
 
         Button pulisci = (Button)findViewById(R.id.pulisci);
         pulisci.setOnClickListener(new View.OnClickListener() {

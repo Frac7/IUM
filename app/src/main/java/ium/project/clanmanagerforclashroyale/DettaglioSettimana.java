@@ -31,6 +31,8 @@ public class DettaglioSettimana extends AppCompatActivity {
         this.n = savedInstanceState.getInt("settimana");
     }
 
+    //TODO: la settimana ripristinata è sempre la settimana 0... ???
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +41,7 @@ public class DettaglioSettimana extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Clan clan  = Home.c.getClan();
+        Clan clan  = SplashScreen.c.getClan();
 
         if(getIntent().getExtras() != null)
                 n = getIntent().getExtras().getInt("settimana");

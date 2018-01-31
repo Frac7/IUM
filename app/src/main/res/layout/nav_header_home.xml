@@ -36,16 +36,5 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/nome_giocatore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_gravity="center_horizontal"
-        android:text="PeaceMan"
-        android:textColor="#000000"
-        android:textSize="9pt" />
-
 
 </LinearLayout>

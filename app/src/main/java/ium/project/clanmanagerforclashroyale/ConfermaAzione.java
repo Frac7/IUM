@@ -16,9 +16,17 @@ import ium.project.clanmanagerforclashroyale.data.Giocatore;
 
 public class ConfermaAzione extends DialogFragment {
 
+    //TODO: creare dialog fragment personalizzata
+
     private String utente = "";
     private String grado = "";
     private Giocatore g = null;
+    private MyAdapter a = null;
+
+    public void setA(MyAdapter a)
+    {
+        this.a = a;
+    }
 
     public void setUtente(String s)
     {
@@ -48,12 +56,11 @@ public class ConfermaAzione extends DialogFragment {
                     g.Promozione(true);
                 else
                     g.Retrocessione(true);
+                //TODO: i giocatori eliminati spariscono dalla view solo dopo aver applicato i filtri
+                a.notifyDataSetChanged();
                 dismiss();
             }
         });
-
-
-
         builder.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

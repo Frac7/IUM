@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Filter;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -79,10 +78,9 @@ public class MyAdapter extends ArrayAdapter {
             else if(g.getGrado().equals("Anziano"))
             {
                 negativo.setText("Retrocedi");
-                //TODO: non funziona, da rivedere
                 Drawable img = context.getResources().getDrawable(R.drawable.ic_retrocedi_bottone);
                 img.setBounds(0,0,0,0);
-                negativo.setCompoundDrawables(img, null, null, null);
+                negativo.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null);
             }
 
             positivo.setOnClickListener(new View.OnClickListener() {
@@ -92,8 +90,8 @@ public class MyAdapter extends ArrayAdapter {
                     c.setUtente(g.getNome());
                     c.setGrado("promuovere");
                     c.setG(g);
+                    c.setA(MyAdapter.this);
                     c.show(fm,"Conferma azione");
-                    notifyDataSetChanged();
                 }
             });
 
@@ -106,13 +104,11 @@ public class MyAdapter extends ArrayAdapter {
                         c.setGrado("retrocedere");
                     else
                         c.setGrado("espellere");
-
                     c.setG(g);
+                    c.setA(MyAdapter.this);
                     c.show(fm,"Conferma azione");
-                    notifyDataSetChanged();
                 }
             });
-
 
         }
 
