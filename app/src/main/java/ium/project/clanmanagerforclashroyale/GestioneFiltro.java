@@ -55,6 +55,8 @@ public class GestioneFiltro extends DialogFragment {
         final EditText minDonazioni, maxDonazioni;
         final EditText minTrofei, maxTrofei;
 
+        getDialog().setTitle("Filtra membri");
+
         minCorone = (EditText)view.findViewById(R.id.min_corone);
         maxCorone = (EditText)view.findViewById(R.id.max_corone);
 

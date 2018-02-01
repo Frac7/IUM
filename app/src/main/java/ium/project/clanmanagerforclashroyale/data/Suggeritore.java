@@ -8,6 +8,10 @@ public class Suggeritore {
     private int Corone;
     private int Donazioni;
 
+    public Suggeritore(){
+        setCorone(0);
+        setDonazioni(0);
+    }
     public int getCorone() {
         return Corone;
     }

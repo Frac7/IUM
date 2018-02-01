@@ -51,26 +51,41 @@ public class ClanManager {
         if(getFiltro() == null)
             return GiocatoriFactory.getInstance().getAllPlayers();
 
-         ArrayList<Giocatore> giocatoriFiltrati= new ArrayList<Giocatore>();
+        ArrayList<Giocatore> giocatoriFiltrati= new ArrayList<Giocatore>();
 
-         //List<Giocatore> giocatore = clan.getComponenti();
+        //List<Giocatore> giocatore = clan.getComponenti();
         List<Giocatore> giocatore = GiocatoriFactory.getInstance().getAllPlayers();
 
         for (Giocatore g: giocatore) {
 
             if(
                     g.getCorone() >= getFiltro().getMinTrofei() && g.getCorone() <= getFiltro().getMaxTrofei() &&
-                    g.getDonazioni()[nSettimana] >= getFiltro().getMinDonazioni() && g.getDonazioni()[nSettimana] <= getFiltro().getMaxDonazioni() &&
-                    g.getCoppeBaule()[nSettimana] >= getFiltro().getMinCoroneBaule() && g.getCoppeBaule()[nSettimana] <= getFiltro().getMaxCoroneBaule()
+                            g.getDonazioni()[nSettimana] >= getFiltro().getMinDonazioni() && g.getDonazioni()[nSettimana] <= getFiltro().getMaxDonazioni() &&
+                            g.getCoppeBaule()[nSettimana] >= getFiltro().getMinCoroneBaule() && g.getCoppeBaule()[nSettimana] <= getFiltro().getMaxCoroneBaule()
 
                     )
                 giocatoriFiltrati.add(g);
         }
         return  giocatoriFiltrati;
     }
+    public void setAllFlagsFalse(){
+        for (Giocatore g :getClan().getComponenti()) {
+            if(g.isEspulsione()){
+                g.setEspulsione(false);
+            }
+            if(g.isPromozione()){
+                g.setPromozione(false);
+            }
+            if(g.isRetrocessione()){
+                g.setRetrocessione(false);
+            }
 
+        }
+    }
     public void applyHint(){
+        setAllFlagsFalse();
         for (Giocatore g : getClan().getComponenti()) {
+
             if(g.getDonazioni()[nSettimana]< getSuggeritore().getDonazioni() && g.getCoppeBaule()[nSettimana] < getSuggeritore().getCorone()) {
                 if (g.getGrado().equals("Co-capo") || g.getGrado().equals("Anziano"))
                     g.setRetrocessione(true);

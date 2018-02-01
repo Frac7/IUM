@@ -33,7 +33,18 @@ public class Suggeritore extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        SplashScreen.c.setSuggeritore(new ium.project.clanmanagerforclashroyale.data.Suggeritore());
+
+        final EditText corone =(EditText) findViewById(R.id.corone_MIN_suggeritore);
+        final EditText donazioni =(EditText) findViewById(R.id.donazioni_MIN_suggeritore);
+
+        if(SplashScreen.c.getSuggeritore().getCorone()!=0) {
+            corone.setText(new Integer(SplashScreen.c.getSuggeritore().getCorone()).toString());
+        }
+
+        if(SplashScreen.c.getSuggeritore().getDonazioni()!=0) {
+            donazioni.setText(new Integer(SplashScreen.c.getSuggeritore().getDonazioni()).toString());
+        }
+
         final Intent clanManager= new Intent(getApplicationContext(),ClanManager.class);
         Button button = (Button) findViewById(R.id.confirm_button);
         button.setOnClickListener(new View.OnClickListener(){
@@ -44,7 +55,7 @@ public class Suggeritore extends AppCompatActivity
                 int duration= Toast.LENGTH_SHORT;
                 CharSequence text ="Suggerimenti applicati con succeeso";
 
-                EditText corone =(EditText) findViewById(R.id.corone_MIN_suggeritore);
+
                 if(corone.getText().toString().equals("")){
                     SplashScreen.c.getSuggeritore().setCorone(0);
                 }
@@ -52,12 +63,12 @@ public class Suggeritore extends AppCompatActivity
                     SplashScreen.c.getSuggeritore().setCorone(Integer.parseInt(corone.getText().toString())); /** Riferimento da cambiare quando spostiamo su splash screen**/
                 }
 
-                EditText donazioni =(EditText) findViewById(R.id.donazioni_MIN_suggeritore);
+
                 if(donazioni.getText().toString().equals("")){
                     SplashScreen.c.getSuggeritore().setDonazioni(0);
                 }
                 else{
-                    SplashScreen.c.getSuggeritore().setDonazioni(Integer.parseInt(corone.getText().toString())); /** Riferimento da cambiare quando spostiamo su splash screen**/
+                    SplashScreen.c.getSuggeritore().setDonazioni(Integer.parseInt(donazioni.getText().toString())); /** Riferimento da cambiare quando spostiamo su splash screen**/
                 }
 
                 SplashScreen.c.setnSettimana(9);

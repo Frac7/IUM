@@ -1,17 +1,17 @@
 package ium.project.clanmanagerforclashroyale;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import ium.project.clanmanagerforclashroyale.data.Giocatore;
+import ium.project.clanmanagerforclashroyale.data.*;
 
 public class ConfermaAzione extends DialogFragment {
-
-    //TODO: creare dialog fragment personalizzata
 
     private String utente = "";
     private String grado = "";
@@ -39,14 +39,39 @@ public class ConfermaAzione extends DialogFragment {
     }
 
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Conferma azione");
-        builder.setMessage("Vuoi davvero "+grado+" "+utente+"?");
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
-        builder.setPositiveButton("Conferma", new DialogInterface.OnClickListener() {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_conferma_azione_, container, false);
+    }
+
+    // This event is triggered soon after onCreateView().
+    // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+
+        getDialog().setTitle("Conferma azione");
+
+        TextView t = (TextView)view.findViewById(R.id.msg);
+        t.setText("Vuoi davvero "+grado+" "+utente+"?");
+
+        Button annulla = (Button)view.findViewById(R.id.negativo);
+        annulla.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(View view) {
+                dismiss();
+            }
+        });
+
+        Button conferma = (Button)view.findViewById(R.id.positivo);
+        conferma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 if(grado.equals("promuovere"))
                     g.Promozione(true);
                 else
@@ -61,15 +86,6 @@ public class ConfermaAzione extends DialogFragment {
                 toast.show();
             }
         });
-        builder.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dismiss();
-            }
-        });
-
-        return builder.create();
     }
-
 
 }

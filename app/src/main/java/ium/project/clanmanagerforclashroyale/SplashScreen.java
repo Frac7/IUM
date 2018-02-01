@@ -11,12 +11,16 @@ public class SplashScreen extends Activity {
 
     public static ium.project.clanmanagerforclashroyale.data.ClanManager c = new ium.project.clanmanagerforclashroyale.data.ClanManager();
 
+
     // Splash screen timer
     private static int SPLASH_TIME_OUT = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SplashScreen.c.setSuggeritore(new ium.project.clanmanagerforclashroyale.data.Suggeritore());
+
         setContentView(R.layout.activity_splash_screen);
 
         new Handler().postDelayed(new Runnable() {

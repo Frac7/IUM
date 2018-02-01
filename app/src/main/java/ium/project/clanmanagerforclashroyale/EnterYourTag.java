@@ -65,18 +65,18 @@ public class EnterYourTag extends AppCompatActivity implements LoaderCallbacks<C
             public void onClick(View v) {
 
                 //SET CONTROL OF SIGN-UP
-                if(   (tag.getText().toString().equals("JV8H923K") && ID.getText().toString().equals("1-1938466"))
-                        ||(tag.getText().toString().equals("KV86923L") && ID.getText().toString().equals("2-7373748"))
-                        ||(tag.getText().toString().equals("SV87453L") && ID.getText().toString().equals("2-8274739"))
-                        ||(tag.getText().toString().equals("BG2k405L") && ID.getText().toString().equals("1-7485920"))
-                        ||(tag.getText().toString().equals("HV97B54F") && ID.getText().toString().equals("2-9545928"))
-                        ){
+                //if(   (tag.getText().toString().equals("JV8H923K") && ID.getText().toString().equals("1-1938466"))
+                //        ||(tag.getText().toString().equals("KV86923L") && ID.getText().toString().equals("2-7373748"))
+                //        ||(tag.getText().toString().equals("SV87453L") && ID.getText().toString().equals("2-8274739"))
+                //        ||(tag.getText().toString().equals("BG2k405L") && ID.getText().toString().equals("1-7485920"))
+                //        ||(tag.getText().toString().equals("HV97B54F") && ID.getText().toString().equals("2-9545928"))
+                //        ){
 
                     //CALL CONSTRUCT AND SEND INTENT
                     Intent sign = new Intent(getApplicationContext(), Home.class);
                     startActivity(sign);
-                }else{
-                }
+                //}else{
+                //}
             }
         });
     }
@@ -261,7 +261,6 @@ public class EnterYourTag extends AppCompatActivity implements LoaderCallbacks<C
 }
 
 //TODO: Gestire i messaggi di errore con setError(string)
-                    //TODO: Eventualmente gestire la verifica della connessione a internet (la connessione a internet è presente nei requisiti quindi andrebbe gestita)
-                    //TODO: Eventualmente gestire una progress bar sia per splashScreen che per EnterYourTag
-                    //TODO: Gestire eventualmente la memorizzazione dei dati
-                    //TODO: passare il tag dell'utente in modo da modificare il menu e modificare il clan manager
+//TODO: Eventualmente gestire la verifica della connessione a internet (la connessione a internet è presente nei requisiti quindi andrebbe gestita)
+//TODO: Eventualmente gestire una progress bar sia per splashScreen
+//TODO: Gestire eventualmente la memorizzazione dei dati

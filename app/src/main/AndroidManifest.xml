@@ -19,6 +19,7 @@
             android:theme="@style/FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -28,22 +29,20 @@
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".ClanManager"
             android:label="@string/title_activity_clanmanager"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Suggeritore"
             android:label="@string/title_activity_suggeritore"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".Registro"
             android:label="@string/title_activity_registro"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Informazioni"
             android:label="@string/title_activity_informazioni"
@@ -52,7 +51,8 @@
             android:name=".DettaglioSettimana"
             android:label="@string/title_activity_dettaglio_settimana"
             android:theme="@style/AppTheme.NoActionBar">
-            <!--android:parentActivityName=".Registro"!-->
+
+            <!-- android:parentActivityName=".Registro"! -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ium.project.clanmanagerforclashroyale.Registro" />
@@ -66,6 +66,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ium.project.clanmanagerforclashroyale.DettaglioSettimana" />
         </activity>
+        <activity
+            android:name=".HomeClanManager"
+            android:label="@string/title_activity_home_clan_manager"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

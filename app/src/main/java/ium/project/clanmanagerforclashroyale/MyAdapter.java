@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 import ium.project.clanmanagerforclashroyale.data.Giocatore;
@@ -67,6 +69,8 @@ public class MyAdapter extends ArrayAdapter {
         t_donazioni.setText(new Integer(g.getDonazioni()[n]).toString());
         TextView t_trofei = (TextView)v.findViewById(R.id.n_trofei);
         t_trofei.setText(new Integer(g.getCorone()).toString());
+        TextView t_numero = (TextView)v.findViewById(R.id.numero);
+        t_numero.setText(new Integer(position + 1).toString());
 
         if(this.layout == R.layout.layout_list_clan_manager)
         {
