@@ -141,7 +141,11 @@ public class GiocatoriFactory {
     }
 
     public List<Giocatore> getAllPlayers(){
-        return giocatori;
+        //return giocatori;
+        List<Giocatore> l = new ArrayList<>();
+        for(Giocatore g : giocatori)
+            l.add(g);
+        return l;
     }
 
     public int countPlayers(){

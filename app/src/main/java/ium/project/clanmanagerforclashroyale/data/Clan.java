@@ -30,6 +30,8 @@ public class Clan {
         setnMembri(GiocatoriFactory.getInstance().countPlayers());
         setCoppeClan(GiocatoriFactory.getInstance().countTrophies());
         setComponenti(GiocatoriFactory.getInstance().getAllPlayers());
+        //anche in caso di eliminazione di un componente, lasciamo gli stessi punteggi per baule/donazioni/trofei del clan
+        //vedere come viene gestito da clash royale
         setDonazioniTotali(getComponenti());
         setBauleClan(getComponenti());
         setLogo(R.drawable.progetto_ium);
@@ -76,7 +78,8 @@ public class Clan {
     }
 
     public int getnMembri() {
-        return nMembri;
+        //return nMembri;
+        return GiocatoriFactory.getInstance().getAllPlayers().size();
     }
 
     public void setnMembri(int nMembri) {

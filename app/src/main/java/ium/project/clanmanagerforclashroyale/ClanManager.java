@@ -1,12 +1,8 @@
 package ium.project.clanmanagerforclashroyale;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
-import android.view.View;
+import android.view.MenuInflater;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,30 +11,58 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.TableRow;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import ium.project.clanmanagerforclashroyale.data.Clan;
 import ium.project.clanmanagerforclashroyale.data.Filtro;
 import ium.project.clanmanagerforclashroyale.data.Giocatore;
-import ium.project.clanmanagerforclashroyale.data.GiocatoriFactory;
 
 public class ClanManager extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    //TODO: controllare l'effetto del suggeritore sul clan manager
+    //TODO: modificare il layout di suggeritore e inserirlo come è stato inserito il filtro in clan manager
+    //TODO: modificare il layout di home e inserirlo come tab in clan manager
+    //le voci che rimangono nel menu sono: clan manager con tab home e clan manager vero e proprio + filtro + suggeritore
+    //la voce esci e la voce informazioni
+    //eventualmente inserire una voce per ricordare i filtri applicati e i suggerimenti applicati nel clan manager vero e proprio
+
+    //probabilmente il riferimento a splash screen non serve più... basta riferirsi sempre alla stessa locazione di memoria
+    //(vedere cosa viene utilizzato per riferirsi ai giocatori nelle varie schermate)
+
+    private MyAdapter ma = null;
+
+    private Filtro f = new Filtro();
+
+    ium.project.clanmanagerforclashroyale.data.ClanManager c = new ium.project.clanmanagerforclashroyale.data.ClanManager();
+
+    private List<Giocatore> data = null;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.home,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // action with ID action_refresh was selected
+            case R.id.filtra:
+                android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+                GestioneFiltro g = new GestioneFiltro();
+                g.setA(ma);
+                g.setN(9);
+                g.show(fm,"Filtra membri per:");
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,107 +80,17 @@ public class ClanManager extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Clan clan  = SplashScreen.c.getClan();
-        int trofei = clan.getCoppeClan();
-        int donazioni = clan.getDonazioniTotali()[9];
-        int membri = 10;
-        int corone = clan.getBauleClan()[9];
-        int baule = clan.NBauleClan(clan.getBauleIsettimana(0));
-
-        final EditText minCorone, maxCorone;
-        final EditText minDonazioni, maxDonazioni;
-        final EditText minTrofei, maxTrofei;
-
-        minCorone = (EditText)findViewById(R.id.min_corone);
-        maxCorone = (EditText)findViewById(R.id.max_corone);
-
-        minDonazioni = (EditText)findViewById(R.id.min_donazioni);
-        maxDonazioni = (EditText)findViewById(R.id.max_donazioni);
-
-        minTrofei = (EditText)findViewById(R.id.min_trofei);
-        maxTrofei = (EditText)findViewById(R.id.max_trofei);
-
-        List<Giocatore> giocatori = clan.getComponenti();
-        final ium.project.clanmanagerforclashroyale.data.ClanManager c = new ium.project.clanmanagerforclashroyale.data.ClanManager();
-        final Filtro f = new Filtro();
         c.setnSettimana(9);
+
+        //TODO: decidere come gestire la questione capo/cocapo
 
         ListView l = findViewById(R.id.clan_manager_list);
 
-        f.setMinCoroneBaule(0);
-        f.setMaxCoroneBaule(Integer.MAX_VALUE);
-        f.setMinDonazioni(0);
-        f.setMaxDonazioni(Integer.MAX_VALUE);
-        f.setMinTrofei(0);
-        f.setMaxTrofei(Integer.MAX_VALUE);
+        data = c.ApplyFilters();
 
-        c.setFiltro(f);
-
-        final List<Giocatore> data = c.ApplyFilters();
-
-        final MyAdapter ma = new MyAdapter(this, data,9,R.layout.layout_list_clan_manager);
+        ma = new MyAdapter(this, data,9,R.layout.layout_list_clan_manager);
         ma.setFm(getSupportFragmentManager());
         l.setAdapter(ma);
-
-        Button pulisci = (Button)findViewById(R.id.pulisci);
-        pulisci.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                maxCorone.setText("");
-                minCorone.setText("");
-                maxTrofei.setText("");
-                minTrofei.setText("");
-                maxDonazioni.setText("");
-                minDonazioni.setText("");
-            }
-        });
-
-        Button filtro = (Button)findViewById(R.id.filtra);
-        filtro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!minCorone.getText().toString().equals(""))
-                    f.setMinCoroneBaule(Integer.parseInt(minCorone.getText().toString()));
-                else
-                    f.setMinCoroneBaule(0);
-                if(!maxCorone.getText().toString().equals(""))
-                    f.setMaxCoroneBaule(Integer.parseInt(maxCorone.getText().toString()));
-                else
-                    f.setMaxCoroneBaule(Integer.MAX_VALUE);
-                if(!minDonazioni.getText().toString().equals(""))
-                    f.setMinDonazioni(Integer.parseInt(minDonazioni.getText().toString()));
-                else
-                    f.setMinDonazioni(0);
-                if(!maxDonazioni.getText().toString().equals(""))
-                    f.setMaxDonazioni(Integer.parseInt(maxDonazioni.getText().toString()));
-                else
-                    f.setMaxDonazioni(Integer.MAX_VALUE);
-                if(!minTrofei.getText().toString().equals(""))
-                    f.setMinTrofei(Integer.parseInt(minTrofei.getText().toString()));
-                else
-                    f.setMinTrofei(0);
-                if(!maxTrofei.getText().toString().equals(""))
-                    f.setMaxTrofei(Integer.parseInt(maxTrofei.getText().toString()));
-                else
-                    f.setMaxTrofei(Integer.MAX_VALUE);
-
-                c.setFiltro(f);
-
-                data.removeAll(data);
-                data.addAll(c.ApplyFilters());
-                ma.notifyDataSetChanged();
-
-                if(data.size() != 0) {
-                    Toast toast = Toast.makeText(getApplicationContext(),"Lista filtrata",Toast.LENGTH_SHORT);
-                    toast.show();
-                }else{
-                    Toast toast = Toast.makeText(getApplicationContext(),"Nessun risultato",Toast.LENGTH_LONG);
-                    toast.show();
-                }
-
-
-            }
-        });
     }
 
     @Override

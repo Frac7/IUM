@@ -47,6 +47,11 @@ public class MyAdapter extends ArrayAdapter {
         this.fm = fm;
     }
 
+    public void setL(List<Giocatore> l)
+    {
+        this.l = l;
+    }
+
     public View getView(int position, View v, ViewGroup vg)
     {
         LayoutInflater i = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);

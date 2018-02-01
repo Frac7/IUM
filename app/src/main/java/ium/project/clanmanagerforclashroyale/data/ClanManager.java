@@ -53,14 +53,15 @@ public class ClanManager {
 
          ArrayList<Giocatore> giocatoriFiltrati= new ArrayList<Giocatore>();
 
-         List<Giocatore> giocatore = clan.getComponenti();
+         //List<Giocatore> giocatore = clan.getComponenti();
+        List<Giocatore> giocatore = GiocatoriFactory.getInstance().getAllPlayers();
 
         for (Giocatore g: giocatore) {
 
             if(
-                    g.getCorone() > getFiltro().getMinTrofei() && g.getCorone() < getFiltro().getMaxTrofei() &&
-                    g.getDonazioni()[nSettimana] > getFiltro().getMinDonazioni() && g.getDonazioni()[nSettimana] < getFiltro().getMaxDonazioni() &&
-                    g.getCoppeBaule()[nSettimana] > getFiltro().getMinCoroneBaule() && g.getCoppeBaule()[nSettimana] < getFiltro().getMaxCoroneBaule()
+                    g.getCorone() >= getFiltro().getMinTrofei() && g.getCorone() <= getFiltro().getMaxTrofei() &&
+                    g.getDonazioni()[nSettimana] >= getFiltro().getMinDonazioni() && g.getDonazioni()[nSettimana] <= getFiltro().getMaxDonazioni() &&
+                    g.getCoppeBaule()[nSettimana] >= getFiltro().getMinCoroneBaule() && g.getCoppeBaule()[nSettimana] <= getFiltro().getMaxCoroneBaule()
 
                     )
                 giocatoriFiltrati.add(g);

@@ -33,7 +33,6 @@
         <activity
             android:name=".ClanManager"
             android:label="@string/title_activity_clanmanager"
-            android:windowSoftInputMode="stateHidden"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
@@ -52,9 +51,8 @@
         <activity
             android:name=".DettaglioSettimana"
             android:label="@string/title_activity_dettaglio_settimana"
-            android:parentActivityName=".Registro"
-            android:windowSoftInputMode="stateHidden"
             android:theme="@style/AppTheme.NoActionBar">
+            <!--android:parentActivityName=".Registro"!-->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ium.project.clanmanagerforclashroyale.Registro" />
