@@ -27,7 +27,7 @@
             android:label="@string/title_activity_enter_your_tag" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main"
+            android:label="Riepilogo"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity

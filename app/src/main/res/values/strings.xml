@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ClanManagerForClashRoyale</string>
 
-    <string name="title_activity_enter_your_tag">Inserimento Tag</string>
+    <string name="title_activity_enter_your_tag">Inserimento Tag: Login</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Es: PRLRG09G</string>

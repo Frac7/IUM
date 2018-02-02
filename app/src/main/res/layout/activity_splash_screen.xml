@@ -7,30 +7,34 @@
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
+
+    <!--set 100 maximum value for the progress bar-->/>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="false">
+        android:fitsSystemWindows="false"
+        android:visibility="visible">
 
-        <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="?metaButtonBarStyle"
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="550dp"
+            android:indeterminate="true"
+            android:max="100"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:padding="20dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/white_background"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
+            android:src="@drawable/welcomescreen" />
 
-            <ImageView
-                android:id="@+id/fullscreen_content"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="@dimen/activity_horizontal_margin"
-                android:src="@drawable/welcomescreen"
-                />
-
-        </LinearLayout>
     </FrameLayout>
 
 </FrameLayout>

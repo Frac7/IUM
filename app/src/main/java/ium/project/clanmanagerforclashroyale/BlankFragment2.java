@@ -1,6 +1,5 @@
 package ium.project.clanmanagerforclashroyale;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,15 +15,6 @@ import ium.project.clanmanagerforclashroyale.data.Giocatore;
 
 import java.util.List;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link BlankFragment2.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link BlankFragment2#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class BlankFragment2 extends Fragment {
 
     private static MyAdapter ma = null;
@@ -57,6 +47,12 @@ public class BlankFragment2 extends Fragment {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     @Override
