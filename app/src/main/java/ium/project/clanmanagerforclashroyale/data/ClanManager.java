@@ -11,7 +11,7 @@ public class ClanManager {
     //Attributi
     private Clan clan = new Clan();
     private Filtro filtro;
-    private Suggeritore suggeritore;
+    private Suggeritore suggeritore = new Suggeritore();
     private int nSettimana;
 
     public Clan getClan() {

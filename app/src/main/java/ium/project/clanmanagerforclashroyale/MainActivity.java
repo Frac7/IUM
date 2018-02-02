@@ -1,8 +1,11 @@
 package ium.project.clanmanagerforclashroyale;
 
+import android.content.Intent;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -12,14 +15,15 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.TextView;
+import ium.project.clanmanagerforclashroyale.data.ClanManager;
 
-public class HomeClanManager extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+    public static ClanManager c = new ClanManager();
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -39,10 +43,19 @@ public class HomeClanManager extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_clan_manager);
+        setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -58,27 +71,8 @@ public class HomeClanManager extends AppCompatActivity {
 
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_home_clan_manager, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public void changeTab() {
+        mViewPager.setCurrentItem(2);
     }
 
     /**
@@ -109,9 +103,18 @@ public class HomeClanManager extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_home_clan_manager, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            //View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            //TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+            //textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            View rootView = null;
+            int app = getArguments().getInt(ARG_SECTION_NUMBER);
+            if(app == 1)
+                rootView = inflater.inflate(R.layout.fragment_blank,container,false);
+            if(app == 3)
+                rootView = inflater.inflate(R.layout.fragment_blank_fragment2,container,false);
+            if(app == 2)
+                rootView = inflater.inflate(R.layout.fragment_blank_fragment3,container,false);
+
             return rootView;
         }
     }
@@ -130,7 +133,19 @@ public class HomeClanManager extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            //return PlaceholderFragment.newInstance(position + 1);
+            switch (position) {
+                case 0:
+                    return new BlankFragment();
+                case 1:
+                    BlankFragment3 b = new BlankFragment3();
+                    b.setParent(MainActivity.this);
+                    return b;
+                case 2:
+                    return new BlankFragment2();
+                default:
+                    return null;
+            }
         }
 
         @Override
@@ -138,5 +153,42 @@ public class HomeClanManager extends AppCompatActivity {
             // Show 3 total pages.
             return 3;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            //TODO: gestire il back per non tornare alla home una volta effettuato l'accesso se non tramite la voce esci
+            super.onBackPressed();
+        }
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        Intent i = null;
+
+        if (id == R.id.nav_home) {
+            ;
+        } else if (id == R.id.nav_esci) {
+            i = new Intent(MainActivity.this, EnterYourTag.class);
+        } else if (id == R.id.nav_info) {
+            i = new Intent(MainActivity.this, Informazioni.class);
+        } else if (id == R.id.nav_registro) {
+            i = new Intent(MainActivity.this, Registro.class);
+        }
+
+        if(i != null)
+            startActivity(i);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

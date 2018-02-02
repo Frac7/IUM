@@ -60,17 +60,13 @@ public class Informazioni extends AppCompatActivity
         Intent i = null;
 
         if (id == R.id.nav_home) {
-            i = new Intent(Informazioni.this, Home.class);
-        } else if (id == R.id.nav_clanmanager) {
-            i = new Intent(Informazioni.this, ClanManager.class);
+            i = new Intent(Informazioni.this, MainActivity.class);
         } else if (id == R.id.nav_esci) {
             i = new Intent(Informazioni.this, EnterYourTag.class);
         } else if (id == R.id.nav_info) {
             ;
         } else if (id == R.id.nav_registro) {
             i = new Intent(Informazioni.this, Registro.class);
-        } else if (id == R.id.nav_regole) {
-            i = new Intent(Informazioni.this, Suggeritore.class);
         }
 
         if(i != null)

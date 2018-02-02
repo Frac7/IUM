@@ -45,7 +45,7 @@ public class Registro extends AppCompatActivity
         /* la vista della lista viene recuperata tramite tag dall'activity*/
         ListView lista = (ListView) findViewById(R.id.registro_list);
         /*nuova istanza di clan con parametri settati di default*/
-        Clan clan = SplashScreen.c.getClan();
+        Clan clan = MainActivity.c.getClan();
         //da vedere
         /* array di corone e donazioni totali per ogni settimana */
         int [] baule = clan.getBauleClan();
@@ -145,17 +145,13 @@ public class Registro extends AppCompatActivity
         Intent i = null;
 
         if (id == R.id.nav_home) {
-            i = new Intent(Registro.this, Home.class);
-        } else if (id == R.id.nav_clanmanager) {
-            i = new Intent(Registro.this, ClanManager.class);
+            i = new Intent(Registro.this, MainActivity.class);
         } else if (id == R.id.nav_esci) {
             i = new Intent(Registro.this, EnterYourTag.class);
         } else if (id == R.id.nav_info) {
             i = new Intent(Registro.this, Informazioni.class);
         } else if (id == R.id.nav_registro) {
             ;
-        } else if (id == R.id.nav_regole) {
-            i = new Intent(Registro.this, Suggeritore.class);
         }
 
         if(i != null)

@@ -85,12 +85,14 @@ public class MyAdapter extends ArrayAdapter {
             Button positivo = (Button)v.findViewById(R.id.positivo);
             Button negativo = (Button)v.findViewById(R.id.negativo);
 
-            if(g.getGrado().equals("Capo") || g.getGrado().equals("Co-capo")) {
+            if(g.getGrado().equals("Capo")) {
                 positivo.setEnabled(false);
                 negativo.setEnabled(false);
             }
-            else if(g.getGrado().equals("Anziano"))
+            else if(g.getGrado().equals("Anziano") || g.getGrado().equals("Co-capo"))
             {
+                if(g.getGrado().equals("Co-capo"))
+                    positivo.setEnabled(false);
                 negativo.setText("Retrocedi");
                 Drawable img = context.getResources().getDrawable(R.drawable.ic_retrocedi_bottone);
                 img.setBounds(0,0,0,0);
@@ -114,7 +116,7 @@ public class MyAdapter extends ArrayAdapter {
                 public void onClick(View view) {
                     ConfermaAzione c = new ConfermaAzione();
                     c.setUtente(g.getNome());
-                    if(g.getGrado().equals("Anziano"))
+                    if(g.getGrado().equals("Anziano") || g.getGrado().equals("Co-capo"))
                         c.setGrado("retrocedere");
                     else
                         c.setGrado("espellere");
