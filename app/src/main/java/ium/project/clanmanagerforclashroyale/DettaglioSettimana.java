@@ -38,13 +38,21 @@ public class DettaglioSettimana extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             // action with ID action_refresh was selected
-            case R.id.filtra:
+            case R.id.filtra: {
                 android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
                 GestioneFiltro g = new GestioneFiltro();
                 g.setA(ma);
                 g.setN(n);
-                g.show(fm,"Filtra membri per:");
+                g.show(fm, "Filtra membri per:");
+            }
                 break;
+            case R.id.ordina: {
+                android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+                GestioneOrdinamento g = new GestioneOrdinamento();
+                g.setA(BlankFragment2.getAdapter());
+                g.setN(n);
+                g.show(fm, "Ordina membri per:");
+            }
             default:
                 break;
         }

@@ -46,6 +46,14 @@ public class BlankFragment2 extends Fragment {
             g.show(fm,"Filtra membri per:");
         }
 
+        if (id == R.id.ordina) {
+            android.support.v4.app.FragmentManager fm = getFragmentManager();
+            GestioneOrdinamento g = new GestioneOrdinamento();
+            g.setA(BlankFragment2.getAdapter());
+            g.setN(9);
+            g.show(fm,"Ordina membri per:");
+        }
+
         return super.onOptionsItemSelected(item);
     }
 

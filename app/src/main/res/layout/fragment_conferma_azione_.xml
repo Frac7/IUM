@@ -28,10 +28,11 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
         <Button
             android:padding="5dp"
@@ -40,6 +41,10 @@
             android:layout_height="wrap_content"
             android:background="@drawable/button_azzera"
             android:text="Conferma"/>
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="match_parent" />
 
         <Button
             android:padding="5dp"

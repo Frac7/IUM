@@ -7,4 +7,11 @@
             android:title="FIltra"
             android:icon="@drawable/ic_menu_filter"/>
 
+    <item
+        android:id="@+id/ordina"
+        app:showAsAction="ifRoom"
+        android:title="FIltra"
+        android:icon="@drawable/ic_ordinamento"/>
+
+
 </menu>

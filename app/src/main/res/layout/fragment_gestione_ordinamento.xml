@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
+        android:padding="10dp"
         android:orientation="vertical">
 
         <TextView
@@ -21,7 +21,7 @@
             android:textColor="#ff0000"
             android:textSize="9pt"
             android:textStyle="bold"
-            android:text="Inserire almeno un valore"/>
+            android:text="Scegliere almeno un valore"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,30 +49,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <EditText
-                    android:shadowColor="#ffffff"
-                    android:textColorHint="#ffffff"
-                    android:textColor="@color/colorAccent"
-                    android:id="@+id/min_corone"
+                <RadioButton
+                    android:id="@+id/corone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:layout_toStartOf="@id/max_corone"
-                    android:layout_toLeftOf="@id/max_corone"
-                    android:hint="MIN"
-                    android:inputType="number" />
-
-                <EditText
-                    android:shadowColor="#ffffff"
-                    android:textColorHint="#ffffff"
-                    android:textColor="@color/colorAccent"
-                    android:id="@+id/max_corone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_alignParentRight="true"
-                    android:hint="MAX"
-                    android:inputType="number" />
+                    android:layout_alignParentRight="true"/>
 
             </RelativeLayout>
 
@@ -104,30 +86,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <EditText
-                    android:shadowColor="#ffffff"
-                    android:textColorHint="#ffffff"
-                    android:textColor="@color/colorAccent"
-                    android:id="@+id/min_donazioni"
+                <RadioButton
+                    android:id="@+id/donazioni"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:layout_toStartOf="@id/max_donazioni"
-                    android:layout_toLeftOf="@id/max_donazioni"
-                    android:hint="MIN"
-                    android:inputType="number" />
-
-                <EditText
-                    android:shadowColor="#ffffff"
-                    android:textColorHint="#ffffff"
-                    android:textColor="@color/colorAccent"
-                    android:id="@+id/max_donazioni"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_alignParentRight="true"
-                    android:hint="MAX"
-                    android:inputType="number" />
+                    android:layout_alignParentRight="true"/>
 
             </RelativeLayout>
 
@@ -159,49 +123,52 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <EditText
-                    android:shadowColor="#ffffff"
-                    android:textColorHint="#ffffff"
-                    android:textColor="@color/colorAccent"
-                    android:id="@+id/min_trofei"
+                <RadioButton
+                    android:id="@+id/trofei"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:layout_toStartOf="@id/max_trofei"
-                    android:layout_toLeftOf="@id/max_trofei"
-                    android:hint="MIN"
-                    android:inputType="number" />
-
-                <EditText
-                    android:shadowColor="#ffffff"
-                    android:textColorHint="#ffffff"
-                    android:textColor="@color/colorAccent"
-                    android:id="@+id/max_trofei"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_alignParentRight="true"
-                    android:hint="MAX"
-                    android:inputType="number" />
+                    android:layout_alignParentRight="true"/>
 
             </RelativeLayout>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
                 <Button
                     android:layout_gravity="center"
-                    android:padding="1dp"
-                    android:id="@+id/filtra"
+                    android:id="@+id/crescente"
+                    android:padding="5dp"
                     android:background="@drawable/button_filtra"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Filtra"/>
+                    android:text="Crescente"/>
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent" />
+
+                <Button
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:id="@+id/decrescente"
+                    android:background="@drawable/button_filtra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Decrescente"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -209,7 +176,7 @@
                 android:layout_gravity="center">
 
                 <Button
-                    android:padding="5dp"
+                    android:padding="1dp"
                     android:id="@+id/pulisci"
                     android:background="#00ffffff"
                     android:layout_width="wrap_content"
@@ -217,18 +184,9 @@
                     android:textColor="@color/colorAccent"
                     android:text="Azzera\ncampi"/>
 
-                <Button
-                    android:padding="5dp"
-                    android:id="@+id/pulisci_filtro"
-                    android:background="#00ffffff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorAccent"
-                    android:text="Azzera\nfiltro"/>
-
             <Button
                 android:layout_gravity="center"
-                android:padding="5dp"
+                android:padding="1dp"
                 android:id="@+id/annulla"
                 android:background="#00ffffff"
                 android:textColor="#cccccc"

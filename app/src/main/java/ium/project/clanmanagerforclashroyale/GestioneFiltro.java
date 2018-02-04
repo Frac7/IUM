@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -66,52 +67,105 @@ public class GestioneFiltro extends DialogFragment {
         minTrofei = (EditText)view.findViewById(R.id.min_trofei);
         maxTrofei = (EditText)view.findViewById(R.id.max_trofei);
 
-        Button filtra = (Button)view.findViewById(R.id.filtra);
-        filtra.setOnClickListener(new View.OnClickListener() {
+        final TextView t = view.findViewById(R.id.errore);
+        t.setVisibility(View.INVISIBLE);
+
+        Button normale = view.findViewById(R.id.pulisci_filtro);
+        normale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!minCorone.getText().toString().equals(""))
-                    f.setMinCoroneBaule(Integer.parseInt(minCorone.getText().toString()));
-                else
-                    f.setMinCoroneBaule(0);
-                if(!maxCorone.getText().toString().equals(""))
-                    f.setMaxCoroneBaule(Integer.parseInt(maxCorone.getText().toString()));
-                else
-                    f.setMaxCoroneBaule(Integer.MAX_VALUE);
-                if(!minDonazioni.getText().toString().equals(""))
-                    f.setMinDonazioni(Integer.parseInt(minDonazioni.getText().toString()));
-                else
-                    f.setMinDonazioni(0);
-                if(!maxDonazioni.getText().toString().equals(""))
-                    f.setMaxDonazioni(Integer.parseInt(maxDonazioni.getText().toString()));
-                else
-                    f.setMaxDonazioni(Integer.MAX_VALUE);
-                if(!minTrofei.getText().toString().equals(""))
-                    f.setMinTrofei(Integer.parseInt(minTrofei.getText().toString()));
-                else
-                    f.setMinTrofei(0);
-                if(!maxTrofei.getText().toString().equals(""))
-                    f.setMaxTrofei(Integer.parseInt(maxTrofei.getText().toString()));
-                else
-                    f.setMaxTrofei(Integer.MAX_VALUE);
-
                 ClanManager c = new ClanManager();
                 c.setnSettimana(n);
-                c.setFiltro(f);
+                c.setFiltro(new Filtro());
                 List<Giocatore> data = c.ApplyFilters();
                 a.getL().removeAll(a.getL());
                 a.getL().addAll(data);
 
                 a.notifyDataSetChanged();
                 dismiss();
-                if(data.size() != 0) {
-                    Toast t = Toast.makeText(a.getContext(), "Lista filtrata",Toast.LENGTH_SHORT);
-                    t.show();
+                Toast t = Toast.makeText(a.getContext(), "Lista ripristinata",Toast.LENGTH_SHORT);
+                t.show();
+            }
+        });
+
+        Button filtra = (Button)view.findViewById(R.id.filtra);
+        filtra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int i = 0;
+
+                if(!minCorone.getText().toString().equals(""))
+                    f.setMinCoroneBaule(Integer.parseInt(minCorone.getText().toString()));
+                else
+                {
+                    f.setMinCoroneBaule(0);
+                    i++;
+                }
+                if(!maxCorone.getText().toString().equals(""))
+                    f.setMaxCoroneBaule(Integer.parseInt(maxCorone.getText().toString()));
+                else
+                {
+                    f.setMaxCoroneBaule(Integer.MAX_VALUE);
+                    i++;
+                }
+                if(!minDonazioni.getText().toString().equals(""))
+                    f.setMinDonazioni(Integer.parseInt(minDonazioni.getText().toString()));
+                else {
+                    i++;
+                    f.setMinDonazioni(0);
+                }
+                if(!maxDonazioni.getText().toString().equals(""))
+                    f.setMaxDonazioni(Integer.parseInt(maxDonazioni.getText().toString()));
+                else
+                {
+                    i++;
+                    f.setMaxDonazioni(Integer.MAX_VALUE);
+                }
+                if(!minTrofei.getText().toString().equals(""))
+                    f.setMinTrofei(Integer.parseInt(minTrofei.getText().toString()));
+                else
+                {
+                    i++;
+                    f.setMinTrofei(0);
+                }
+                if(!maxTrofei.getText().toString().equals(""))
+                    f.setMaxTrofei(Integer.parseInt(maxTrofei.getText().toString()));
+                else
+                {
+                    i++;
+                    f.setMaxTrofei(Integer.MAX_VALUE);
+                }
+
+                if(i == 6)
+                {
+                    t.setVisibility(View.VISIBLE);
+                    minCorone.setError("");
+                    maxCorone.setError("");
+                    minDonazioni.setError("");
+                    maxDonazioni.setError("");
+                    minTrofei.setError("");
+                    maxTrofei.setError("");
                 }
                 else
                 {
-                    Toast t = Toast.makeText(a.getContext(), "Nessun risultato",Toast.LENGTH_LONG);
-                    t.show();
+                    ClanManager c = new ClanManager();
+                    c.setnSettimana(n);
+                    c.setFiltro(f);
+                    List<Giocatore> data = c.ApplyFilters();
+                    a.getL().removeAll(a.getL());
+                    a.getL().addAll(data);
+
+                    a.notifyDataSetChanged();
+                    dismiss();
+                    if(data.size() != 0) {
+                        Toast t = Toast.makeText(a.getContext(), "Lista filtrata",Toast.LENGTH_SHORT);
+                        t.show();
+                    }
+                    else
+                    {
+                        Toast t = Toast.makeText(a.getContext(), "Nessun risultato",Toast.LENGTH_LONG);
+                        t.show();
+                    }
                 }
             }
         });

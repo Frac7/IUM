@@ -31,11 +31,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //TODO inserire un'animazione di tipo scale per i bottoni
     //TODO: modificare menu laterale
     //TODO: modificare linea in basso delle edit text
-    //TODO: ingrandire il filtro e implementare l'ordinamento
     //TODO: modificare immagine splash screen
     //TODO: rivedere bottoni in clan manager...
-    //TODO: spaziare i bottoni in conferma
-    //TODO: clan manager lagga, trovare una soluzione (troppe immagini nel layout...)
+    //TODO: clan manager lagga, trovare una soluzione (troppe immagini nel layout...?)
+    //TODO: specificare parametri per filtro e ordinamento (sia nelle edit text o check box che con una text view all'inizio della lista)
 
     public static ClanManager c = new ClanManager();
 

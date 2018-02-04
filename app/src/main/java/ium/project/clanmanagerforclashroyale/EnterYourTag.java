@@ -73,6 +73,7 @@ public class EnterYourTag extends AppCompatActivity implements TextWatcher, Comp
                         if ((tag.getText().toString().equals("JV8H923K") && ID.getText().toString().equals("1-1938466"))) {
                             //CALL CONSTRUCT AND SEND INTENT
                             Intent sign = new Intent(getApplicationContext(), MainActivity.class);
+                            finish();
                             startActivity(sign);
                         }else{
                             if(tag.getText().toString().length() != 8){

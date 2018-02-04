@@ -4,13 +4,11 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
+    android:padding="10dp"
     android:background="@drawable/box_trasparente_lista"
-    android:orientation="vertical"
-
-    android:theme="@style/AppTheme">
+    android:orientation="vertical">
 
     <TableLayout
-        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -130,21 +128,21 @@
         android:layout_width="match_parent">
 
         <Button
-            android:background="@drawable/button_green"
+            android:textColor="#0d8900"
+            android:background="#00ffffff"
             android:id="@+id/positivo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="9pt"
             android:text="Promuovi"/>
 
         <Button
-            android:background="@drawable/button_red"
+            android:textColor="#ff0000"
+            android:background="#00ffffff"
             android:id="@+id/negativo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="9pt"
             android:text="Espelli"/>
 
     </LinearLayout>

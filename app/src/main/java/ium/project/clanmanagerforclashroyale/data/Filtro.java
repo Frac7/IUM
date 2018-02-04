@@ -5,12 +5,12 @@ package ium.project.clanmanagerforclashroyale.data;
  */
 
 public class Filtro {
-    private int maxCoroneBaule;
-    private int minCoroneBaule;
-    private int maxDonazioni;
-    private int minDonazioni;
-    private int maxTrofei;
-    private int minTrofei;
+    private int maxCoroneBaule = Integer.MAX_VALUE;
+    private int minCoroneBaule = 0;
+    private int maxDonazioni = Integer.MAX_VALUE;;
+    private int minDonazioni = 0;
+    private int maxTrofei = Integer.MAX_VALUE;;
+    private int minTrofei = 0;
 
     public int getMaxCoroneBaule() {
         return maxCoroneBaule;

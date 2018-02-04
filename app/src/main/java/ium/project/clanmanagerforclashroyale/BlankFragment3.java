@@ -57,7 +57,7 @@ public class BlankFragment3 extends Fragment {
                     MainActivity.c.getSuggeritore().setCorone(0);
                 }
                 else{
-                    MainActivity.c.getSuggeritore().setCorone(Integer.parseInt(corone.getText().toString())); /** Riferimento da cambiare quando spostiamo su splash screen**/
+                    MainActivity.c.getSuggeritore().setCorone(Integer.parseInt(corone.getText().toString()));
                 }
 
 
@@ -65,17 +65,25 @@ public class BlankFragment3 extends Fragment {
                     MainActivity.c.getSuggeritore().setDonazioni(0);
                 }
                 else{
-                    MainActivity.c.getSuggeritore().setDonazioni(Integer.parseInt(donazioni.getText().toString())); /** Riferimento da cambiare quando spostiamo su splash screen**/
+                    MainActivity.c.getSuggeritore().setDonazioni(Integer.parseInt(donazioni.getText().toString()));
                 }
 
-                MainActivity.c.setnSettimana(9);
-                MainActivity.c.applyHint(); //Applicazione suggerimento
-                if(MainActivity.c.getSuggeritore().getCorone() == 0 && MainActivity.c.getSuggeritore().getDonazioni() == 0)
+
+                if(MainActivity.c.getSuggeritore().getCorone() == 0 && MainActivity.c.getSuggeritore().getDonazioni() == 0) {
                     text = "Nessun suggerimento applicato";
-                Toast toast = Toast.makeText(context,text,duration);
-                toast.show();
-                obj.changeTab();
-                //startActivity(clanManager);
+                    Toast toast = Toast.makeText(context,text,duration);
+                    toast.show();
+                }
+                else
+                {
+                    MainActivity.c.setnSettimana(9);
+                    MainActivity.c.applyHint(); //Applicazione suggerimento
+                    Toast toast = Toast.makeText(context,text,duration);
+                    toast.show();
+                    obj.changeTab();
+                    //startActivity(clanManager);
+                }
+
 
             }
         });
