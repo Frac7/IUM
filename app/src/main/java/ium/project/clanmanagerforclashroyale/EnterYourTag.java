@@ -65,6 +65,12 @@ public class EnterYourTag extends AppCompatActivity implements TextWatcher, Comp
             ID.addTextChangedListener(this);
             rem_userpass.setOnCheckedChangeListener(this);
 
+            if ((tag.getText().toString().equals("JV8H923K") && ID.getText().toString().equals("1-1938466"))) {
+                //CALL CONSTRUCT AND SEND INTENT
+                Intent sign = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(sign);
+            }
+
             sign_in.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -178,3 +184,4 @@ public class EnterYourTag extends AppCompatActivity implements TextWatcher, Comp
         managePrefs();
     }
 }
+//FATTO - TODO: Gestire eventualmente la memorizzazione dei dati

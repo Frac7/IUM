@@ -197,6 +197,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             ;
         } else if (id == R.id.nav_esci) {
             i = new Intent(MainActivity.this, EnterYourTag.class);
+            i.putExtra("esci",true);
         } else if (id == R.id.nav_info) {
             i = new Intent(MainActivity.this, Informazioni.class);
         } else if (id == R.id.nav_registro) {

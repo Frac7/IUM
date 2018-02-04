@@ -154,6 +154,7 @@ public class Registro extends AppCompatActivity
             i = new Intent(Registro.this, MainActivity.class);
         } else if (id == R.id.nav_esci) {
             i = new Intent(Registro.this, EnterYourTag.class);
+            i.putExtra("esci",true);
         } else if (id == R.id.nav_info) {
             i = new Intent(Registro.this, Informazioni.class);
         } else if (id == R.id.nav_registro) {

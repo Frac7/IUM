@@ -62,6 +62,7 @@ public class Informazioni extends AppCompatActivity
             i = new Intent(Informazioni.this, MainActivity.class);
         } else if (id == R.id.nav_esci) {
             i = new Intent(Informazioni.this, EnterYourTag.class);
+            i.putExtra("esci",true);
         } else if (id == R.id.nav_info) {
             ;
         } else if (id == R.id.nav_registro) {
