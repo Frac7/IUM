@@ -128,8 +128,7 @@
         android:layout_width="match_parent">
 
         <Button
-            android:textColor="#0d8900"
-            android:background="#00ffffff"
+            android:background="@drawable/button_green"
             android:id="@+id/positivo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -137,8 +136,7 @@
             android:text="Promuovi"/>
 
         <Button
-            android:textColor="#ff0000"
-            android:background="#00ffffff"
+            android:background="@drawable/button_red"
             android:id="@+id/negativo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
