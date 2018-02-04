@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //TODO: rivedere bottoni in clan manager...
     //TODO: clan manager lagga, trovare una soluzione (troppe immagini nel layout...?)
     //TODO: specificare parametri per filtro e ordinamento (sia nelle edit text o check box che con una text view all'inizio della lista)
+    //TODO: back in main activity per tornare alla scheda home e dalla scheda home uscire
 
     public static ClanManager c = new ClanManager();
 

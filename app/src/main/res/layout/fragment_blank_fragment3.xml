@@ -22,7 +22,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:background="@drawable/box_trasparente_lista"
+                android:background="@drawable/box_trasparente_lista_arancione"
                 android:padding="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
