@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="ium.project.clanmanagerforclashroyale.BlankFragment3">
 
@@ -21,24 +22,24 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:background="@drawable/box_trasparente_lista"
+                android:padding="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/imageView1"
-                    android:layout_width="75dp"
+                    android:layout_width="40dp"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:layout_gravity="center"
-                    android:paddingTop="@dimen/nav_header_vertical_spacing"
                     app:srcCompat="@drawable/ic_help" />
 
                 <TextView
+                    android:textColor="#000000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="9pt"
+                    android:textSize="8pt"
                     android:textAlignment="center"
-                    android:text="Impostando il numero di corone e le donazioni minime richieste, il sistema suggerirà chi promuovere e chi espellere evidenziando in rosso o in verde i membri nel Clan Manager."/>
+                    android:text="Impostando corone e donazioni minime richieste, il sistema suggerirà chi promuovere e chi espellere evidenziando in rosso o in verde i membri in ClanManager."/>
 
             </LinearLayout>
 
@@ -51,6 +52,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:textColor="@color/textColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="9pt"
@@ -78,6 +80,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:textColor="@color/textColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="9pt"
@@ -85,6 +88,9 @@
                         android:text="Corone minime per il baule clan: "/>
 
                     <EditText
+                        android:shadowColor="#ffffff"
+                        android:textColor="@color/colorAccent"
+                        android:textColorHint="@color/textColorHint"
                         android:id="@+id/corone_MIN_suggeritore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -114,6 +120,7 @@
                     android:layout_gravity="bottom">
 
                     <TextView
+                        android:textColor="@color/textColor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="9pt"
@@ -121,6 +128,9 @@
                         android:text="Donazioni minime: "/>
 
                     <EditText
+                        android:shadowColor="#ffffff"
+                        android:textColorHint="@color/textColorHint"
+                        android:textColor="@color/colorAccent"
                         android:id="@+id/donazioni_MIN_suggeritore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -138,6 +148,8 @@
                 android:layout_gravity="center_horizontal">
 
                 <Button
+                    android:background="@drawable/button_blue"
+                    android:textSize="9pt"
                     android:id="@+id/confirm_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

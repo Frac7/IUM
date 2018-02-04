@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:theme="@style/AppTheme"
+    android:background="@color/colorPrimaryDark"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="ium.project.clanmanagerforclashroyale.GestioneFiltro">
 
@@ -27,6 +28,7 @@
                 app:srcCompat="@drawable/ic_home_corone_nospace" />
 
             <TextView
+                android:textColor="#ffffff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Corone baule"
@@ -38,6 +40,9 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:shadowColor="#ffffff"
+                    android:textColorHint="#ffffff"
+                    android:textColor="@color/colorAccent"
                     android:id="@+id/min_corone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -48,6 +53,9 @@
                     android:inputType="number" />
 
                 <EditText
+                    android:shadowColor="#ffffff"
+                    android:textColorHint="#ffffff"
+                    android:textColor="@color/colorAccent"
                     android:id="@+id/max_corone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -75,6 +83,7 @@
                 app:srcCompat="@drawable/ic_home_donazioni_nospace" />
 
             <TextView
+                android:textColor="#ffffff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Donazioni"
@@ -86,6 +95,9 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:shadowColor="#ffffff"
+                    android:textColorHint="#ffffff"
+                    android:textColor="@color/colorAccent"
                     android:id="@+id/min_donazioni"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -96,6 +108,9 @@
                     android:inputType="number" />
 
                 <EditText
+                    android:shadowColor="#ffffff"
+                    android:textColorHint="#ffffff"
+                    android:textColor="@color/colorAccent"
                     android:id="@+id/max_donazioni"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -123,6 +138,7 @@
                 app:srcCompat="@drawable/ic_home_trofei_nospace" />
 
             <TextView
+                android:textColor="#ffffff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -134,6 +150,9 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:shadowColor="#ffffff"
+                    android:textColorHint="#ffffff"
+                    android:textColor="@color/colorAccent"
                     android:id="@+id/min_trofei"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -144,6 +163,9 @@
                     android:inputType="number" />
 
                 <EditText
+                    android:shadowColor="#ffffff"
+                    android:textColorHint="#ffffff"
+                    android:textColor="@color/colorAccent"
                     android:id="@+id/max_trofei"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -159,41 +181,42 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:orientation="vertical">
 
                 <Button
+                    android:layout_gravity="center"
+                    android:padding="1dp"
                     android:id="@+id/filtra"
-                    android:padding="5dp"
-                    android:textColor="@color/colorAccent"
-                    android:background="#00ffffff"
-                    android:layout_width="wrap_content"
+                    android:background="@drawable/button_filtra"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Filtra"/>
 
-            <Space
-                android:layout_width="10dp"
-                android:layout_height="match_parent" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
 
                 <Button
+                    android:padding="1dp"
                     android:id="@+id/pulisci"
-                    android:padding="5dp"
                     android:background="#00ffffff"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pulisci"/>
-
-            <Space
-                android:layout_width="5dp"
-                android:layout_height="match_parent" />
+                    android:textColor="@color/colorAccent"
+                    android:text="Azzera"/>
 
             <Button
+                android:padding="1dp"
                 android:id="@+id/annulla"
-                android:padding="5dp"
                 android:background="#00ffffff"
+                android:textColor="#cccccc"
                 android:layout_width="wrap_content"
-                android:textColor="#666666"
                 android:layout_height="wrap_content"
                 android:text="Annulla"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 

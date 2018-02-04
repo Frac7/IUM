@@ -2,9 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark"
+
     tools:context="ium.project.clanmanagerforclashroyale.BlankFragment2">
 
         <ListView
+            android:layout_margin="20dp"
             android:id="@+id/clan_manager_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

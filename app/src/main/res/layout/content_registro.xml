@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="ium.project.clanmanagerforclashroyale.Registro"
     tools:showIn="@layout/app_bar_registro">
@@ -20,18 +21,12 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="ium.project.clanmanagerforclashroyale.Suggeritore">
-        <!--<ScrollView
-            android:id="@+id/login_form"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">!-->
 
                 <ListView
                     android:id="@+id/registro_list"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                 </ListView>
-
-        <!--</ScrollView>!-->
 
     </LinearLayout>
 

@@ -2,13 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="ium.project.clanmanagerforclashroyale.BlankFragment">
 
     <LinearLayout
-        android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
     <ScrollView
         android:id="@+id/scroll_home"
@@ -16,30 +16,34 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:padding="20dp"
             android:id="@+id/content_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
+                android:background="@drawable/box_trasparente_lista"
+                android:padding="20dp"
                 android:id="@+id/content_home_clan"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:id="@+id/contents_home_clan"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <TextView
+                        android:textColor="#000000"
                         android:id="@+id/nome_clan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Progetto IUM"
                         android:textSize="12pt" />
                     <TextView
+                        android:textColor="#000000"
                         android:id="@+id/tag_clan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -49,6 +53,7 @@
 
 
                 <ImageView
+                    android:layout_gravity="center"
                     android:id="@+id/badge_clan"
                     android:layout_width="wrap_content"
                     android:layout_height="120px"
@@ -60,12 +65,12 @@
 
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
-                android:layout_height="25dp" />
+                android:layout_height="10dp" />
 
             <LinearLayout
+                android:background="@drawable/box_trasparente_lista"
                 android:id="@+id/content_home_clan_stat"
-                android:background="#50efefef"
-                android:padding="5dp"
+                android:padding="10dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -85,6 +90,7 @@
                         app:srcCompat="@drawable/ic_home_trofei_nospace" />
 
                     <TextView
+                        android:textColor="#000000"
                         android:id="@+id/trofei_home_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -94,6 +100,7 @@
                         android:textSize="8pt" />
 
                     <TextView
+                        android:textColor="#000000"
                         android:id="@+id/trofei_home_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -119,6 +126,7 @@
                         app:srcCompat="@drawable/ic_home_donazioni_nospace" />
 
                     <TextView
+                        android:textColor="#000000"
                         android:id="@+id/donazioni_home_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -128,6 +136,7 @@
                         android:textSize="8pt" />
 
                     <TextView
+                        android:textColor="#000000"
                         android:id="@+id/donazioni_home_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -153,6 +162,7 @@
                         app:srcCompat="@drawable/ic_home_membri_nospace" />
 
                     <TextView
+                        android:textColor="#000000"
                         android:id="@+id/membri_home_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -162,6 +172,7 @@
                         android:textSize="8pt" />
 
                     <TextView
+                        android:textColor="#000000"
                         android:id="@+id/membri_home_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -186,6 +197,7 @@
                         app:srcCompat="@drawable/ic_0" />
 
                     <TextView
+                        android:textColor="#000000"
                         android:id="@+id/baule_home_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -195,6 +207,7 @@
                         android:textSize="8pt" />
 
                     <TextView
+                        android:textColor="#000000"
                         android:id="@+id/baule_home_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -208,117 +221,143 @@
 
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
-                android:layout_height="25dp" />
+                android:layout_height="10dp" />
 
-            <TextView
-                android:id="@+id/descrizione_home"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:background="@drawable/box_trasparente_lista"
+                android:padding="10dp"
                 android:layout_height="wrap_content"
-                android:text="Descrizione"
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                android:textSize="8pt" />
+                android:layout_width="match_parent"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/descrizione_home_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:background="#50efefef"
-                android:padding="5dp"
-                android:text="Clan serio. Minimo 4000 trofei. Minimo 10 corone al giorno per il baule clan, minimo 100 donazioni a settimana. GG!"
-                android:layout_gravity="center"
-                android:textSize="8pt" />
+                <TextView
+                    android:textColor="#000000"
+                    android:id="@+id/descrizione_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Descrizione"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:textSize="8pt" />
+
+                <TextView
+                    android:textColor="#000000"
+                    android:id="@+id/descrizione_home_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:text="Clan serio. Minimo 4000 trofei. Minimo 10 corone al giorno per il baule clan, minimo 100 donazioni a settimana. GG!"
+                    android:layout_gravity="center"
+                    android:textSize="8pt" />
+
+            </LinearLayout>
 
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
-                android:layout_height="25dp" />
-
-            <TextView
-                android:id="@+id/dettagli_home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dettagli"
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                android:textSize="8pt" />
+                android:layout_height="10dp" />
 
             <LinearLayout
-                android:id="@+id/dettagli_home_text"
+                android:background="@drawable/box_trasparente_lista"
+                android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#50efefef"
-                android:layout_gravity="left"
-                android:padding="5dp"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/content_home_clan_tipo"
+                <TextView
+                    android:textColor="#000000"
+                    android:id="@+id/dettagli_home"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/tipo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tipo: "
-                        android:textStyle="bold"
-                        android:layout_gravity="center"
-                        android:textSize="8pt" />
-
-                    <TextView
-                        android:id="@+id/tipo_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Chiuso"
-                        android:layout_gravity="center"
-                        android:textSize="8pt" />
-                </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:text="Dettagli"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:textSize="8pt" />
 
                 <LinearLayout
-                    android:id="@+id/content_home_clan_posizione"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:id="@+id/dettagli_home_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:padding="5dp"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/posizione"
+                    <LinearLayout
+                        android:id="@+id/content_home_clan_tipo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:textColor="#000000"
+                            android:id="@+id/tipo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tipo: "
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+                            android:textSize="8pt" />
+
+                        <TextView
+                            android:textColor="#000000"
+                            android:id="@+id/tipo_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chiuso"
+                            android:layout_gravity="center"
+                            android:textSize="8pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/content_home_clan_posizione"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:textColor="#000000"
+                            android:id="@+id/posizione"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Posizione: "
+                            android:textSize="8pt"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:textColor="#000000"
+                            android:id="@+id/posizione_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Italia"
+                            android:textSize="8pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/content_home_clan_richiesti_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Posizione: "
-                        android:textSize="8pt"
-                        android:textStyle="bold" />
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/posizione_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Italia"
-                        android:textSize="8pt" />
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/trofei_richiesti"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Trofei richiesti: "
+                            android:textColor="#000000"
+                            android:textSize="8pt"
+                            android:textStyle="bold" />
 
-                <LinearLayout
-                    android:id="@+id/content_home_clan_richiesti_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                        <TextView
+                            android:textColor="#000000"
+                            android:id="@+id/content_home_clan_richiesti_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:layout_gravity="center"
+                            android:textSize="8pt" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/trofei_richiesti"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Trofei richiesti: "
-                        android:textStyle="bold"
-                        android:layout_gravity="center"
-                        android:textSize="8pt" />
-
-                    <TextView
-                        android:id="@+id/content_home_clan_richiesti_number"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:layout_gravity="center"
-                        android:textSize="8pt" />
                 </LinearLayout>
 
             </LinearLayout>

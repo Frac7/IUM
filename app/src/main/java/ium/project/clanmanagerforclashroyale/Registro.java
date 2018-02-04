@@ -138,7 +138,6 @@ public class Registro extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            //TODO: gestire il back per non tornare alla home una volta effettuato l'accesso se non tramite la voce esci
             super.onBackPressed();
         }
     }

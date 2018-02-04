@@ -28,6 +28,15 @@ import ium.project.clanmanagerforclashroyale.data.ClanManager;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
+    //TODO inserire un'animazione di tipo scale per i bottoni
+    //TODO: modificare menu laterale
+    //TODO: modificare linea in basso delle edit text
+    //TODO: ingrandire il filtro e implementare l'ordinamento
+    //TODO: modificare immagine splash screen
+    //TODO: rivedere bottoni in clan manager...
+    //TODO: spaziare i bottoni in conferma
+    //TODO: clan manager lagga, trovare una soluzione (troppe immagini nel layout...)
+
     public static ClanManager c = new ClanManager();
 
     /**
@@ -172,7 +181,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            //TODO: gestire il back per non tornare alla home una volta effettuato l'accesso se non tramite la voce esci - provare con finish
+            finish();
+            System.exit(0);
             super.onBackPressed();
         }
     }

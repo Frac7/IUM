@@ -4,17 +4,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:background="@drawable/box_trasparente_lista_arancione"
     android:orientation="vertical">
 
 <TableLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TableRow
         android:id="@+id/tableRow1"
-        android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -45,32 +45,33 @@
 
     <TableRow
         android:id="@+id/tableRow2"
-        android:background="#efefef"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <TextView
+            android:textColor="#000000"
             android:id="@+id/text_baule_1"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:textSize="9pt"
-            android:textColor="#737373"
-            android:layout_gravity="bottom"
-            android:textAlignment="center"
-            android:text="0"/>
-        <TextView
-            android:id="@+id/text_corone_1"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:textSize="9pt"
-            android:textColor="#737373"
             android:layout_gravity="bottom"
             android:textAlignment="center"
             android:text="0"/>
 
         <TextView
+            android:textColor="#000000"
+            android:id="@+id/text_corone_1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:textSize="9pt"
+            android:layout_gravity="bottom"
+            android:textAlignment="center"
+            android:text="0"/>
+
+        <TextView
+            android:textColor="#000000"
             android:id="@+id/text_donazioni_1"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -78,7 +79,6 @@
             android:layout_gravity="bottom"
             android:textAlignment="center"
             android:textSize="9pt"
-            android:textColor="#737373"
             android:text="0"/>
 
     </TableRow>
@@ -94,27 +94,27 @@
             app:srcCompat="@drawable/ic_view" />
 
         <TextView
+            android:textColor="#000000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Visualizza il riepilogo di "
             android:textStyle="bold"
-            android:textColor="#888888"
             android:textAlignment="center"/>
 
         <TextView
+            android:textColor="#000000"
             android:id="@+id/settimana"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textStyle="bold"
-            android:textColor="#888888"
             android:text="1"/>
 
         <TextView
+            android:textColor="#000000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" settimane fa"
-            android:textColor="#888888"
             android:textStyle="bold"
             android:textAlignment="center"/>
 

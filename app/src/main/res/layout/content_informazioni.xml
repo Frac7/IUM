@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="ium.project.clanmanagerforclashroyale.Informazioni"
     tools:showIn="@layout/app_bar_informazioni">
@@ -46,6 +47,7 @@
                         app:srcCompat="@mipmap/ic_launcher" />
 
                     <TextView
+                        android:textColor="@color/textColorHint"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="About Clan Manager For Clash Royale..."
@@ -61,6 +63,7 @@
                     android:layout_height="10dp" />
 
                 <TextView
+                    android:textColor="@color/textColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Clan Manager For Clash Royale permette agli amministratori di gestire facilmente e velocemente il proprio clan attraverso una visuale completa supportata da un suggeritore basato sulle regole stabilite dall'amministratore."

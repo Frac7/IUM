@@ -4,20 +4,33 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 
-public class EnterYourTag extends AppCompatActivity {
+public class EnterYourTag extends AppCompatActivity implements TextWatcher, CompoundButton.OnCheckedChangeListener{
 
     //DECLARATION
     EditText tag, ID;
+    private CheckBox rem_userpass;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+
+    private static final String PREF_NAME = "prefs";
+    private static final String KEY_REMEMBER = "remember";
+    private static final String KEY_USERNAME = "username";
+    private static final String KEY_PASS = "password";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +44,26 @@ public class EnterYourTag extends AppCompatActivity {
             //SET ID REFERENCES
             tag = findViewById(R.id.tag);
             ID = findViewById(R.id.ID);
+            rem_userpass = findViewById(R.id.checkBoxRem);
+            sharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+            editor = sharedPreferences.edit();
+
 
             Button sign_in = this.findViewById(R.id.email_sign_in_button);
+
+
+            if(sharedPreferences.getBoolean(KEY_REMEMBER, false)){
+                rem_userpass.setChecked(true);
+            }else{
+                rem_userpass.setChecked(false);
+            }
+
+            tag.setText(sharedPreferences.getString(KEY_USERNAME, ""));
+            ID.setText(sharedPreferences.getString(KEY_PASS, ""));
+
+            tag.addTextChangedListener(this);
+            ID.addTextChangedListener(this);
+            rem_userpass.setOnCheckedChangeListener(this);
 
             sign_in.setOnClickListener(new OnClickListener() {
                 @Override
@@ -43,6 +74,18 @@ public class EnterYourTag extends AppCompatActivity {
                             //CALL CONSTRUCT AND SEND INTENT
                             Intent sign = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(sign);
+                        }else{
+                            if(tag.getText().toString().length() != 8){
+                                tag.setError("Lunghezza tag errata");
+                            }else{
+                                tag.setError("Tag non è un amministratore clan");
+                            }
+                            if(ID.getText().toString().length() != 9){
+                                ID.setError("Lunghezza ID errata");
+                            }else{
+                                ID.setError("ID non è associato al tag");
+                            }
+
                         }
                     }
                 }
@@ -99,5 +142,38 @@ public class EnterYourTag extends AppCompatActivity {
 
         return builder;
     }
+
+    private void managePrefs(){
+        if(rem_userpass.isChecked()){
+            editor.putString(KEY_USERNAME, tag.getText().toString().trim());
+            editor.putString(KEY_PASS, ID.getText().toString().trim());
+            editor.putBoolean(KEY_REMEMBER, true);
+            editor.apply();
+        }else{
+            editor.putBoolean(KEY_REMEMBER, false);
+            editor.remove(KEY_PASS);
+            editor.remove(KEY_USERNAME);
+            editor.apply();
+        }
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        managePrefs();
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        managePrefs();
+    }
 }
-//TODO: Gestire eventualmente la memorizzazione dei dati

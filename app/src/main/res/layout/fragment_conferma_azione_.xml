@@ -3,23 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:theme="@style/AppTheme"
+    android:background="@color/colorPrimaryDark"
     tools:context="ium.project.clanmanagerforclashroyale.ConfermaAzione">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="10dp"
         android:layout_gravity="center_horizontal">
 
     <LinearLayout
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <TextView
+            android:textColor="#ffffff"
             android:id="@+id/msg"
             android:textSize="9pt"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Vuoi davvero espellere utente?"/>
 
@@ -35,8 +38,7 @@
             android:id="@+id/positivo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#00ffffff"
-            android:textColor="@color/colorAccent"
+            android:background="@drawable/button_azzera"
             android:text="Conferma"/>
 
         <Button
@@ -44,8 +46,7 @@
             android:id="@+id/negativo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#00ffffff"
-            android:textColor="#666666"
+            android:background="@drawable/annulla"
             android:text="Annulla"/>
 
     </LinearLayout>

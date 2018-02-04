@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -70,33 +71,32 @@ public class MyAdapter extends ArrayAdapter {
         TextView t_trofei = (TextView)v.findViewById(R.id.n_trofei);
         t_trofei.setText(new Integer(g.getCorone()).toString());
         TextView t_numero = (TextView)v.findViewById(R.id.numero);
-        t_numero.setText(new Integer(position + 1).toString());
+        t_numero.setText((position + 1)+" ");
 
         if(this.layout == R.layout.layout_list_clan_manager)
         {
-            TableRow r = (TableRow)v.findViewById(R.id.riga);
+            LinearLayout r = (LinearLayout)v.findViewById(R.id.main);
             if(g.isEspulsione() || g.isRetrocessione())
-                r.setBackgroundColor(Color.parseColor("#66ffd3d3"));
+                r.setBackgroundResource(R.drawable.box_trasparente_lista_rosso);
             else if(g.isPromozione() && !g.isEspulsione() && !g.isRetrocessione())
-                r.setBackgroundColor(Color.parseColor("#66d9ffd3"));
+                r.setBackgroundResource(R.drawable.box_trasparente_lista_verde);
             else if(!g.isPromozione() && !g.isEspulsione() && !g.isRetrocessione())
                 ;
+
+            this.notifyDataSetChanged();
 
             Button positivo = (Button)v.findViewById(R.id.positivo);
             Button negativo = (Button)v.findViewById(R.id.negativo);
 
             if(g.getGrado().equals("Capo")) {
-                positivo.setEnabled(false);
-                negativo.setEnabled(false);
+                positivo.setVisibility(View.INVISIBLE);
+                negativo.setVisibility(View.INVISIBLE);
             }
             else if(g.getGrado().equals("Anziano") || g.getGrado().equals("Co-capo"))
             {
                 if(g.getGrado().equals("Co-capo"))
-                    positivo.setEnabled(false);
+                    positivo.setVisibility(View.INVISIBLE);
                 negativo.setText("Retrocedi");
-                Drawable img = context.getResources().getDrawable(R.drawable.ic_retrocedi_bottone);
-                img.setBounds(0,0,0,0);
-                negativo.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null);
             }
 
             positivo.setOnClickListener(new View.OnClickListener() {
