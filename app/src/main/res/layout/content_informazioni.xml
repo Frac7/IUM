@@ -47,7 +47,7 @@
                         app:srcCompat="@mipmap/ic_launcher" />
 
                     <TextView
-                        android:textColor="@color/textColorHint"
+                        android:textColor="@color/colorAccent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="About Clan Manager For Clash Royale..."

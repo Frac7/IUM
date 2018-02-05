@@ -48,31 +48,9 @@ public class EnterYourTag extends AppCompatActivity implements TextWatcher, Comp
             sharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
             editor = sharedPreferences.edit();
 
-
             Button sign_in = this.findViewById(R.id.email_sign_in_button);
 
-
-            if(sharedPreferences.getBoolean(KEY_REMEMBER, false)){
-                rem_userpass.setChecked(true);
-            }else{
-                rem_userpass.setChecked(false);
-            }
-
-            tag.setText(sharedPreferences.getString(KEY_USERNAME, ""));
-            ID.setText(sharedPreferences.getString(KEY_PASS, ""));
-
-            tag.addTextChangedListener(this);
-            ID.addTextChangedListener(this);
-            rem_userpass.setOnCheckedChangeListener(this);
-
-            if ((tag.getText().toString().equals("JV8H923K") && ID.getText().toString().equals("1-1938466"))) {
-                //CALL CONSTRUCT AND SEND INTENT
-                Intent sign = new Intent(getApplicationContext(), MainActivity.class);
-                finish();
-                startActivity(sign);
-            }
-
-            sign_in.setOnClickListener(new OnClickListener() {
+            View.OnClickListener click = new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (checkInput()) {
@@ -97,7 +75,42 @@ public class EnterYourTag extends AppCompatActivity implements TextWatcher, Comp
                         }
                     }
                 }
-            });
+            };
+
+            Bundle extras = getIntent().getExtras();
+
+            if (extras == null) {
+                //SE SEI QUI DENTRO VUOL DIRE CHE NON HAI PREMUTO ESCI NEL MENU
+
+                if(sharedPreferences.getBoolean(KEY_REMEMBER, false)){
+                    rem_userpass.setChecked(true);
+                }else{
+                    rem_userpass.setChecked(false);
+                }
+
+                tag.setText(sharedPreferences.getString(KEY_USERNAME, ""));
+                ID.setText(sharedPreferences.getString(KEY_PASS, ""));
+
+                tag.addTextChangedListener(this);
+                ID.addTextChangedListener(this);
+                rem_userpass.setOnCheckedChangeListener(this);
+
+                if ((tag.getText().toString().equals("JV8H923K") && ID.getText().toString().equals("1-1938466"))) {
+                    //CALL CONSTRUCT AND SEND INTENT
+                    Intent sign = new Intent(getApplicationContext(), MainActivity.class);
+                    finish();
+                    startActivity(sign);
+                }
+
+                sign_in.setOnClickListener(click);
+
+            }
+            else{
+                //SE SEI QUI DENTRO VUOL DIRE CHE HAI PREMUTO ESCI NEL MENU LATERALE
+                rem_userpass.setChecked(false);
+                managePrefs();
+                sign_in.setOnClickListener(click);
+            }
         }
     }
 
@@ -185,4 +198,3 @@ public class EnterYourTag extends AppCompatActivity implements TextWatcher, Comp
         managePrefs();
     }
 }
-//FATTO - TODO: Gestire eventualmente la memorizzazione dei dati
