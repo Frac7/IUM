@@ -8,6 +8,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import java.util.List;
@@ -15,6 +17,8 @@ import java.util.List;
 import ium.project.clanmanagerforclashroyale.data.*;
 
 public class DettaglioSettimana extends AppCompatActivity {
+
+    private Animation anim = null;
 
     private MyAdapter ma = null;
 
@@ -74,7 +78,7 @@ public class DettaglioSettimana extends AppCompatActivity {
 
         c.setnSettimana(n);
 
-        ListView l = findViewById(R.id.clan_manager_list);
+        final ListView l = findViewById(R.id.clan_manager_list);
 
         f.setMinCoroneBaule(0);
         f.setMaxCoroneBaule(Integer.MAX_VALUE);
@@ -90,9 +94,12 @@ public class DettaglioSettimana extends AppCompatActivity {
         ma = new MyAdapter(this, data,n,R.layout.layout_list_clan_manager_dettaglio);
         l.setAdapter(ma);
 
+        anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animazione);
+
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long ll) {
+                l.startAnimation(anim);
                 Intent ac = new Intent(DettaglioSettimana.this,DettaglioGiocatore.class);
                 ac.putExtra("giocatore",i);
                 startActivity(ac);

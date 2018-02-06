@@ -94,7 +94,7 @@
                         android:id="@+id/corone_MIN_suggeritore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Corone MIN"
+                        android:hint="Es: 30"
                         android:inputType="number"/>
 
                 </LinearLayout>
@@ -134,7 +134,7 @@
                         android:id="@+id/donazioni_MIN_suggeritore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Donazioni MIN"
+                        android:hint="Es: 70"
                         android:inputType="number"/>
 
                 </LinearLayout>

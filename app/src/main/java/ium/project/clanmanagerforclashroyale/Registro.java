@@ -15,6 +15,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -27,6 +29,8 @@ import ium.project.clanmanagerforclashroyale.data.Clan;
 
 public class Registro extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private Animation anim = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +54,7 @@ public class Registro extends AppCompatActivity
 
 
         /* la vista della lista viene recuperata tramite tag dall'activity*/
-            ListView lista = (ListView) findViewById(R.id.registro_list);
+            final ListView lista = (ListView) findViewById(R.id.registro_list);
         /*nuova istanza di clan con parametri settati di default*/
             Clan clan = MainActivity.c.getClan();
             //da vedere
@@ -121,9 +125,12 @@ public class Registro extends AppCompatActivity
             SimpleAdapter a = new SimpleAdapter(getApplicationContext(), listaMappe, R.layout.layout_list_clan_registro, from, to);
             lista.setAdapter(a);
 
+            anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animazione);
+
             lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    lista.startAnimation(anim);
                     Intent n = new Intent(Registro.this, DettaglioSettimana.class);
                     n.putExtra("settimana", i); //i è il numero della settimana
                     startActivity(n);

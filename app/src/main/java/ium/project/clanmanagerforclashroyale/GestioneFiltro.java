@@ -5,6 +5,8 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,6 +18,8 @@ import ium.project.clanmanagerforclashroyale.data.*;
 import ium.project.clanmanagerforclashroyale.data.ClanManager;
 
 public class GestioneFiltro extends DialogFragment {
+
+    private Animation anim = null;
 
     private int n;
 
@@ -70,10 +74,13 @@ public class GestioneFiltro extends DialogFragment {
         final TextView t = view.findViewById(R.id.errore);
         t.setVisibility(View.INVISIBLE);
 
-        Button normale = view.findViewById(R.id.pulisci_filtro);
+        anim = AnimationUtils.loadAnimation(a.getContext(), R.anim.animazione);
+
+        final Button normale = view.findViewById(R.id.pulisci_filtro);
         normale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                normale.startAnimation(anim);
                 ClanManager c = new ClanManager();
                 c.setnSettimana(n);
                 c.setFiltro(new Filtro());
@@ -88,10 +95,12 @@ public class GestioneFiltro extends DialogFragment {
             }
         });
 
-        Button filtra = (Button)view.findViewById(R.id.filtra);
+        final Button filtra = (Button)view.findViewById(R.id.filtra);
         filtra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                filtra.startAnimation(anim);
+
                 int i = 0;
 
                 if(!minCorone.getText().toString().equals(""))
@@ -170,10 +179,12 @@ public class GestioneFiltro extends DialogFragment {
             }
         });
 
-        Button annulla = (Button)view.findViewById(R.id.annulla);
+        final Button annulla = (Button)view.findViewById(R.id.annulla);
         annulla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                annulla.startAnimation(anim);
+
                 f.setMinCoroneBaule(0);
                 f.setMaxCoroneBaule(Integer.MAX_VALUE);
                 f.setMinDonazioni(0);
@@ -184,10 +195,12 @@ public class GestioneFiltro extends DialogFragment {
             }
         });
 
-        Button pulisci = (Button)view.findViewById(R.id.pulisci);
+        final Button pulisci = (Button)view.findViewById(R.id.pulisci);
         pulisci.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pulisci.startAnimation(anim);
+
                 minCorone.setText("");
                 minDonazioni.setText("");
                 minTrofei.setText("");

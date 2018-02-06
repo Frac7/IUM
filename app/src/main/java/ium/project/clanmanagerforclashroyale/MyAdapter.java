@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -30,6 +32,7 @@ public class MyAdapter extends ArrayAdapter {
     private int n;
     private int layout;
     private FragmentManager fm;
+    private Animation anim = null;
 
     public List<Giocatore> getL()
     {
@@ -55,7 +58,7 @@ public class MyAdapter extends ArrayAdapter {
         this.l = l;
     }
 
-    public View getView(int position, View v, ViewGroup vg)
+    public View getView(final int position, View v, ViewGroup vg)
     {
         LayoutInflater i = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         v = i.inflate(layout,null);
@@ -75,6 +78,7 @@ public class MyAdapter extends ArrayAdapter {
 
         if(this.layout == R.layout.layout_list_clan_manager)
         {
+            anim = AnimationUtils.loadAnimation(getContext(), R.anim.animazione);
             LinearLayout r = (LinearLayout)v.findViewById(R.id.main);
             if(g.isEspulsione() || g.isRetrocessione())
                 r.setBackgroundResource(R.drawable.box_trasparente_lista_rosso);
@@ -85,8 +89,8 @@ public class MyAdapter extends ArrayAdapter {
 
             this.notifyDataSetChanged();
 
-            Button positivo = (Button)v.findViewById(R.id.positivo);
-            Button negativo = (Button)v.findViewById(R.id.negativo);
+            final Button positivo = (Button)v.findViewById(R.id.positivo);
+            final Button negativo = (Button)v.findViewById(R.id.negativo);
 
             if(g.getGrado().equals("Capo")) {
                 positivo.setVisibility(View.INVISIBLE);
@@ -102,6 +106,8 @@ public class MyAdapter extends ArrayAdapter {
             positivo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    positivo.startAnimation(anim);
+
                     ConfermaAzione c = new ConfermaAzione();
                     c.setUtente(g.getNome());
                     c.setGrado("promuovere");
@@ -114,6 +120,8 @@ public class MyAdapter extends ArrayAdapter {
             negativo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    negativo.startAnimation(anim);
+
                     ConfermaAzione c = new ConfermaAzione();
                     c.setUtente(g.getNome());
                     if(g.getGrado().equals("Anziano") || g.getGrado().equals("Co-capo"))

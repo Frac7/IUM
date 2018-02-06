@@ -5,6 +5,8 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +19,8 @@ public class ConfermaAzione extends DialogFragment {
     private String grado = "";
     private Giocatore g = null;
     private MyAdapter a = null;
+
+    private Animation anim = null;
 
     public void setA(MyAdapter a)
     {
@@ -64,6 +68,7 @@ public class ConfermaAzione extends DialogFragment {
         annulla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                anim = AnimationUtils.loadAnimation(a.getContext(), R.anim.animazione);
                 dismiss();
             }
         });
@@ -72,6 +77,7 @@ public class ConfermaAzione extends DialogFragment {
         conferma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                anim = AnimationUtils.loadAnimation(a.getContext(), R.anim.animazione);
                 if(grado.equals("promuovere"))
                     g.Promozione(true);
                 else

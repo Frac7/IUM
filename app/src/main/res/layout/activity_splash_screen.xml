@@ -2,13 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@drawable/backgroundcr"
     tools:context="ium.project.clanmanagerforclashroyale.SplashScreen">
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
 
-    <!--set 100 maximum value for the progress bar-->/>
+    <!--set 100 maximum value for the progress bar-->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

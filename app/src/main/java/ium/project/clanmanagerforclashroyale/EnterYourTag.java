@@ -13,6 +13,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -31,6 +33,7 @@ public class EnterYourTag extends AppCompatActivity implements TextWatcher, Comp
     private static final String KEY_REMEMBER = "remember";
     private static final String KEY_USERNAME = "username";
     private static final String KEY_PASS = "password";
+    private Animation anim = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +50,14 @@ public class EnterYourTag extends AppCompatActivity implements TextWatcher, Comp
             rem_userpass = findViewById(R.id.checkBoxRem);
             sharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
             editor = sharedPreferences.edit();
+            anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animazione);
 
-            Button sign_in = this.findViewById(R.id.email_sign_in_button);
+            final Button sign_in = this.findViewById(R.id.email_sign_in_button);
 
             View.OnClickListener click = new OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    sign_in.startAnimation(anim);
                     if (checkInput()) {
                         //SET CONTROL OF SIGN-UP
                         if ((tag.getText().toString().equals("JV8H923K") && ID.getText().toString().equals("1-1938466"))) {
@@ -64,12 +69,12 @@ public class EnterYourTag extends AppCompatActivity implements TextWatcher, Comp
                             if(tag.getText().toString().length() != 8){
                                 tag.setError("Lunghezza tag errata");
                             }else{
-                                tag.setError("Tag non è un amministratore clan");
+                                tag.setError("Il tag inserito non appartiene ad un amministratore clan");
                             }
                             if(ID.getText().toString().length() != 9){
                                 ID.setError("Lunghezza ID errata");
                             }else{
-                                ID.setError("ID non è associato al tag");
+                                ID.setError("L'ID non è associato al tag inserito");
                             }
 
                         }

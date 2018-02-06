@@ -5,24 +5,23 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import ium.project.clanmanagerforclashroyale.data.ClanManager;
-import ium.project.clanmanagerforclashroyale.data.Filtro;
 import ium.project.clanmanagerforclashroyale.data.Giocatore;
 
 public class GestioneOrdinamento extends DialogFragment {
+
+    private Animation anim = null;
 
     private int n;
 
@@ -68,6 +67,8 @@ public class GestioneOrdinamento extends DialogFragment {
         final TextView t = view.findViewById(R.id.errore);
         t.setVisibility(View.INVISIBLE);
 
+        anim = AnimationUtils.loadAnimation(a.getContext(), R.anim.animazione);
+
         donazioni.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,11 +93,11 @@ public class GestioneOrdinamento extends DialogFragment {
             }
         });
 
-        Button crescente = (Button)view.findViewById(R.id.crescente);
+        final Button crescente = (Button)view.findViewById(R.id.crescente);
         crescente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                crescente.startAnimation(anim);
 
                 ClanManager c = new ClanManager();
                 c.setnSettimana(n);
@@ -138,11 +139,11 @@ public class GestioneOrdinamento extends DialogFragment {
             }
         });
 
-        Button decrescente = view.findViewById(R.id.decrescente);
+        final Button decrescente = view.findViewById(R.id.decrescente);
         decrescente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                decrescente.startAnimation(anim);
 
                 ClanManager c = new ClanManager();
                 c.setnSettimana(n);
@@ -184,18 +185,21 @@ public class GestioneOrdinamento extends DialogFragment {
             }
         });
 
-        Button annulla = (Button)view.findViewById(R.id.annulla);
+        final Button annulla = (Button)view.findViewById(R.id.annulla);
         annulla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                annulla.startAnimation(anim);
                 dismiss();
             }
         });
 
-        Button pulisci = (Button)view.findViewById(R.id.pulisci);
+        final Button pulisci = (Button)view.findViewById(R.id.pulisci);
         pulisci.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pulisci.startAnimation(anim);
+
                 corone.setChecked(false);
                 donazioni.setChecked(false);
                 trofei.setChecked(false);

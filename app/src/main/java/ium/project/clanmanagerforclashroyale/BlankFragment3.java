@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -14,6 +16,8 @@ import android.widget.Toast;
 public class BlankFragment3 extends Fragment {
 
     private MainActivity obj;
+
+    private Animation anim = null;
 
     public void setParent(MainActivity o)
     {
@@ -42,11 +46,13 @@ public class BlankFragment3 extends Fragment {
         }
 
         //final Intent clanManager= new Intent(getApplicationContext(),ClanManager.class);
-        Button button = (Button) v.findViewById(R.id.confirm_button);
+        final Button button = (Button) v.findViewById(R.id.confirm_button);
         final Context context = v.getContext();
+        anim = AnimationUtils.loadAnimation(context, R.anim.animazione);
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View view ){
+                button.startAnimation(anim);
                 //Cosa avviene al click di conferma
                 //Context context=getApplicationContext();
                 int duration= Toast.LENGTH_SHORT;
@@ -68,8 +74,9 @@ public class BlankFragment3 extends Fragment {
                     MainActivity.c.getSuggeritore().setDonazioni(Integer.parseInt(donazioni.getText().toString()));
                 }
 
-
                 if(MainActivity.c.getSuggeritore().getCorone() == 0 && MainActivity.c.getSuggeritore().getDonazioni() == 0) {
+                    donazioni.setError("Inserire un valore");
+                    corone.setError("Inserire un valore");
                     text = "Nessun suggerimento applicato";
                     Toast toast = Toast.makeText(context,text,duration);
                     toast.show();

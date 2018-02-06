@@ -13,9 +13,6 @@
     <string name="error_incorrect_password">L\'ID inserito non corrisponde a quello del tag</string>
     <string name="error_field_required">Campo obbligatorio</string>
 
-    <string name="title_activity_home">Home</string>
-    <string name="title_activity_clanmanager">Clan Manager</string>
-    <string name="title_activity_suggeritore">Regole</string>
     <string name="title_activity_registro">Registro</string>
     <string name="title_activity_informazioni">Informazioni</string>
 
@@ -26,18 +23,11 @@
 
     <string name="home">Informazioni clan</string>
     <string name="clan_manager">Clan Manager</string>
-    <string name="suggeritore">Imposta regole&#8230;</string>
     <string name="registro">Registro settimane precedenti</string>
     <string name="info">Informazioni sull\'applicazione</string>
     <string name="esci">Esci dall\'applicazione</string>
     <string name="title_activity_dettaglio_settimana">Dettaglio Settimana</string>
     <string name="title_activity_dettaglio_giocatore">DettaglioGiocatore</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
-    <string name="tab_text_3">Tab 3</string>
-    <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_main">Clan Manager</string>
 </resources>

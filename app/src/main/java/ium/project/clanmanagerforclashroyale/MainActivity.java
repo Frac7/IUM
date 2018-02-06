@@ -28,8 +28,8 @@ import ium.project.clanmanagerforclashroyale.data.ClanManager;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    //TODO inserire un'animazione di tipo scale per i bottoni
-    //TODO: modificare menu laterale
+    //TODO inserire un'animazione di tipo scale per i bottoni (fatto, da rivedere)
+    //TODO: modificare menu laterale (fatto, da rivedere)
     //TODO: modificare linea in basso delle edit text
     //TODO: specificare parametri per filtro e ordinamento (sia nelle edit text o check box che con una text view all'inizio della lista)
     //TODO: back in main activity per tornare alla scheda home e dalla scheda home uscire
