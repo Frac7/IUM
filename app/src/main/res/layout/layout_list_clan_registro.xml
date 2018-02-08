@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:theme="@style/AppTheme"
     android:padding="20dp"
-    android:background="@drawable/box_trasparente_lista"
+    android:background="@drawable/bg_trasparente"
     android:orientation="vertical">
 
 <TableLayout
@@ -49,7 +49,6 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:textColor="#000000"
             android:id="@+id/text_baule_1"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -60,7 +59,6 @@
             android:text="0"/>
 
         <TextView
-            android:textColor="#000000"
             android:id="@+id/text_corone_1"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -71,7 +69,6 @@
             android:text="0"/>
 
         <TextView
-            android:textColor="#000000"
             android:id="@+id/text_donazioni_1"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -94,7 +91,6 @@
             app:srcCompat="@drawable/ic_view" />
 
         <TextView
-            android:textColor="#000000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Visualizza il riepilogo di "
@@ -102,7 +98,6 @@
             android:textAlignment="center"/>
 
         <TextView
-            android:textColor="#000000"
             android:id="@+id/settimana"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -111,7 +106,6 @@
             android:text="1"/>
 
         <TextView
-            android:textColor="#000000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" settimane fa"

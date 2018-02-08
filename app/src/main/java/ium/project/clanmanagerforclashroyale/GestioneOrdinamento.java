@@ -1,5 +1,6 @@
 package ium.project.clanmanagerforclashroyale;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -125,6 +127,7 @@ public class GestioneOrdinamento extends DialogFragment {
 
                         Toast t = Toast.makeText(a.getContext(), "Lista ordinata", Toast.LENGTH_SHORT);
                         t.show();
+
                     } else {
                         Toast t = Toast.makeText(a.getContext(), "Nessun risultato", Toast.LENGTH_LONG);
                         t.show();

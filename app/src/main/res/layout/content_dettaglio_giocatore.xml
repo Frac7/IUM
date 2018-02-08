@@ -16,18 +16,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:layout_margin="10dp"
             android:orientation="vertical">
 
             <LinearLayout
+                android:background="@drawable/testo"
                 android:padding="20dp"
-                android:background="@drawable/box_trasparente_lista_arancione"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
-                    android:textColor="#000000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="9pt"
@@ -39,7 +38,6 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:textColor="#000000"
                             android:layout_gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -48,7 +46,6 @@
                             android:text="Nome: "/>
 
                         <TextView
-                            android:textColor="#000000"
                             android:id="@+id/nome"
                             android:layout_gravity="center"
                             android:layout_width="wrap_content"
@@ -63,7 +60,6 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:textColor="#000000"
                             android:layout_gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -72,7 +68,6 @@
                             android:text="Ruolo: "/>
 
                         <TextView
-                            android:textColor="#000000"
                             android:id="@+id/ruolo"
                             android:layout_gravity="center"
                             android:layout_width="wrap_content"
@@ -87,7 +82,6 @@
                             android:layout_height="wrap_content">
 
                             <TextView
-                                android:textColor="#000000"
                                 android:layout_gravity="center"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -96,7 +90,6 @@
                                 android:text="Tag: "/>
 
                             <TextView
-                                android:textColor="#000000"
                                 android:id="@+id/tag"
                                 android:layout_gravity="center"
                                 android:layout_width="wrap_content"
@@ -110,17 +103,16 @@
 
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp" />
+                android:layout_height="10dp" />
 
             <LinearLayout
+                android:background="@drawable/testo"
                 android:padding="20dp"
-                android:background="@drawable/box_trasparente_lista_arancione"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
-                    android:textColor="#000000"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -145,7 +137,6 @@
                             app:srcCompat="@drawable/ic_home_donazioni_nospace" />
 
                         <TextView
-                            android:textColor="#000000"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
@@ -153,7 +144,6 @@
                             android:text="Donazioni"/>
 
                         <TextView
-                            android:textColor="#000000"
                             android:id="@+id/media_don"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -176,7 +166,6 @@
                             app:srcCompat="@drawable/ic_home_corone_nospace" />
 
                         <TextView
-                            android:textColor="#000000"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
@@ -184,7 +173,6 @@
                             android:text="Corone"/>
 
                         <TextView
-                            android:textColor="#000000"
                             android:id="@+id/media_cor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -200,22 +188,21 @@
 
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
-                    android:layout_height="20dp" />
+                    android:layout_height="10dp" />
 
                 <LinearLayout
+                    android:background="@drawable/testo"
                     android:padding="20dp"
-                    android:background="@drawable/box_trasparente_lista_arancione"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:textColor="#000000"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="9pt"
                         android:layout_gravity="center"
-                        android:text="Percentuale contribuzione sul totale"/>
+                        android:text="% contribuzione sul totale"/>
 
                 <LinearLayout
 
@@ -236,7 +223,6 @@
                             app:srcCompat="@drawable/ic_home_donazioni_nospace" />
 
                         <TextView
-                            android:textColor="#000000"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
@@ -244,7 +230,6 @@
                             android:text="Donazioni"/>
 
                         <TextView
-                            android:textColor="#000000"
                             android:id="@+id/perc_don"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -267,7 +252,6 @@
                             app:srcCompat="@drawable/ic_home_corone_nospace" />
 
                         <TextView
-                            android:textColor="#000000"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
@@ -275,7 +259,6 @@
                             android:text="Corone"/>
 
                         <TextView
-                            android:textColor="#000000"
                             android:id="@+id/perc_cor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

@@ -35,11 +35,11 @@
             android:layout_height="wrap_content">
 
         <Button
-            android:padding="5dp"
+            android:padding="20dp"
             android:id="@+id/positivo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_azzera"
+            android:background="@drawable/button_blue"
             android:text="Conferma"/>
 
         <Space
@@ -47,11 +47,11 @@
             android:layout_height="match_parent" />
 
         <Button
-            android:padding="5dp"
+            android:padding="20dp"
             android:id="@+id/negativo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/annulla"
+            android:background="@drawable/button_gray"
             android:text="Annulla"/>
 
     </LinearLayout>

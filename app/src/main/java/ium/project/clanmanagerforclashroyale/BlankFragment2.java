@@ -1,5 +1,6 @@
 package ium.project.clanmanagerforclashroyale;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,7 +9,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import ium.project.clanmanagerforclashroyale.data.ClanManager;
 import ium.project.clanmanagerforclashroyale.data.Giocatore;
@@ -84,5 +87,7 @@ public class BlankFragment2 extends Fragment {
         ma = new MyAdapter(getContext(), data,9,R.layout.layout_list_clan_manager);
         ma.setFm(getFragmentManager());
         l.setAdapter(ma);
+
+
     }
 }

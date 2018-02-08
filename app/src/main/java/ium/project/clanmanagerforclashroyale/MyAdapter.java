@@ -81,11 +81,20 @@ public class MyAdapter extends ArrayAdapter {
             anim = AnimationUtils.loadAnimation(getContext(), R.anim.animazione);
             LinearLayout r = (LinearLayout)v.findViewById(R.id.main);
             if(g.isEspulsione() || g.isRetrocessione())
-                r.setBackgroundResource(R.drawable.box_trasparente_lista_rosso);
+            {
+                r.setBackgroundResource(R.drawable.lista_rosso);
+                r.setPadding(20,20,20,20);
+            }
             else if(g.isPromozione() && !g.isEspulsione() && !g.isRetrocessione())
-                r.setBackgroundResource(R.drawable.box_trasparente_lista_verde);
+            {
+                r.setBackgroundResource(R.drawable.lista_verde);
+                r.setPadding(20,20,20,20);
+            }
             else if(!g.isPromozione() && !g.isEspulsione() && !g.isRetrocessione())
-                ;
+            {
+                r.setBackgroundResource(R.drawable.testo_lista);
+                r.setPadding(20,20,20,20);
+            }
 
             this.notifyDataSetChanged();
 
@@ -93,8 +102,8 @@ public class MyAdapter extends ArrayAdapter {
             final Button negativo = (Button)v.findViewById(R.id.negativo);
 
             if(g.getGrado().equals("Capo")) {
-                positivo.setVisibility(View.INVISIBLE);
-                negativo.setVisibility(View.INVISIBLE);
+                positivo.setVisibility(View.GONE);
+                negativo.setVisibility(View.GONE);
             }
             else if(g.getGrado().equals("Anziano") || g.getGrado().equals("Co-capo"))
             {

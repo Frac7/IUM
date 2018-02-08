@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.annotation.DrawableRes;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -29,9 +30,8 @@ import ium.project.clanmanagerforclashroyale.data.ClanManager;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     //TODO inserire un'animazione di tipo scale per i bottoni (fatto, da rivedere)
-    //TODO: modificare menu laterale (fatto, da rivedere)
     //TODO: modificare linea in basso delle edit text
-    //TODO: specificare parametri per filtro e ordinamento (sia nelle edit text o check box che con una text view all'inizio della lista)
+    //TODO: specificare parametri per filtro e ordinamento (fatto, da implementare logicamente)
     //TODO: back in main activity per tornare alla scheda home e dalla scheda home uscire
 
     public static ClanManager c = new ClanManager();
@@ -60,10 +60,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             setContentView(R.layout.activity_main);
 
-            setTitle("Riepilogo");
-
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
+
+            //getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.box_trasparente));
 
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="5dp"
-    android:background="@drawable/box_trasparente_lista"
+    android:background="@drawable/bg_trasparente"
+    android:theme="@style/AppTheme"
+    android:padding="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TableLayout
-        android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:textColor="#000000"
+                android:textColor="@color/textColor"
                 android:id="@+id/numero"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:textColor="#000000"
+                    android:textColor="@color/textColor"
                     android:id="@+id/nome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                     android:textSize="9pt"/>
 
                 <TextView
-                    android:textColor="#000000"
+                    android:textColor="@color/textColor"
                     android:id="@+id/grado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
             </LinearLayout>
 
             <TextView
-                android:textColor="#000000"
+                android:textColor="@color/textColor"
                 android:id="@+id/n_corone"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
@@ -99,7 +99,7 @@
                 android:textAlignment="center"/>
 
             <TextView
-                android:textColor="#000000"
+                android:textColor="@color/textColor"
                 android:id="@+id/n_donazioni"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
@@ -109,7 +109,7 @@
                 android:textAlignment="center"/>
 
             <TextView
-                android:textColor="#000000"
+                android:textColor="@color/textColor"
                 android:id="@+id/n_trofei"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
@@ -121,7 +121,6 @@
         </TableRow>
 
         <LinearLayout
-            android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
@@ -132,7 +131,7 @@
                 app:srcCompat="@drawable/ic_view" />
 
             <TextView
-                android:textColor="#000000"
+                android:textColor="@color/textColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Visualizza dettagli giocatore"

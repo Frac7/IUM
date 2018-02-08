@@ -7,6 +7,7 @@
     tools:context="ium.project.clanmanagerforclashroyale.BlankFragment">
 
     <LinearLayout
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -16,15 +17,14 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:padding="20dp"
             android:id="@+id/content_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
-                android:background="@drawable/box_trasparente_lista_arancione"
                 android:padding="20dp"
+                android:background="@drawable/testo_no_titolo"
                 android:id="@+id/content_home_clan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -35,15 +35,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <TextView
-                        android:textColor="#000000"
+                        android:textColor="@color/textColor"
                         android:id="@+id/nome_clan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Progetto IUM"
                         android:textSize="12pt" />
+
                     <TextView
-                        android:textColor="#000000"
+                        android:textColor="@color/textColor"
                         android:id="@+id/tag_clan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -68,9 +70,9 @@
                 android:layout_height="10dp" />
 
             <LinearLayout
-                android:background="@drawable/box_trasparente_lista_arancione"
+                android:padding="20dp"
+                android:background="@drawable/testo_no_titolo"
                 android:id="@+id/content_home_clan_stat"
-                android:padding="10dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -90,7 +92,7 @@
                         app:srcCompat="@drawable/ic_home_trofei_nospace" />
 
                     <TextView
-                        android:textColor="#000000"
+                        android:textColor="@color/textColor"
                         android:id="@+id/trofei_home_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -100,7 +102,7 @@
                         android:textSize="8pt" />
 
                     <TextView
-                        android:textColor="#000000"
+                        android:textColor="@color/textColor"
                         android:id="@+id/trofei_home_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -126,7 +128,7 @@
                         app:srcCompat="@drawable/ic_home_donazioni_nospace" />
 
                     <TextView
-                        android:textColor="#000000"
+                        android:textColor="@color/textColor"
                         android:id="@+id/donazioni_home_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -136,7 +138,7 @@
                         android:textSize="8pt" />
 
                     <TextView
-                        android:textColor="#000000"
+                        android:textColor="@color/textColor"
                         android:id="@+id/donazioni_home_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -162,7 +164,7 @@
                         app:srcCompat="@drawable/ic_home_membri_nospace" />
 
                     <TextView
-                        android:textColor="#000000"
+                        android:textColor="@color/textColor"
                         android:id="@+id/membri_home_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -172,7 +174,7 @@
                         android:textSize="8pt" />
 
                     <TextView
-                        android:textColor="#000000"
+                        android:textColor="@color/textColor"
                         android:id="@+id/membri_home_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -197,7 +199,7 @@
                         app:srcCompat="@drawable/ic_0" />
 
                     <TextView
-                        android:textColor="#000000"
+                        android:textColor="@color/textColor"
                         android:id="@+id/baule_home_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -207,7 +209,7 @@
                         android:textSize="8pt" />
 
                     <TextView
-                        android:textColor="#000000"
+                        android:textColor="@color/textColor"
                         android:id="@+id/baule_home_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -224,14 +226,13 @@
                 android:layout_height="10dp" />
 
             <LinearLayout
-                android:background="@drawable/box_trasparente_lista_arancione"
-                android:padding="10dp"
+                android:padding="20dp"
+                android:background="@drawable/testo"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:orientation="vertical">
 
                 <TextView
-                    android:textColor="#000000"
                     android:id="@+id/descrizione_home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -241,12 +242,10 @@
                     android:textSize="8pt" />
 
                 <TextView
-                    android:textColor="#000000"
                     android:id="@+id/descrizione_home_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:padding="5dp"
                     android:text="Clan serio. Minimo 4000 trofei. Minimo 10 corone al giorno per il baule clan, minimo 100 donazioni a settimana. GG!"
                     android:layout_gravity="center"
                     android:textSize="8pt" />
@@ -258,14 +257,13 @@
                 android:layout_height="10dp" />
 
             <LinearLayout
-                android:background="@drawable/box_trasparente_lista_arancione"
-                android:padding="10dp"
+                android:padding="20dp"
+                android:background="@drawable/testo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
-                    android:textColor="#000000"
                     android:id="@+id/dettagli_home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -279,7 +277,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:padding="5dp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -288,7 +285,6 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:textColor="#000000"
                             android:id="@+id/tipo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -298,7 +294,6 @@
                             android:textSize="8pt" />
 
                         <TextView
-                            android:textColor="#000000"
                             android:id="@+id/tipo_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -313,7 +308,6 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:textColor="#000000"
                             android:id="@+id/posizione"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -323,7 +317,6 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:textColor="#000000"
                             android:id="@+id/posizione_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -344,12 +337,10 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:text="Trofei richiesti: "
-                            android:textColor="#000000"
                             android:textSize="8pt"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:textColor="#000000"
                             android:id="@+id/content_home_clan_richiesti_number"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
