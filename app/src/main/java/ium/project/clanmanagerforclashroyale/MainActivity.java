@@ -28,7 +28,7 @@ import android.view.ViewGroup;
 import ium.project.clanmanagerforclashroyale.data.ClanManager;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-    
+
     public static ClanManager c = new ClanManager();
 
     /**
