@@ -30,7 +30,7 @@
                 android:text="Inserisci il tuo TAG giocatore:"/>
 
                 <EditText
-                    android:shadowColor="#ffffff"
+                    android:theme="@style/MyTheme"
                     android:id="@+id/tag"
                     android:textColor="@color/colorAccent"
                     android:textColorHint="@color/textColorHint"
@@ -49,7 +49,7 @@
 
 
                 <EditText
-                    android:shadowColor="#ffffff"
+                    android:theme="@style/MyTheme"
                     android:textColor="@color/colorAccent"
                     android:textColorHint="@color/textColorHint"
                     android:id="@+id/ID"
@@ -63,11 +63,11 @@
                     android:singleLine="true" />
 
             <CheckBox
+                android:theme="@style/MyTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/checkBoxRem"
-                android:textColor="#ffffff"
-                android:shadowColor="#ffffff"
+                android:textColor="@color/textColor"
                 android:text="Ricordami"/>
 
             <Button

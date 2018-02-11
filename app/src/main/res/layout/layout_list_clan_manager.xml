@@ -120,8 +120,9 @@
         android:layout_width="match_parent">
 
         <Button
+            android:drawableLeft="@drawable/ic_promuovi_bottone"
             android:textColor="@color/textColor"
-            android:background="@drawable/button_green"
+            android:background="@drawable/button_gray"
             android:id="@+id/positivo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -129,8 +130,9 @@
             android:text="Promuovi"/>
 
         <Button
+            android:drawableLeft="@drawable/ic_espelli_bottone"
             android:textColor="@color/textColor"
-            android:background="@drawable/button_red"
+            android:background="@drawable/button_gray"
             android:id="@+id/negativo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

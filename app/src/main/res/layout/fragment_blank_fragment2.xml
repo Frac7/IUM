@@ -11,11 +11,13 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/parametri"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                         <LinearLayout
+                            android:id="@+id/parametri_corone"
                             android:background="@drawable/testo_no_titolo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -29,7 +31,6 @@
                                 android:src="@drawable/ic_home_corone_nospace" />
 
                             <TextView
-                                android:textColor="@color/textColor"
                                 android:id="@+id/corone"
                                 android:textAlignment="center"
                                 android:layout_margin="5dp"
@@ -41,6 +42,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/parametri_donazioni"
                             android:background="@drawable/testo_no_titolo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -54,7 +56,6 @@
                                 android:src="@drawable/ic_home_donazioni_nospace" />
 
                             <TextView
-                                android:textColor="@color/textColor"
                                 android:id="@+id/donazioni"
                                 android:textAlignment="center"
                                 android:layout_margin="5dp"
@@ -66,6 +67,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/parametri_trofei"
                             android:background="@drawable/testo_no_titolo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -79,7 +81,6 @@
                                 android:src="@drawable/ic_home_trofei_nospace" />
 
                             <TextView
-                                android:textColor="@color/textColor"
                                 android:id="@+id/trofei"
                                 android:textAlignment="center"
                                 android:layout_margin="5dp"
@@ -91,12 +92,14 @@
                         </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/parametri_ordinamento"
                         android:background="@drawable/testo_no_titolo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
                         <ImageView
+                            android:id="@+id/ordinamento_img"
                             android:padding="5dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_width="wrap_content"

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -22,6 +23,8 @@ import ium.project.clanmanagerforclashroyale.data.ClanManager;
 import ium.project.clanmanagerforclashroyale.data.Giocatore;
 
 public class GestioneOrdinamento extends DialogFragment {
+
+    private View precedente = null;
 
     private Animation anim = null;
 
@@ -37,6 +40,11 @@ public class GestioneOrdinamento extends DialogFragment {
     public void setA(MyAdapter a)
     {
         this.a = a;
+    }
+
+    public void setP(View p)
+    {
+        this.precedente = p;
     }
 
     @Override
@@ -67,7 +75,7 @@ public class GestioneOrdinamento extends DialogFragment {
         trofei = view.findViewById(R.id.trofei);
 
         final TextView t = view.findViewById(R.id.errore);
-        t.setVisibility(View.INVISIBLE);
+        t.setVisibility(View.GONE);
 
         anim = AnimationUtils.loadAnimation(a.getContext(), R.anim.animazione);
 
@@ -99,7 +107,7 @@ public class GestioneOrdinamento extends DialogFragment {
         crescente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                crescente.startAnimation(anim);
+                //crescente.startAnimation(anim);
 
                 ClanManager c = new ClanManager();
                 c.setnSettimana(n);
@@ -132,6 +140,26 @@ public class GestioneOrdinamento extends DialogFragment {
                         Toast t = Toast.makeText(a.getContext(), "Nessun risultato", Toast.LENGTH_LONG);
                         t.show();
                     }
+
+                    LinearLayout l = precedente.findViewById(R.id.parametri);
+                    l.setVisibility(View.VISIBLE);
+
+                    LinearLayout ll = precedente.findViewById(R.id.parametri_ordinamento);
+                    ll.setVisibility(View.VISIBLE);
+
+                    TextView tv = precedente.findViewById(R.id.ordinamento);
+                    ImageView iv = precedente.findViewById(R.id.ordinamento_img);
+
+                    tv.setText("Crescente");
+
+                    if(corone.isChecked())
+                        iv.setImageResource(R.drawable.ic_home_corone_nospace);
+                    if(donazioni.isChecked())
+                        iv.setImageResource(R.drawable.ic_home_donazioni_nospace);
+                    if(trofei.isChecked())
+                        iv.setImageResource(R.drawable.ic_home_trofei_nospace);
+
+
                 }else
                 {
                     t.setVisibility(View.VISIBLE);
@@ -146,7 +174,7 @@ public class GestioneOrdinamento extends DialogFragment {
         decrescente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                decrescente.startAnimation(anim);
+                //decrescente.startAnimation(anim);
 
                 ClanManager c = new ClanManager();
                 c.setnSettimana(n);
@@ -178,6 +206,24 @@ public class GestioneOrdinamento extends DialogFragment {
                         Toast t = Toast.makeText(a.getContext(), "Nessun risultato", Toast.LENGTH_LONG);
                         t.show();
                     }
+
+                    LinearLayout l = precedente.findViewById(R.id.parametri);
+                    l.setVisibility(View.VISIBLE);
+
+                    LinearLayout ll = precedente.findViewById(R.id.parametri_ordinamento);
+                    ll.setVisibility(View.VISIBLE);
+
+                    TextView tv = precedente.findViewById(R.id.ordinamento);
+                    ImageView iv = precedente.findViewById(R.id.ordinamento_img);
+
+                    tv.setText("Decrescente");
+
+                    if(corone.isChecked())
+                        iv.setImageResource(R.drawable.ic_home_corone_nospace);
+                    if(donazioni.isChecked())
+                        iv.setImageResource(R.drawable.ic_home_donazioni_nospace);
+                    if(trofei.isChecked())
+                        iv.setImageResource(R.drawable.ic_home_trofei_nospace);
                 }else
                 {
                     t.setVisibility(View.VISIBLE);
@@ -192,20 +238,8 @@ public class GestioneOrdinamento extends DialogFragment {
         annulla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                annulla.startAnimation(anim);
+                //annulla.startAnimation(anim);
                 dismiss();
-            }
-        });
-
-        final Button pulisci = (Button)view.findViewById(R.id.pulisci);
-        pulisci.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pulisci.startAnimation(anim);
-
-                corone.setChecked(false);
-                donazioni.setChecked(false);
-                trofei.setChecked(false);
             }
         });
     }

@@ -52,7 +52,7 @@ public class BlankFragment3 extends Fragment {
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View view ){
-                button.startAnimation(anim);
+                //button.startAnimation(anim);
                 //Cosa avviene al click di conferma
                 //Context context=getApplicationContext();
                 int duration= Toast.LENGTH_SHORT;

@@ -30,9 +30,7 @@ import ium.project.clanmanagerforclashroyale.data.ClanManager;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     //TODO inserire un'animazione di tipo scale per i bottoni (fatto, da rivedere)
-    //TODO: modificare linea in basso delle edit text
-    //TODO: specificare parametri per filtro e ordinamento (fatto, da implementare logicamente)
-    //TODO: back in main activity per tornare alla scheda home e dalla scheda home uscire
+    //TODO: specificare parametri per filtro e ordinamento (fatto, da rivedere)
 
     public static ClanManager c = new ClanManager();
 
@@ -62,8 +60,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
-
-            //getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.box_trasparente));
 
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -179,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawer.closeDrawer(GravityCompat.START);
         } else {
             finish();
-            System.exit(0);
+            //System.exit(0);
             super.onBackPressed();
         }
     }
@@ -197,6 +193,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_esci) {
             i = new Intent(MainActivity.this, EnterYourTag.class);
             i.putExtra("esci",true);
+            finish();
         } else if (id == R.id.nav_info) {
             i = new Intent(MainActivity.this, Informazioni.class);
         } else if (id == R.id.nav_registro) {

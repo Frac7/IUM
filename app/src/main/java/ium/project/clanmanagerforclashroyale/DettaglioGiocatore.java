@@ -1,5 +1,8 @@
 package ium.project.clanmanagerforclashroyale;
 
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.DrawableContainer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -67,5 +70,11 @@ public class DettaglioGiocatore extends AppCompatActivity {
         perc_don.setText((100*d/clan_d)+"%");
         perc_cor.setText((100*c/clan_c)+"%");
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        DettaglioSettimana.n = getIntent().getExtras().getInt("settimana");
     }
 }

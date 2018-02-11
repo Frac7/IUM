@@ -38,7 +38,7 @@
                 app:srcCompat="@drawable/ic_home_corone_nospace" />
 
             <TextView
-                android:textColor="#ffffff"
+                android:textColor="@color/textColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Corone baule"
@@ -50,8 +50,8 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:shadowColor="#ffffff"
-                    android:textColorHint="#ffffff"
+                    android:theme="@style/MyTheme"
+                    android:textColorHint="@color/textColorHint"
                     android:textColor="@color/colorAccent"
                     android:id="@+id/min_corone"
                     android:layout_width="wrap_content"
@@ -63,8 +63,8 @@
                     android:inputType="number" />
 
                 <EditText
-                    android:shadowColor="#ffffff"
-                    android:textColorHint="#ffffff"
+                    android:theme="@style/MyTheme"
+                    android:textColorHint="@color/textColorHint"
                     android:textColor="@color/colorAccent"
                     android:id="@+id/max_corone"
                     android:layout_width="wrap_content"
@@ -93,7 +93,7 @@
                 app:srcCompat="@drawable/ic_home_donazioni_nospace" />
 
             <TextView
-                android:textColor="#ffffff"
+                android:textColor="@color/textColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Donazioni"
@@ -105,8 +105,8 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:shadowColor="#ffffff"
-                    android:textColorHint="#ffffff"
+                    android:theme="@style/MyTheme"
+                    android:textColorHint="@color/textColorHint"
                     android:textColor="@color/colorAccent"
                     android:id="@+id/min_donazioni"
                     android:layout_width="wrap_content"
@@ -118,8 +118,8 @@
                     android:inputType="number" />
 
                 <EditText
-                    android:shadowColor="#ffffff"
-                    android:textColorHint="#ffffff"
+                    android:theme="@style/MyTheme"
+                    android:textColorHint="@color/textColorHint"
                     android:textColor="@color/colorAccent"
                     android:id="@+id/max_donazioni"
                     android:layout_width="wrap_content"
@@ -148,7 +148,7 @@
                 app:srcCompat="@drawable/ic_home_trofei_nospace" />
 
             <TextView
-                android:textColor="#ffffff"
+                android:textColor="@color/textColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -160,8 +160,8 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:shadowColor="#ffffff"
-                    android:textColorHint="#ffffff"
+                    android:theme="@style/MyTheme"
+                    android:textColorHint="@color/textColorHint"
                     android:textColor="@color/colorAccent"
                     android:id="@+id/min_trofei"
                     android:layout_width="wrap_content"
@@ -173,8 +173,8 @@
                     android:inputType="number" />
 
                 <EditText
-                    android:shadowColor="#ffffff"
-                    android:textColorHint="#ffffff"
+                    android:theme="@style/MyTheme"
+                    android:textColorHint="@color/textColorHint"
                     android:textColor="@color/colorAccent"
                     android:id="@+id/max_trofei"
                     android:layout_width="wrap_content"
@@ -209,22 +209,14 @@
                 android:layout_gravity="center">
 
                 <Button
-                    android:padding="5dp"
-                    android:id="@+id/pulisci"
-                    android:background="#00ffffff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorAccent"
-                    android:text="Azzera\ncampi"/>
-
-                <Button
+                    android:layout_gravity="center"
                     android:padding="5dp"
                     android:id="@+id/pulisci_filtro"
                     android:background="#00ffffff"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorAccent"
-                    android:text="Azzera\nfiltro"/>
+                    android:text="Azzera filtro"/>
 
             <Button
                 android:layout_gravity="center"

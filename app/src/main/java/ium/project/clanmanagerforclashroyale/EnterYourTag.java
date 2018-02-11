@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -57,7 +59,7 @@ public class EnterYourTag extends AppCompatActivity implements TextWatcher, Comp
             View.OnClickListener click = new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    sign_in.startAnimation(anim);
+                    //sign_in.startAnimation(anim);
                     if (checkInput()) {
                         //SET CONTROL OF SIGN-UP
                         if ((tag.getText().toString().equals("JV8H923K") && ID.getText().toString().equals("1-1938466"))) {
@@ -201,5 +203,10 @@ public class EnterYourTag extends AppCompatActivity implements TextWatcher, Comp
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         managePrefs();
+    }
+
+    @Override public void onBackPressed()
+    {
+        moveTaskToBack(true);
     }
 }

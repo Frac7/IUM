@@ -20,6 +20,8 @@ import java.util.List;
 
 public class BlankFragment2 extends Fragment {
 
+    private View v = null;
+
     private static MyAdapter ma = null;
 
     public static MyAdapter getAdapter()
@@ -46,6 +48,9 @@ public class BlankFragment2 extends Fragment {
             GestioneFiltro g = new GestioneFiltro();
             g.setA(BlankFragment2.getAdapter());
             g.setN(9);
+
+            g.setP(this.v);
+
             g.show(fm,"Filtra membri per:");
         }
 
@@ -53,6 +58,9 @@ public class BlankFragment2 extends Fragment {
             android.support.v4.app.FragmentManager fm = getFragmentManager();
             GestioneOrdinamento g = new GestioneOrdinamento();
             g.setA(BlankFragment2.getAdapter());
+
+            g.setP(this.v);
+
             g.setN(9);
             g.show(fm,"Ordina membri per:");
         }
@@ -88,6 +96,22 @@ public class BlankFragment2 extends Fragment {
         ma.setFm(getFragmentManager());
         l.setAdapter(ma);
 
+        this.v = v;
+
+        LinearLayout parametri = v.findViewById(R.id.parametri);
+        parametri.setVisibility(View.GONE);
+
+        LinearLayout parametri_corone = v.findViewById(R.id.parametri_corone);
+        parametri_corone.setVisibility(View.GONE);
+
+        LinearLayout parametri_donazioni = v.findViewById(R.id.parametri_donazioni);
+        parametri_donazioni.setVisibility(View.GONE);
+
+        LinearLayout parametri_trofei = v.findViewById(R.id.parametri_trofei);
+        parametri_trofei.setVisibility(View.GONE);
+
+        LinearLayout parametri_ordinamento = v.findViewById(R.id.parametri_ordinamento);
+        parametri_ordinamento.setVisibility(View.GONE);
 
     }
 }

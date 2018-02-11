@@ -130,7 +130,7 @@ public class Registro extends AppCompatActivity
             lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    lista.startAnimation(anim);
+                    //lista.startAnimation(anim);
                     Intent n = new Intent(Registro.this, DettaglioSettimana.class);
                     n.putExtra("settimana", i); //i è il numero della settimana
                     startActivity(n);
@@ -162,6 +162,7 @@ public class Registro extends AppCompatActivity
         } else if (id == R.id.nav_esci) {
             i = new Intent(Registro.this, EnterYourTag.class);
             i.putExtra("esci",true);
+            finish();
         } else if (id == R.id.nav_info) {
             i = new Intent(Registro.this, Informazioni.class);
         } else if (id == R.id.nav_registro) {

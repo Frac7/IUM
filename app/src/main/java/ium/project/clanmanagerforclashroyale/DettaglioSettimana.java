@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import java.util.List;
 
@@ -26,47 +27,13 @@ public class DettaglioSettimana extends AppCompatActivity {
 
     private Filtro f = new Filtro();
 
-    private int n;
-
-    //TODO: la settimana ripristinata è sempre la settimana 0... ???
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.home,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            // action with ID action_refresh was selected
-            case R.id.filtra: {
-                android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
-                GestioneFiltro g = new GestioneFiltro();
-                g.setA(ma);
-                g.setN(n);
-                g.show(fm, "Filtra membri per:");
-            }
-                break;
-            case R.id.ordina: {
-                android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
-                GestioneOrdinamento g = new GestioneOrdinamento();
-                g.setA(BlankFragment2.getAdapter());
-                g.setN(n);
-                g.show(fm, "Ordina membri per:");
-            }
-            default:
-                break;
-        }
-        return true;
-    }
+    public static int n;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dettaglio_settimana);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -99,12 +66,14 @@ public class DettaglioSettimana extends AppCompatActivity {
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long ll) {
-                l.startAnimation(anim);
+                //l.startAnimation(anim);
                 Intent ac = new Intent(DettaglioSettimana.this,DettaglioGiocatore.class);
                 ac.putExtra("giocatore",i);
+                ac.putExtra("settimana",n);
                 startActivity(ac);
             }
         });
+
     }
 
 }

@@ -13,7 +13,6 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <LinearLayout
-        android:background="#70ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

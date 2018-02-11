@@ -110,6 +110,9 @@ public class MyAdapter extends ArrayAdapter {
                 if(g.getGrado().equals("Co-capo"))
                     positivo.setVisibility(View.INVISIBLE);
                 negativo.setText("Retrocedi");
+                Drawable img = context.getResources().getDrawable(R.drawable.ic_retrocedi_bottone);
+                img.setBounds(0,0,0,0);
+                negativo.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null);
             }
 
             positivo.setOnClickListener(new View.OnClickListener() {

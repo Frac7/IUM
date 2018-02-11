@@ -87,13 +87,13 @@
                         android:text="Corone minime per il baule clan: "/>
 
                     <EditText
-                        android:shadowColor="#ffffff"
+                        android:theme="@style/MyTheme"
                         android:textColor="@color/colorAccent"
                         android:textColorHint="@color/textColorHint"
                         android:id="@+id/corone_MIN_suggeritore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Es: 30"
+                        android:hint="Es: 30 "
                         android:inputType="number"/>
 
                 </LinearLayout>
@@ -127,13 +127,13 @@
                         android:text="Donazioni minime: "/>
 
                     <EditText
-                        android:shadowColor="#ffffff"
+                        android:theme="@style/MyTheme"
                         android:textColorHint="@color/textColorHint"
                         android:textColor="@color/colorAccent"
                         android:id="@+id/donazioni_MIN_suggeritore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Es: 70"
+                        android:hint="Es: 70 "
                         android:inputType="number"/>
 
                 </LinearLayout>
