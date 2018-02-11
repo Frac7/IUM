@@ -263,7 +263,7 @@ public class GestioneFiltro extends DialogFragment {
                 if(j != 0)
                 {
                     t.setVisibility(View.VISIBLE);
-                    t.setText("MAX maggiore di MIN");
+                    t.setText("MAX minore di MIN");
                 }
                 else if(i == 6)
                 {
