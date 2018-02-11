@@ -28,8 +28,7 @@ import android.view.ViewGroup;
 import ium.project.clanmanagerforclashroyale.data.ClanManager;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-
-    //TODO inserire un'animazione di tipo scale per i bottoni (fatto, da rivedere)
+    
     //TODO: specificare parametri per filtro e ordinamento (fatto, da rivedere)
 
     public static ClanManager c = new ClanManager();

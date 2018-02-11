@@ -59,7 +59,7 @@ public class EnterYourTag extends AppCompatActivity implements TextWatcher, Comp
             View.OnClickListener click = new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //sign_in.startAnimation(anim);
+                    sign_in.startAnimation(anim);
                     if (checkInput()) {
                         //SET CONTROL OF SIGN-UP
                         if ((tag.getText().toString().equals("JV8H923K") && ID.getText().toString().equals("1-1938466"))) {
