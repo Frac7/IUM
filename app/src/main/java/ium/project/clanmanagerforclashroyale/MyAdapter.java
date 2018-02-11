@@ -109,9 +109,10 @@ public class MyAdapter extends ArrayAdapter {
             {
                 if(g.getGrado().equals("Co-capo"))
                     positivo.setVisibility(View.INVISIBLE);
+
                 negativo.setText("Retrocedi");
                 Drawable img = context.getResources().getDrawable(R.drawable.ic_retrocedi_bottone);
-                img.setBounds(0,0,0,0);
+                //img.setBounds(0,0,0,0);
                 negativo.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null);
             }
 
@@ -119,7 +120,6 @@ public class MyAdapter extends ArrayAdapter {
                 @Override
                 public void onClick(View view) {
                     positivo.startAnimation(anim);
-
                     ConfermaAzione c = new ConfermaAzione();
                     c.setUtente(g.getNome());
                     c.setGrado("promuovere");
@@ -133,7 +133,6 @@ public class MyAdapter extends ArrayAdapter {
                 @Override
                 public void onClick(View view) {
                     negativo.startAnimation(anim);
-
                     ConfermaAzione c = new ConfermaAzione();
                     c.setUtente(g.getNome());
                     if(g.getGrado().equals("Anziano") || g.getGrado().equals("Co-capo"))

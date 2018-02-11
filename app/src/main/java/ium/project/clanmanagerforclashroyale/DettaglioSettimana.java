@@ -66,7 +66,7 @@ public class DettaglioSettimana extends AppCompatActivity {
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long ll) {
-                //l.startAnimation(anim);
+                l.startAnimation(anim);
                 Intent ac = new Intent(DettaglioSettimana.this,DettaglioGiocatore.class);
                 ac.putExtra("giocatore",i);
                 ac.putExtra("settimana",n);

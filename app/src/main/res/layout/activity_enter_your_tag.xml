@@ -72,7 +72,7 @@
 
             <Button
                 android:textSize="9pt"
-                android:background="@drawable/button"
+                android:background="@drawable/button_orange_x"
                 android:id="@+id/email_sign_in_button"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"

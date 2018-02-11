@@ -147,7 +147,7 @@
                 android:layout_gravity="center_horizontal">
 
                 <Button
-                    android:background="@drawable/button_orange"
+                    android:background="@drawable/button_orange_x"
                     android:textSize="9pt"
                     android:id="@+id/confirm_button"
                     android:layout_width="match_parent"

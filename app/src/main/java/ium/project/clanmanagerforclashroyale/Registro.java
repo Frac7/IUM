@@ -130,7 +130,7 @@ public class Registro extends AppCompatActivity
             lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    //lista.startAnimation(anim);
+                    lista.startAnimation(anim);
                     Intent n = new Intent(Registro.this, DettaglioSettimana.class);
                     n.putExtra("settimana", i); //i è il numero della settimana
                     startActivity(n);

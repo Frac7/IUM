@@ -107,7 +107,7 @@ public class GestioneOrdinamento extends DialogFragment {
         crescente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //crescente.startAnimation(anim);
+                crescente.startAnimation(anim);
 
                 ClanManager c = new ClanManager();
                 c.setnSettimana(n);
@@ -174,7 +174,7 @@ public class GestioneOrdinamento extends DialogFragment {
         decrescente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //decrescente.startAnimation(anim);
+                decrescente.startAnimation(anim);
 
                 ClanManager c = new ClanManager();
                 c.setnSettimana(n);

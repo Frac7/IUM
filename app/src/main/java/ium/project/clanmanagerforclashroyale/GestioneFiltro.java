@@ -90,7 +90,6 @@ public class GestioneFiltro extends DialogFragment {
         normale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //normale.startAnimation(anim);
                 ClanManager c = new ClanManager();
                 c.setnSettimana(n);
                 c.setFiltro(new Filtro());
@@ -109,7 +108,7 @@ public class GestioneFiltro extends DialogFragment {
         filtra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //filtra.startAnimation(anim);
+                filtra.startAnimation(anim);
 
                 int i = 0;
 
@@ -285,7 +284,6 @@ public class GestioneFiltro extends DialogFragment {
         annulla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //annulla.startAnimation(anim);
                 dismiss();
             }
         });
