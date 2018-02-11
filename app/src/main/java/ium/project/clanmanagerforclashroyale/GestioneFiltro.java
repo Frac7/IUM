@@ -64,8 +64,6 @@ public class GestioneFiltro extends DialogFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        //settare il titolo
-
         final EditText minCorone, maxCorone;
         final EditText minDonazioni, maxDonazioni;
         final EditText minTrofei, maxTrofei;
@@ -86,6 +84,76 @@ public class GestioneFiltro extends DialogFragment {
 
         anim = AnimationUtils.loadAnimation(a.getContext(), R.anim.animazione);
 
+        final LinearLayout parametri = precedente.findViewById(R.id.parametri);
+
+        final LinearLayout corone = precedente.findViewById(R.id.parametri_corone);
+        corone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                f.setMinCoroneBaule(0);
+                f.setMaxCoroneBaule(Integer.MAX_VALUE);
+
+                ClanManager c = new ClanManager();
+                c.setnSettimana(n);
+                c.setFiltro(f);
+                List<Giocatore> data = c.ApplyFilters();
+                a.getL().removeAll(a.getL());
+                a.getL().addAll(data);
+
+                a.notifyDataSetChanged();
+
+                Toast t = Toast.makeText(a.getContext(), "Filtro corone rimosso",Toast.LENGTH_SHORT);
+                t.show();
+
+                corone.setVisibility(View.GONE);
+            }
+        });
+
+        final LinearLayout donazioni = precedente.findViewById(R.id.parametri_donazioni);
+        donazioni.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                f.setMinDonazioni(0);
+                f.setMaxDonazioni(Integer.MAX_VALUE);
+                ClanManager c = new ClanManager();
+                c.setnSettimana(n);
+                c.setFiltro(f);
+                List<Giocatore> data = c.ApplyFilters();
+                a.getL().removeAll(a.getL());
+                a.getL().addAll(data);
+
+                a.notifyDataSetChanged();
+
+                Toast t = Toast.makeText(a.getContext(), "Filtro donazioni rimosso",Toast.LENGTH_SHORT);
+                t.show();
+
+                donazioni.setVisibility(View.GONE);
+            }
+        });
+
+        final LinearLayout trofei = precedente.findViewById(R.id.parametri_trofei);
+        trofei.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                f.setMinTrofei(0);
+                f.setMaxTrofei(Integer.MAX_VALUE);
+
+                ClanManager c = new ClanManager();
+                c.setnSettimana(n);
+                c.setFiltro(f);
+                List<Giocatore> data = c.ApplyFilters();
+                a.getL().removeAll(a.getL());
+                a.getL().addAll(data);
+
+                a.notifyDataSetChanged();
+
+                Toast t = Toast.makeText(a.getContext(), "Filtro trofei rimosso",Toast.LENGTH_SHORT);
+                t.show();
+
+                trofei.setVisibility(View.GONE);
+            }
+        });
+
         final Button normale = view.findViewById(R.id.pulisci_filtro);
         normale.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +169,8 @@ public class GestioneFiltro extends DialogFragment {
                 dismiss();
                 Toast t = Toast.makeText(a.getContext(), "Lista ripristinata",Toast.LENGTH_SHORT);
                 t.show();
+
+                parametri.setVisibility(View.GONE);
             }
         });
 
@@ -112,15 +182,12 @@ public class GestioneFiltro extends DialogFragment {
 
                 int i = 0;
 
-                LinearLayout l = precedente.findViewById(R.id.parametri);
-                l.setVisibility(View.VISIBLE);
+                parametri.setVisibility(View.VISIBLE);
 
                 String s = "";
 
                 if(!minCorone.getText().toString().equals("")) {
                     f.setMinCoroneBaule(Integer.parseInt(minCorone.getText().toString()));
-                    LinearLayout ll = precedente.findViewById(R.id.parametri_corone);
-                    ll.setVisibility(View.VISIBLE);
                     s += "min_corone; ";
                 }
                 else
@@ -128,9 +195,8 @@ public class GestioneFiltro extends DialogFragment {
                     f.setMinCoroneBaule(0);
                     i++;
                 }
-                if(!maxCorone.getText().toString().equals("")) {
-                    LinearLayout ll = precedente.findViewById(R.id.parametri_corone);
-                    ll.setVisibility(View.VISIBLE);
+                if(!maxCorone.getText().toString().equals(""))
+                {
                     f.setMaxCoroneBaule(Integer.parseInt(maxCorone.getText().toString()));
                     s += "max_corone; ";
                 }
@@ -140,19 +206,16 @@ public class GestioneFiltro extends DialogFragment {
                     i++;
                 }
                 if(!minDonazioni.getText().toString().equals("")) {
-                    LinearLayout ll = precedente.findViewById(R.id.parametri_donazioni);
-                    ll.setVisibility(View.VISIBLE);
                     f.setMinDonazioni(Integer.parseInt(minDonazioni.getText().toString()));
                     s += "min_donazioni; ";
                 }
-                else {
+                else
+                {
                     i++;
                     f.setMinDonazioni(0);
                 }
                 if(!maxDonazioni.getText().toString().equals(""))
                 {
-                    LinearLayout ll = precedente.findViewById(R.id.parametri_donazioni);
-                    ll.setVisibility(View.VISIBLE);
                     f.setMaxDonazioni(Integer.parseInt(maxDonazioni.getText().toString()));
                     s += "max_donazioni; ";
                 }
@@ -161,9 +224,8 @@ public class GestioneFiltro extends DialogFragment {
                     i++;
                     f.setMaxDonazioni(Integer.MAX_VALUE);
                 }
-                if(!minTrofei.getText().toString().equals("")) {
-                    LinearLayout ll = precedente.findViewById(R.id.parametri_trofei);
-                    ll.setVisibility(View.VISIBLE);
+                if(!minTrofei.getText().toString().equals(""))
+                {
                     f.setMinTrofei(Integer.parseInt(minTrofei.getText().toString()));
                     s += "min_trofei; ";
                 }
@@ -174,8 +236,6 @@ public class GestioneFiltro extends DialogFragment {
                 }
                 if(!maxTrofei.getText().toString().equals(""))
                 {
-                    LinearLayout ll = precedente.findViewById(R.id.parametri_trofei);
-                    ll.setVisibility(View.VISIBLE);
                     f.setMaxTrofei(Integer.parseInt(maxTrofei.getText().toString()));
                     s += "max_trofei; ";
                 }
@@ -185,7 +245,27 @@ public class GestioneFiltro extends DialogFragment {
                     f.setMaxTrofei(Integer.MAX_VALUE);
                 }
 
-                if(i == 6)
+                int j = 0;
+
+                if(f.getMaxCoroneBaule() < f.getMinCoroneBaule()) {
+                    j++;
+                    maxCorone.setError("");
+                }
+                if(f.getMaxDonazioni() < f.getMinDonazioni()) {
+                    j++;
+                    maxDonazioni.setError("");
+                }
+                if(f.getMaxTrofei() < f.getMinTrofei()) {
+                    j++;
+                    maxTrofei.setError("");
+                }
+
+                if(j != 0)
+                {
+                    t.setVisibility(View.VISIBLE);
+                    t.setText("MAX maggiore di MIN");
+                }
+                else if(i == 6)
                 {
                     t.setVisibility(View.VISIBLE);
                     minCorone.setError("");
@@ -216,66 +296,56 @@ public class GestioneFiltro extends DialogFragment {
                         t.show();
                     }
 
-                    String app[] = s.split("; ");
-                    for(i = 0; i < app.length; i++)
+                    ArrayList<String> app = new ArrayList<>();
+                    String[] arrayString = s.split("; ");
+                    for(i = 0; i < arrayString.length; i++)
                     {
-                        if(app[i].equals("min_corone"))
-                        {
-                            if(i + 1 < app.length && app[i + 1].equals("max_corone"))
-                            {
-                                TextView tv = precedente.findViewById(R.id.corone);
-                                tv.setText(f.getMinCoroneBaule()+" - "+f.getMaxCoroneBaule());
-                            }
-                            else
-                            {
-                                TextView tv = precedente.findViewById(R.id.corone);
-                                tv.setText(f.getMinCoroneBaule()+" - ∞");
-                            }
-                        }
-                        else if(app[i].equals("max_corone"))
-                        {
-                            TextView tv = precedente.findViewById(R.id.corone);
-                            tv.setText("0 - "+f.getMaxCoroneBaule());
-                        }
-
-                        if(app[i].equals("min_donazioni"))
-                        {
-                            if(i + 1 < app.length && app[i + 1].equals("max_donazioni"))
-                            {
-                                TextView tv = precedente.findViewById(R.id.corone);
-                                tv.setText(f.getMinDonazioni()+" - "+f.getMaxDonazioni());
-                            }
-                            else
-                            {
-                                TextView tv = precedente.findViewById(R.id.corone);
-                                tv.setText(f.getMinDonazioni()+" - ∞");
-                            }
-                        }
-                        else if(app[i].equals("max_corone"))
-                        {
-                            TextView tv = precedente.findViewById(R.id.corone);
-                            tv.setText("0 - "+f.getMaxDonazioni());
-                        }
-                        if(app[i].equals("min_trofei"))
-                        {
-                            if(i + 1 < app.length && app[i + 1].equals("max_trofei"))
-                            {
-                                TextView tv = precedente.findViewById(R.id.corone);
-                                tv.setText(f.getMinTrofei()+" - "+f.getMaxTrofei());
-                            }
-                            else
-                            {
-                                TextView tv = precedente.findViewById(R.id.corone);
-                                tv.setText(f.getMinTrofei()+" - ∞");
-                            }
-                        }
-                        else if(app[i].equals("max_trofei"))
-                        {
-                            TextView tv = precedente.findViewById(R.id.corone);
-                            tv.setText("0 - "+f.getMaxTrofei());
-                        }
+                        app.add(arrayString[i]);
                     }
 
+                        if(app.contains("min_corone") || app.contains("max_corone"))
+                        {
+                            corone.setVisibility(View.VISIBLE);
+                            TextView tv = precedente.findViewById(R.id.corone);
+                            if(f.getMaxCoroneBaule() == Integer.MAX_VALUE)
+                                tv.setText(f.getMinCoroneBaule()+" - ∞");
+                            else
+                                tv.setText(f.getMinCoroneBaule()+" - "+f.getMaxCoroneBaule());
+                        }
+                        else
+                        {
+                            corone.setVisibility(View.GONE);
+                        }
+
+                        if(app.contains("min_donazioni") || app.contains("max_donazioni"))
+                        {
+                            donazioni.setVisibility(View.VISIBLE);
+                            TextView tv = precedente.findViewById(R.id.donazioni);
+                            if(f.getMaxDonazioni() == Integer.MAX_VALUE)
+                                tv.setText(f.getMinDonazioni()+" - ∞");
+                            else
+                                tv.setText(f.getMinDonazioni()+" - "+f.getMaxDonazioni());
+                        }
+                        else
+                        {
+
+                            donazioni.setVisibility(View.GONE);
+                        }
+
+                        if(app.contains("min_trofei") || app.contains("max_trofei"))
+                        {
+                            trofei.setVisibility(View.VISIBLE);
+                            TextView tv = precedente.findViewById(R.id.trofei);
+                            if(f.getMaxTrofei() == Integer.MAX_VALUE)
+                                tv.setText(f.getMinTrofei()+" - ∞");
+                            else
+                                tv.setText(f.getMinTrofei()+" - "+f.getMaxTrofei());
+                        }
+                        else
+                        {
+
+                            trofei.setVisibility(View.GONE);
+                        }
                 }
             }
         });

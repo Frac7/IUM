@@ -103,6 +103,27 @@ public class GestioneOrdinamento extends DialogFragment {
             }
         });
 
+        final LinearLayout ordine = precedente.findViewById(R.id.parametri_ordinamento);
+        ordine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ClanManager c = new ClanManager();
+                c.setnSettimana(n);
+                List<Giocatore> data = new ArrayList<>();
+                for(Giocatore g : a.getL())
+                    data.add(g);
+                a.getL().removeAll(a.getL());
+                a.getL().addAll(data);
+
+                a.notifyDataSetChanged();
+
+                Toast t = Toast.makeText(a.getContext(), "Lista ripristinata",Toast.LENGTH_SHORT);
+                t.show();
+
+                ordine.setVisibility(View.GONE);
+            }
+        });
+
         final Button crescente = (Button)view.findViewById(R.id.crescente);
         crescente.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,8 +165,7 @@ public class GestioneOrdinamento extends DialogFragment {
                     LinearLayout l = precedente.findViewById(R.id.parametri);
                     l.setVisibility(View.VISIBLE);
 
-                    LinearLayout ll = precedente.findViewById(R.id.parametri_ordinamento);
-                    ll.setVisibility(View.VISIBLE);
+                    ordine.setVisibility(View.VISIBLE);
 
                     TextView tv = precedente.findViewById(R.id.ordinamento);
                     ImageView iv = precedente.findViewById(R.id.ordinamento_img);
@@ -167,6 +187,7 @@ public class GestioneOrdinamento extends DialogFragment {
                     donazioni.setError("");
                     trofei.setError("");
                 }
+                dismiss();
             }
         });
 
@@ -231,6 +252,7 @@ public class GestioneOrdinamento extends DialogFragment {
                     donazioni.setError("");
                     trofei.setError("");
                 }
+                dismiss();
             }
         });
 
