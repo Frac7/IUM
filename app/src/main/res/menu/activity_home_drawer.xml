@@ -8,7 +8,7 @@
             android:id="@+id/nav_home"
             android:layout_width="match_parent"
             android:icon="@drawable/ic_menu_home"
-            android:title="Home" />
+            android:title="Clan Manager" />
         <item
             android:id="@+id/nav_registro"
             android:icon="@drawable/ic_menu_registro"
@@ -19,7 +19,7 @@
             android:title="Informazioni app" />
         <item
             android:id="@+id/nav_esci"
-            android:icon="@drawable/ic_menu_esci"
+            android:icon="@drawable/ic_esci"
             android:title="Esci" />
     </group>
 
