@@ -73,7 +73,7 @@ public class Registro extends AppCompatActivity
                 int a = clan.NBauleClan(baule[i]);
                 mappa.put("baule", a);
                 mappa.put("corone", baule[i]);
-                mappa.put("settimana", (9 - i));
+                mappa.put("settimana", (i + 1));
                 mappa.put("iconaD", R.drawable.ic_home_donazioni);
                 switch (a) {
                     case 0:

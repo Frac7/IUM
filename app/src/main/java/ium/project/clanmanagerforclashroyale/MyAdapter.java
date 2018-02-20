@@ -79,7 +79,7 @@ public class MyAdapter extends ArrayAdapter {
         if(this.layout == R.layout.layout_list_clan_manager)
         {
             anim = AnimationUtils.loadAnimation(getContext(), R.anim.animazione);
-            LinearLayout r = (LinearLayout)v.findViewById(R.id.main);
+            final LinearLayout r = (LinearLayout)v.findViewById(R.id.main);
             if(g.isEspulsione() || g.isRetrocessione())
             {
                 r.setBackgroundResource(R.drawable.lista_rosso);
@@ -124,6 +124,7 @@ public class MyAdapter extends ArrayAdapter {
                     c.setUtente(g.getNome());
                     c.setGrado("promuovere");
                     c.setG(g);
+                    c.setV(r);
                     c.setA(MyAdapter.this);
                     c.show(fm,"Conferma azione");
                 }
@@ -140,6 +141,7 @@ public class MyAdapter extends ArrayAdapter {
                     else
                         c.setGrado("espellere");
                     c.setG(g);
+                    c.setV(r);
                     c.setA(MyAdapter.this);
                     c.show(fm,"Conferma azione");
                 }

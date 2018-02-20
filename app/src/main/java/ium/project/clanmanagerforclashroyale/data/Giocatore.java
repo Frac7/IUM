@@ -115,7 +115,6 @@ public class Giocatore {
             else if(getGrado().equals("Anziano")) setGrado("Recluta");
             else {
                 GiocatoriFactory.getInstance().RemovePlayer(this);
-                //TODO: vedere var static clan manager
                 Clan myClan = new Clan();
                 myClan.setComponenti(GiocatoriFactory.getInstance().getAllPlayers());
             }

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,12 @@ public class ConfermaAzione extends DialogFragment {
     private String grado = "";
     private Giocatore g = null;
     private MyAdapter a = null;
+    private LinearLayout v = null;
+
+    public void setV(LinearLayout v)
+    {
+        this.v = v;
+    }
 
     private Animation anim = null;
 
@@ -79,11 +86,16 @@ public class ConfermaAzione extends DialogFragment {
             public void onClick(View view) {
                 anim = AnimationUtils.loadAnimation(a.getContext(), R.anim.animazione);
                 if(grado.equals("promuovere"))
+                {
                     g.Promozione(true);
-                else
+                    g.setPromozione(false);
+                }
+                else if(grado.equals("retrocedere"))
+                {
                     g.Retrocessione(true);
-
-                if(grado.equals("espellere"))
+                    g.setRetrocessione(false);
+                }
+                else if(grado.equals("espellere"))
                     a.getL().remove(g);
 
                 a.notifyDataSetChanged();

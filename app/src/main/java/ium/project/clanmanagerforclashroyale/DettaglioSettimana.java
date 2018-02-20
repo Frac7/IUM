@@ -41,7 +41,7 @@ public class DettaglioSettimana extends AppCompatActivity {
         if(getIntent().getExtras() != null)
                 n = getIntent().getExtras().getInt("settimana");
 
-        setTitle((9 - n)+" settimane fa");
+        setTitle((n + 1)+" settimane fa");
 
         c.setnSettimana(n);
 
