@@ -20,13 +20,6 @@ public class ConfermaAzione extends DialogFragment {
     private String grado = "";
     private Giocatore g = null;
     private MyAdapter a = null;
-    private LinearLayout v = null;
-
-    public void setV(LinearLayout v)
-    {
-        this.v = v;
-    }
-
     private Animation anim = null;
 
     public void setA(MyAdapter a)
