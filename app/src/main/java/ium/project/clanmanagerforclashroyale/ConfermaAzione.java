@@ -61,23 +61,25 @@ public class ConfermaAzione extends DialogFragment {
 
         getDialog().setTitle("Conferma azione");
 
+        anim = AnimationUtils.loadAnimation(a.getContext(), R.anim.animazione);
+
         TextView t = (TextView)view.findViewById(R.id.msg);
         t.setText("Vuoi davvero "+grado+" "+utente+"?");
 
-        Button annulla = (Button)view.findViewById(R.id.negativo);
+        final Button annulla = (Button)view.findViewById(R.id.negativo);
         annulla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                anim = AnimationUtils.loadAnimation(a.getContext(), R.anim.animazione);
+                annulla.startAnimation(anim);
                 dismiss();
             }
         });
 
-        Button conferma = (Button)view.findViewById(R.id.positivo);
+        final Button conferma = (Button)view.findViewById(R.id.positivo);
         conferma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                anim = AnimationUtils.loadAnimation(a.getContext(), R.anim.animazione);
+                conferma.startAnimation(anim);
                 if(grado.equals("promuovere"))
                 {
                     g.Promozione(true);
@@ -88,8 +90,10 @@ public class ConfermaAzione extends DialogFragment {
                     g.Retrocessione(true);
                     g.setRetrocessione(false);
                 }
-                else if(grado.equals("espellere"))
+                else if(grado.equals("espellere")) {
                     a.getL().remove(g);
+                    GiocatoriFactory.getInstance().RemovePlayer(g);
+                }
 
                 a.notifyDataSetChanged();
                 dismiss();

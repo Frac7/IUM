@@ -64,8 +64,6 @@ public class GestioneOrdinamento extends DialogFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        //settare il titolo
-
         final RadioButton corone, donazioni, trofei;
 
         getDialog().setTitle("Ordina membri");
@@ -107,6 +105,7 @@ public class GestioneOrdinamento extends DialogFragment {
         ordine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ordine.startAnimation(anim);
                 ClanManager c = new ClanManager();
                 c.setnSettimana(n);
                 List<Giocatore> data = new ArrayList<>();
@@ -130,8 +129,6 @@ public class GestioneOrdinamento extends DialogFragment {
             public void onClick(View view) {
                 crescente.startAnimation(anim);
 
-                ClanManager c = new ClanManager();
-                c.setnSettimana(n);
                 List<Giocatore> data = new ArrayList<>();
                 for(Giocatore g : a.getL())
                     data.add(g);
@@ -180,14 +177,14 @@ public class GestioneOrdinamento extends DialogFragment {
                         iv.setImageResource(R.drawable.ic_home_trofei_nospace);
 
 
-                }else
+                }
+                else
                 {
                     t.setVisibility(View.VISIBLE);
                     corone.setError("");
                     donazioni.setError("");
                     trofei.setError("");
                 }
-                dismiss();
             }
         });
 
@@ -197,8 +194,6 @@ public class GestioneOrdinamento extends DialogFragment {
             public void onClick(View view) {
                 decrescente.startAnimation(anim);
 
-                ClanManager c = new ClanManager();
-                c.setnSettimana(n);
                 List<Giocatore> data = new ArrayList<>();
                 for(Giocatore g : a.getL())
                     data.add(g);
@@ -245,14 +240,14 @@ public class GestioneOrdinamento extends DialogFragment {
                         iv.setImageResource(R.drawable.ic_home_donazioni_nospace);
                     if(trofei.isChecked())
                         iv.setImageResource(R.drawable.ic_home_trofei_nospace);
-                }else
+                }
+                else
                 {
                     t.setVisibility(View.VISIBLE);
                     corone.setError("");
                     donazioni.setError("");
                     trofei.setError("");
                 }
-                dismiss();
             }
         });
 
@@ -260,7 +255,7 @@ public class GestioneOrdinamento extends DialogFragment {
         annulla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //annulla.startAnimation(anim);
+                annulla.startAnimation(anim);
                 dismiss();
             }
         });

@@ -210,9 +210,9 @@
 
                 <Button
                     android:layout_gravity="center"
-                    android:padding="5dp"
+                    android:padding="15dp"
                     android:id="@+id/pulisci_filtro"
-                    android:background="#00ffffff"
+                    android:background="@drawable/lista_x"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorAccent"
@@ -222,7 +222,7 @@
                 android:layout_gravity="center"
                 android:padding="5dp"
                 android:id="@+id/annulla"
-                android:background="#00ffffff"
+                android:background="@drawable/lista_x"
                 android:textColor="#cccccc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

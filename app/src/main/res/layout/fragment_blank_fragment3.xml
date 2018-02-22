@@ -38,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="8pt"
                     android:textAlignment="center"
-                    android:text="Impostando corone e donazioni minime richieste, il sistema suggerirà chi promuovere e chi espellere evidenziando in rosso o in verde i membri in 'Membri Clan'."/>
+                    android:text="Impostando corone e donazioni minime richieste, il sistema suggerirà chi promuovere e chi espellere evidenziando in verde o in rosso i membri in 'Membri Clan'."/>
 
             </LinearLayout>
 

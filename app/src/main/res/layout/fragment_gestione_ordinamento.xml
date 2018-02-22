@@ -21,7 +21,7 @@
             android:textColor="#ff0000"
             android:textSize="9pt"
             android:textStyle="bold"
-            android:text="Scegliere almeno un valore"/>
+            android:text="Scegliere almeno un parametro"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -138,7 +138,8 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
@@ -153,16 +154,16 @@
                     android:id="@+id/crescente"
                     android:padding="20dp"
                     android:background="@drawable/button_filtra_x"
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="Crescente"/>
 
                 <Button
                     android:layout_gravity="center"
-                    android:padding="20dp"
                     android:id="@+id/decrescente"
+                    android:padding="20dp"
                     android:background="@drawable/button_filtra_x"
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="Decrescente"/>
 
@@ -175,9 +176,9 @@
 
             <Button
                 android:layout_gravity="center"
-                android:padding="1dp"
+                android:padding="5dp"
                 android:id="@+id/annulla"
-                android:background="#00ffffff"
+                android:background="@drawable/lista_x"
                 android:textColor="#cccccc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

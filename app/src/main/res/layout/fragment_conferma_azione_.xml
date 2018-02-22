@@ -39,19 +39,16 @@
             android:id="@+id/positivo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_blue_x"
+            android:background="@drawable/button_orange_x"
             android:text="Conferma"/>
-
-        <Space
-            android:layout_width="10dp"
-            android:layout_height="match_parent" />
 
         <Button
             android:padding="20dp"
             android:id="@+id/negativo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_gray_x"
+            android:textColor="#cccccc"
+            android:background="@drawable/lista_x"
             android:text="Annulla"/>
 
     </LinearLayout>

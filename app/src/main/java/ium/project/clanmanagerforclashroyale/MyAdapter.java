@@ -112,7 +112,7 @@ public class MyAdapter extends ArrayAdapter {
 
                 negativo.setText("Retrocedi");
                 Drawable img = context.getResources().getDrawable(R.drawable.ic_retrocedi_bottone);
-                //img.setBounds(0,0,0,0);
+                img.setBounds(0,0,0,0);
                 negativo.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null);
             }
 

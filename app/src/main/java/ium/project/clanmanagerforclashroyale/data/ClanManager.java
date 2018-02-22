@@ -49,12 +49,11 @@ public class ClanManager {
     public List<Giocatore> ApplyFilters(){
 
         if(getFiltro() == null)
-            return GiocatoriFactory.getInstance().getAllPlayers();
+            return clan.getComponenti();
 
         ArrayList<Giocatore> giocatoriFiltrati= new ArrayList<Giocatore>();
 
-        //List<Giocatore> giocatore = clan.getComponenti();
-        List<Giocatore> giocatore = GiocatoriFactory.getInstance().getAllPlayers();
+        List<Giocatore> giocatore = clan.getComponenti();
 
         for (Giocatore g: giocatore) {
 

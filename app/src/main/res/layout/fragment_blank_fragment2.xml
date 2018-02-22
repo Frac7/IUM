@@ -17,7 +17,7 @@
 
                         <LinearLayout
                             android:id="@+id/parametri_corone"
-                            android:background="@drawable/testo_no_titolo"
+                            android:background="@drawable/testo_no_titolo_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
@@ -43,7 +43,7 @@
 
                         <LinearLayout
                             android:id="@+id/parametri_donazioni"
-                            android:background="@drawable/testo_no_titolo"
+                            android:background="@drawable/testo_no_titolo_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
@@ -69,7 +69,7 @@
 
                         <LinearLayout
                             android:id="@+id/parametri_trofei"
-                            android:background="@drawable/testo_no_titolo"
+                            android:background="@drawable/testo_no_titolo_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
@@ -93,9 +93,14 @@
 
                         </LinearLayout>
 
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
                     <LinearLayout
+                        android:layout_alignParentRight="true"
                         android:id="@+id/parametri_ordinamento"
-                        android:background="@drawable/testo_no_titolo"
+                        android:background="@drawable/testo_no_titolo_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -119,6 +124,8 @@
                             android:text="Crescente"/>
 
                 </LinearLayout>
+
+                </RelativeLayout>
 
             </LinearLayout>
 

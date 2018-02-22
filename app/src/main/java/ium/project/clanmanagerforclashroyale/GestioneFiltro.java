@@ -93,6 +93,8 @@ public class GestioneFiltro extends DialogFragment {
                 f.setMinCoroneBaule(0);
                 f.setMaxCoroneBaule(Integer.MAX_VALUE);
 
+                corone.startAnimation(anim);
+
                 ClanManager c = new ClanManager();
                 c.setnSettimana(n);
                 c.setFiltro(f);
@@ -115,6 +117,9 @@ public class GestioneFiltro extends DialogFragment {
             public void onClick(View view) {
                 f.setMinDonazioni(0);
                 f.setMaxDonazioni(Integer.MAX_VALUE);
+
+                donazioni.startAnimation(anim);
+
                 ClanManager c = new ClanManager();
                 c.setnSettimana(n);
                 c.setFiltro(f);
@@ -138,6 +143,8 @@ public class GestioneFiltro extends DialogFragment {
                 f.setMinTrofei(0);
                 f.setMaxTrofei(Integer.MAX_VALUE);
 
+                trofei.startAnimation(anim);
+
                 ClanManager c = new ClanManager();
                 c.setnSettimana(n);
                 c.setFiltro(f);
@@ -158,6 +165,9 @@ public class GestioneFiltro extends DialogFragment {
         normale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                normale.startAnimation(anim);
+
                 ClanManager c = new ClanManager();
                 c.setnSettimana(n);
                 c.setFiltro(new Filtro());
@@ -328,7 +338,6 @@ public class GestioneFiltro extends DialogFragment {
                         }
                         else
                         {
-
                             donazioni.setVisibility(View.GONE);
                         }
 
@@ -343,7 +352,6 @@ public class GestioneFiltro extends DialogFragment {
                         }
                         else
                         {
-
                             trofei.setVisibility(View.GONE);
                         }
                 }
@@ -354,6 +362,7 @@ public class GestioneFiltro extends DialogFragment {
         annulla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                annulla.startAnimation(anim);
                 dismiss();
             }
         });

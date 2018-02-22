@@ -26,7 +26,7 @@ public class Clan {
     public Clan (){
         nome="Royale Family";
         tag="#KAS894HX";
-        descrizione="Clan serio, regole: 1- minimo donazioni settimanali 200; 2 minimo coppe baule clan 30; buon game a tutti";
+        descrizione="Clan serio, regole: 1) minimo donazioni settimanali: 200; 2) minimo corone baule clan: 30; buon game a tutti";
         setnMembri(GiocatoriFactory.getInstance().countPlayers());
         setCoppeClan(GiocatoriFactory.getInstance().countTrophies());
         setComponenti(GiocatoriFactory.getInstance().getAllPlayers());
@@ -78,8 +78,8 @@ public class Clan {
     }
 
     public int getnMembri() {
-        //return nMembri;
-        return GiocatoriFactory.getInstance().getAllPlayers().size();
+        nMembri = getComponenti().size();
+        return nMembri;
     }
 
     public void setnMembri(int nMembri) {
