@@ -5,6 +5,7 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -51,6 +52,8 @@ public class ConfermaAzione extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        //Remove title bar
+        getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
         return inflater.inflate(R.layout.fragment_conferma_azione_, container, false);
     }
 
@@ -60,6 +63,11 @@ public class ConfermaAzione extends DialogFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         getDialog().setTitle("Conferma azione");
+
+        int titleDividerId = getResources().getIdentifier("titleDivider", "id", "android");
+        View titleDivider = getDialog().findViewById(titleDividerId);
+        if (titleDivider != null)
+            titleDivider.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
 
         anim = AnimationUtils.loadAnimation(a.getContext(), R.anim.animazione);
 

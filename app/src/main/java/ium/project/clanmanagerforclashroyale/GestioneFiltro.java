@@ -1,10 +1,13 @@
 package ium.project.clanmanagerforclashroyale;
 
+import android.app.ActionBar;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -56,6 +59,7 @@ public class GestioneFiltro extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
         return inflater.inflate(R.layout.fragment_gestione_filtro, container, false);
     }
 
@@ -69,6 +73,11 @@ public class GestioneFiltro extends DialogFragment {
         final EditText minTrofei, maxTrofei;
 
         getDialog().setTitle("Filtra membri");
+
+        int titleDividerId = getResources().getIdentifier("titleDivider", "id", "android");
+        View titleDivider = getDialog().findViewById(titleDividerId);
+        if (titleDivider != null)
+            titleDivider.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
 
         minCorone = (EditText)view.findViewById(R.id.min_corone);
         maxCorone = (EditText)view.findViewById(R.id.max_corone);
@@ -181,6 +190,12 @@ public class GestioneFiltro extends DialogFragment {
                 t.show();
 
                 parametri.setVisibility(View.GONE);
+
+                donazioni.setVisibility(View.GONE);
+                trofei.setVisibility(View.GONE);
+                corone.setVisibility(View.GONE);
+
+
             }
         });
 

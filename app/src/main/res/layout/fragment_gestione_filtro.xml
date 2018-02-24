@@ -198,8 +198,8 @@
                     android:layout_gravity="center"
                     android:padding="20dp"
                     android:id="@+id/filtra"
-                    android:background="@drawable/button_filtra_x"
-                    android:layout_width="match_parent"
+                    android:background="@drawable/button_orange_x"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:text="Filtra"/>
 
